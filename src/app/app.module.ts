@@ -5,13 +5,19 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { PagesModule } from './pages/pages.module';
+import { ComponentsModule } from './components/components.module';
+
 
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
-    BrowserModule, PagesModule, RoutingModule, BrowserAnimationsModule
+    BrowserModule, 
+    PagesModule,
+    RoutingModule, 
+    BrowserAnimationsModule, 
+    ComponentsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
