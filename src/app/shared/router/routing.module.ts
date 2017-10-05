@@ -10,7 +10,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'about/:id', component: AboutComponent },
   { path: '**', redirectTo: '/home' }
-]
+];
 
 @NgModule({
   imports: [

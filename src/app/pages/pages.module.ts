@@ -7,8 +7,8 @@ import { AboutModule } from './about/about.module';
   imports: [
     CommonModule, HomeModule, AboutModule
   ],
-  exports: [ 
-    HomeModule, AboutModule 
+  exports: [
+    HomeModule, AboutModule
   ],
   declarations: []
 })
