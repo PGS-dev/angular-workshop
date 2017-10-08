@@ -2,14 +2,14 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes} from '@angular/router';
 
-import { AboutComponent } from '../../pages/about/about.component';
-import { HomeComponent } from '../../pages/home/home.component';
+import { UsersComponent } from '../../pages/users/users.component';
+import { UserComponent } from '../../pages/user/user.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full'},
-  { path: 'home', component: HomeComponent },
-  { path: 'about/:id', component: AboutComponent },
-  { path: '**', redirectTo: '/home' }
+  { path: '', redirectTo: '/users', pathMatch: 'full'},
+  { path: 'users', component: UsersComponent },
+  { path: 'user/:id', component: UserComponent},
+  { path: '**', redirectTo: '/users' }
 ];
 
 @NgModule({
