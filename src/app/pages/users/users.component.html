@@ -1,20 +1,22 @@
 <p>
-  users list works!
+  users list works! <mat-checkbox>Check me!</mat-checkbox>
 </p>
 
-<div>
-    <button mat-button>Click me!</button>
-</div>
-
-<div>
-    <mat-checkbox>Check me!</mat-checkbox>
-</div>
-
+<h2>STATIC MOCK</h2>
 <div>
     <mat-list>
-      <mat-list-item>Item 1</mat-list-item>
-      <mat-list-item>Item 2</mat-list-item>
-      <mat-list-item>Item 3</mat-list-item>
+      <mat-list-item *ngFor="let item of dynamicUsers">
+          [{{item.id}}] - {{item.name}}
+          <button mat-button>Click me!</button></mat-list-item>
+    </mat-list>
+</div>
+
+<h2>DYNAMIC FIREBASE</h2>
+<div>
+    <mat-list>
+      <mat-list-item *ngFor="let item of items | async">
+          [{{item.id}}] - {{item.name}}
+          <button mat-button>Click me!</button></mat-list-item>
     </mat-list>
 </div>
 

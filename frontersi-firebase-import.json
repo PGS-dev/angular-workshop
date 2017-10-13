@@ -1,0 +1,17 @@
+{
+    "users" : {
+        "user1" : {
+            "id" : 1,
+            "name" : "Monika"
+        },
+        "user2" : {
+            "id" : 2,
+            "name" : "Zbysiu"
+        },
+        "user3" : {
+            "id" : 3,
+            "name" : "Alicja"
+        }
+
+    }
+}
