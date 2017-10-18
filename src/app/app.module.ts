@@ -3,8 +3,12 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 
+// Routing
 import { AppRoutingModule } from './app-routing.module';
+
+// Main component
 import { AppComponent } from './app.component';
 
 // Pages
@@ -12,88 +16,16 @@ import { UsersComponent } from './pages/users/users.component';
 import { UserComponent } from './pages/user/user.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 
+import { UsersModule } from './pages/users/users.module';
 
-// Material module
-import {
-  MdAutocompleteModule,
-  MdButtonModule,
-  MdButtonToggleModule,
-  MdCardModule,
-  MdCheckboxModule,
-  MdChipsModule,
-  MdDatepickerModule,
-  MdDialogModule,
-  MdExpansionModule,
-  MdGridListModule,
-  MdIconModule,
-  MdInputModule,
-  MdListModule,
-  MdMenuModule,
-  MdNativeDateModule,
-  MdPaginatorModule,
-  MdProgressBarModule,
-  MdProgressSpinnerModule,
-  MdRadioModule,
-  MdRippleModule,
-  MdSelectModule,
-  MdSidenavModule,
-  MdSliderModule,
-  MdSlideToggleModule,
-  MdSnackBarModule,
-  MdSortModule,
-  MdTableModule,
-  MdTabsModule,
-  MdToolbarModule,
-  MdTooltipModule,
-  MdStepperModule,
-} from '@angular/material';
-import {HttpModule} from '@angular/http';
-import {CdkTableModule} from '@angular/cdk/table';
-
-@NgModule({
-  exports: [
-    CdkTableModule,
-    MdAutocompleteModule,
-    MdButtonModule,
-    MdButtonToggleModule,
-    MdCardModule,
-    MdCheckboxModule,
-    MdChipsModule,
-    MdStepperModule,
-    MdDatepickerModule,
-    MdDialogModule,
-    MdExpansionModule,
-    MdGridListModule,
-    MdIconModule,
-    MdInputModule,
-    MdListModule,
-    MdMenuModule,
-    MdNativeDateModule,
-    MdPaginatorModule,
-    MdProgressBarModule,
-    MdProgressSpinnerModule,
-    MdRadioModule,
-    MdRippleModule,
-    MdSelectModule,
-    MdSidenavModule,
-    MdSliderModule,
-    MdSlideToggleModule,
-    MdSnackBarModule,
-    MdSortModule,
-    MdTableModule,
-    MdTabsModule,
-    MdToolbarModule,
-    MdTooltipModule,
-  ]
-})
-export class PlunkerMaterialModule {}
+// AngularMaterial
+import { MaterialModule } from './materialModule/material.module';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    UsersComponent,
     UserComponent,
     PageNotFoundComponent
   ],
@@ -103,7 +35,9 @@ export class PlunkerMaterialModule {}
     BrowserAnimationsModule,
     NoopAnimationsModule,
     CommonModule,
-    PlunkerMaterialModule
+    UsersModule,
+    HttpClientModule,
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
