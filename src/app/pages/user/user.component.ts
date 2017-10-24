@@ -1,21 +1,28 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { User } from '../../shared/services/user';
+import { UsersService } from '../../shared/services/users.service';
 
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.scss']
 })
-export class UserComponent implements OnInit {
 
-  id: string;
-  private sub: any;
+export class UserComponent implements OnInit, OnDestroy {
 
-  constructor(private route: ActivatedRoute) {}
+  user: User;
+  private subscr: any;
+
+  constructor(private route: ActivatedRoute, private usersService: UsersService) {}
 
   ngOnInit() {
-    this.sub = this.route.params.subscribe(params => {
-       this.id = params['id'];
+    this.subscr = this.route.params.subscribe(params => {
+       this.user = this.usersService.getUser(params.id);
     });
+  }
+
+  ngOnDestroy() {
+    this.subscr.unsubscribe();
   }
 }
