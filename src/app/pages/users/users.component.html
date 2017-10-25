@@ -1,0 +1,12 @@
+<p>
+	users works! this is list:
+</p>
+
+<app-search (changeTriggered)="searchAndRenderList($event)"></app-search>
+
+<ul *ngIf="userList.length">
+	<li *ngFor="let user of userList">
+		{{ user.name }} (ID: {{ user.id }})
+	</li>
+</ul>
+
