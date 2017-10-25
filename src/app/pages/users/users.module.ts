@@ -8,6 +8,9 @@ import { UsersComponent } from './users.component';
 // Services
 import { ApiService } from './../../services/api/api.service';
 
+// Resolvers
+import { UsersResolver } from './../users/users.resolve'
+
 
 @NgModule({
   imports: [
@@ -15,7 +18,8 @@ import { ApiService } from './../../services/api/api.service';
     usersRouter  
   ],
   providers: [
-    ApiService
+    ApiService,
+    UsersResolver
 
   ],
   declarations: [UsersComponent]

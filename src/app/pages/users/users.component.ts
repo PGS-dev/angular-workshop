@@ -3,6 +3,7 @@ import { DataSource } from '@angular/cdk/collections';
 import { Observable } from 'rxjs/Observable';
 import { HttpErrorResponse } from '@angular/common/http';
 import 'rxjs/add/operator/retry';
+import { ActivatedRoute } from '@angular/router';
 
 // Model
 import { User } from './../../models/users.model';
@@ -19,11 +20,17 @@ export class UsersComponent implements OnInit {
 
   public users: Array<User>;
 
+  public resolveUsers: any;
+
   constructor(
-    private apiService: ApiService
+    private apiService: ApiService,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit() {
+
+    this.users = this.route.snapshot.data['users'];
+
     this
       .apiService
       .getUsers()
