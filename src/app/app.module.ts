@@ -21,7 +21,7 @@ import { UsersModule } from './pages/users/users.module';
 // AngularMaterial
 import { MaterialModule } from './materialModule/material.module';
 
-
+import { ApiService } from './services/api/api.service';
 
 @NgModule({
   declarations: [
@@ -39,7 +39,7 @@ import { MaterialModule } from './materialModule/material.module';
     HttpClientModule,
     MaterialModule
   ],
-  providers: [],
+  providers: [ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

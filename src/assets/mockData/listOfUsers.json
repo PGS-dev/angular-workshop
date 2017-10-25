@@ -1,7 +1,8 @@
 [
   {
     "name": "user1",
-    "id": 384595
+    "id": 384595,
+    "email": "email@email.pl"
   },
   {
     "name": "user2",

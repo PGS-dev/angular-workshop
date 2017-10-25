@@ -4,6 +4,9 @@ import { Observable } from 'rxjs/Observable';
 import { HttpErrorResponse } from '@angular/common/http';
 import 'rxjs/add/operator/retry';
 
+// Model
+import { User } from './../../models/users.model';
+
 // Services
 import { ApiService } from './../../services/api/api.service';
 
@@ -14,7 +17,7 @@ import { ApiService } from './../../services/api/api.service';
 })
 export class UsersComponent implements OnInit {
 
-  public users: any;
+  public users: Array<User>;
 
   constructor(
     private apiService: ApiService
@@ -26,7 +29,7 @@ export class UsersComponent implements OnInit {
       .getUsers()
       .retry(3)
       .subscribe(
-        (data) => {
+        (data: Array<User>) => {
           this.users = data;
         },
         (error: HttpErrorResponse) => {
@@ -41,6 +44,7 @@ export class UsersComponent implements OnInit {
         }
       );
 
+      console.log(this.apiService.getData());
   }
 }
 
