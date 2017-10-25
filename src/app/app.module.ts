@@ -12,16 +12,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 // Pages
-import { UsersComponent } from './pages/users/users.component';
 import { UserComponent } from './pages/user/user.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
-
-import { UsersModule } from './pages/users/users.module';
 
 // AngularMaterial
 import { MaterialModule } from './materialModule/material.module';
 
+// Services
 import { ApiService } from './services/api/api.service';
+import { AuthGuardService } from './services/authGuard/auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -35,11 +34,13 @@ import { ApiService } from './services/api/api.service';
     BrowserAnimationsModule,
     NoopAnimationsModule,
     CommonModule,
-    UsersModule,
     HttpClientModule,
     MaterialModule
   ],
-  providers: [ApiService],
+  providers: [
+    ApiService,
+    AuthGuardService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

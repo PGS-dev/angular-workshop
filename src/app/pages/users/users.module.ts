@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { usersRouter } from './users.router'
 
 // Components
 import { UsersComponent } from './users.component';
@@ -8,17 +8,11 @@ import { UsersComponent } from './users.component';
 // Services
 import { ApiService } from './../../services/api/api.service';
 
-// AngularMaterial
-import { MaterialModule } from './../../materialModule/material.module';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   imports: [
     CommonModule,
-    FormsModule,
-    MaterialModule,
-    BrowserAnimationsModule,
-    ReactiveFormsModule
+    usersRouter  
   ],
   providers: [
     ApiService
