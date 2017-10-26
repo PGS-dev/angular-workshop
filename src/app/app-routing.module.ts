@@ -4,7 +4,11 @@ import { UsersComponent } from './pages/users/users.component';
 import { UserComponent } from './pages/user/user.component';
 
 const routes: Routes = [
-    { path: 'users/', component: UsersComponent },
+    {
+		path: 'users/',
+		loadChildren: './pages/users/users.module#UsersModule'
+		//component: UsersComponent
+	},
     { path: 'user/:id', component: UserComponent },
     {
         path: '',

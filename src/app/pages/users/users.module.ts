@@ -3,6 +3,7 @@ import { MaterialModule } from '../../all-material.module';
 import { CommonModule } from '@angular/common';
 import { UsersComponent } from './users.component';
 import { UsersService } from '../../services/users.service';
+import { usersRouter } from './users.router';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
@@ -23,7 +24,8 @@ export const firebaseConfig = {
     MaterialModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+	usersRouter
   ],
   declarations: [
       UsersComponent
