@@ -1,17 +1,20 @@
-import { users } from './users';
 import { User } from './user';
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs/Observable';
 
+@Injectable()
 export class UsersService {
 
-    users: User[] = users;
+    private API_URL = 'https://jsonplaceholder.typicode.com/users'
 
-    getUsers(): User[] {
-        return this.users;
+    constructor(private http: HttpClient) {}
+
+    getUsers() {
+        return this.http.get(this.API_URL);
     }
 
     getUser(id: number) {
-        let user = this.users.find(user => user.id == id)
-        console.log(user, id, typeof id)
-        return user;
+        return this.http.get(`${this.API_URL}/${id}`)
     }
 }

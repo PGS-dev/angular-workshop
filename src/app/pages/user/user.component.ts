@@ -4,25 +4,30 @@ import { User } from '../../shared/services/user';
 import { UsersService } from '../../shared/services/users.service';
 
 @Component({
-  selector: 'app-user',
-  templateUrl: './user.component.html',
-  styleUrls: ['./user.component.scss']
+	selector: 'app-user',
+	templateUrl: './user.component.html',
+	styleUrls: ['./user.component.scss']
 })
 
 export class UserComponent implements OnInit, OnDestroy {
+	
+	public user: User;
+	public errorMessage: string;
+	private subscr: any;
+	
+	constructor(private route: ActivatedRoute, private usersService: UsersService) { }
 
-  user: User;
-  private subscr: any;
+	ngOnInit() {
+		this.subscr = this.route.params.subscribe(params => {
+			this.usersService.getUser(params.id).subscribe((user: User) => {
+				this.user = user;
+			}, (error) => {
+				this.errorMessage = error.message;
+			})
+		});
+	}
 
-  constructor(private route: ActivatedRoute, private usersService: UsersService) {}
-
-  ngOnInit() {
-    this.subscr = this.route.params.subscribe(params => {
-       this.user = this.usersService.getUser(params.id);
-    });
-  }
-
-  ngOnDestroy() {
-    this.subscr.unsubscribe();
-  }
+	ngOnDestroy() {
+		this.subscr.unsubscribe();
+	}
 }

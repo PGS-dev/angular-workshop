@@ -1,5 +1,6 @@
 <button md-raised-button routerLink='/users'>back</button>
 <h2>User:</h2>
 <md-card>
-    <md-card-content>{{user.name}}</md-card-content>
+    <md-card-content>{{user | json}}</md-card-content>
 </md-card>
+<p *ngIf="!!errorMessage">Error: {{errorMessage}}</p>
