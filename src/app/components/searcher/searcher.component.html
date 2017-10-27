@@ -1,0 +1,6 @@
+<md-input-container class="Search-Component">
+    <input type="text" name="search" [ngModel]="userFilter" md-maxlength="20" placeholder="Search the fronters" (ngModelChange)="searchModelChange($event)">
+</md-input-container>
+<span *ngIf="caseSensitiveOption">
+    <img src="../../assets/img/mono-casesensitive.png" alt="" style="width:20px; position:relative; top:5px" />
+</span>

@@ -18,16 +18,33 @@ export class UsersComponent implements OnInit {
         {text: 'Four', cols: 2, rows: 1, color: '#DDBDF1'},
     ];*/
 
-    dynamicUsers = [];
-    dynamicUsersFirebase: FirebaseListObservable<any[]>;
+    private p: Number; // for pagination
+    public searchPhase: string; // update by child searcher
+    public caseSensitiveOption: boolean = false; // passed variable to child searcher - driven by checkbox
+    public dynamicUsers = [];
+    public dynamicUsersFirebase: FirebaseListObservable <any[]>;
+    public searchFilterString: string;
 
-  constructor(private usersService:UsersService) {
+    changeCaseS() {
+        console.log('CS option change');
+    }
 
-    //this.items.subscribe(console.log); //dana asynchroniczna! - petla bedzie pusta, chyba ze zastosujemy preserveSnapshot
-  }
-  ngOnInit() {
+    constructor(private usersService:UsersService) {
+          //this.items.subscribe(console.log); //dana asynchroniczna! - petla bedzie pusta, chyba ze zastosujemy preserveSnapshot
+          this.usersService.searchStream$.subscribe(
+            userCriteria => {
+              console.log('przekaz udany!', userCriteria);
+              this.searchFilterString = userCriteria;
+          });
+    }
+
+    ngOnInit() {
       this.dynamicUsers = this.usersService.geUsers();
       this.dynamicUsersFirebase = this.usersService.geUsersFirebase();
-  }
+    }
+
+    onSearch(phase: string) {
+      this.searchPhase = phase;
+    }
 
 }
