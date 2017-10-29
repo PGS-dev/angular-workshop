@@ -4,12 +4,14 @@ import { RouterModule } from '@angular/router';
 import { UsersComponent } from './users.component';
 import { MatListModule } from '@angular/material';
 import { UsersService } from '../../shared/services/users.service';
+import { usersRouter } from './users.router';
 
 @NgModule({
   imports: [
     CommonModule, 
     RouterModule,
-    MatListModule
+    MatListModule,
+    usersRouter
   ],
   declarations: [
     UsersComponent

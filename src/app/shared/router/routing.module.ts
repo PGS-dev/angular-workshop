@@ -7,8 +7,8 @@ import { UserComponent } from '../../pages/user/user.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/users', pathMatch: 'full'},
-  { path: 'users', component: UsersComponent },
-  { path: 'user/:id', component: UserComponent},
+  { path: 'users', loadChildren: '../../pages/users/users.module#UsersModule' },
+  { path: 'user/:id', loadChildren: '../../pages/user/user.module#UserModule' },
   { path: '**', redirectTo: '/users' }
 ];
 
