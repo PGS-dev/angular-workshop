@@ -1,4 +1,3 @@
-import { User } from './user';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
@@ -18,4 +17,9 @@ export class UsersService {
     getUser(id: number) {
         return this.http.get(`${this.API_URL}/${id}`).map((user: User) => user)
     }
+}
+
+export interface User {
+    name: string,
+    id: number
 }

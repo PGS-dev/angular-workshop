@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { User } from '../../shared/services/user';
+import { User } from '../../shared/services/users.service';
 
 @Component({
 	selector: 'app-user',

@@ -4,12 +4,15 @@ import { RouterModule, Routes} from '@angular/router';
 
 import { UsersComponent } from '../../pages/users/users.component';
 import { UserComponent } from '../../pages/user/user.component';
+import { LoginComponent } from '../../pages/login/login.component';
+import { AuthGuard } from '../services/auth-guard.service';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/users', pathMatch: 'full'},
-  { path: 'users', loadChildren: '../../pages/users/users.module#UsersModule' },
-  { path: 'user/:id', loadChildren: '../../pages/user/user.module#UserModule' },
-  { path: '**', redirectTo: '/users' }
+  { path: '', redirectTo: '/login', pathMatch: 'full'},
+  { path: 'login', component: LoginComponent },
+  { path: 'users', loadChildren: '../../pages/users/users.module#UsersModule', canActivate: [AuthGuard] },
+  { path: 'user/:id', loadChildren: '../../pages/user/user.module#UserModule', canActivate: [AuthGuard] },
+  { path: '**', redirectTo: '/login' }
 ];
 
 @NgModule({
