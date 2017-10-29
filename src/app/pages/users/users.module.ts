@@ -5,6 +5,7 @@ import { UsersComponent } from './users.component';
 import { MatListModule } from '@angular/material';
 import { UsersService } from '../../shared/services/users.service';
 import { usersRouter } from './users.router';
+import { UsersResolver } from './users.resolve';
 
 @NgModule({
   imports: [
@@ -17,7 +18,8 @@ import { usersRouter } from './users.router';
     UsersComponent
   ],
   providers: [
-    UsersService
+    UsersService,
+    UsersResolver
   ]
 })
 

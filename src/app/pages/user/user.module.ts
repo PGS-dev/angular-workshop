@@ -5,6 +5,7 @@ import { MatCardModule, MatButtonModule } from '@angular/material';
 import { RouterModule } from '@angular/router';
 import { UsersService } from '../../shared/services/users.service';
 import { userRouter } from './user.router';
+import { UserResolver } from './user.resolve';
 
 @NgModule({
   imports: [
@@ -18,7 +19,8 @@ import { userRouter } from './user.router';
     UserComponent
   ],
   providers: [
-    UsersService
+    UsersService,
+    UserResolver
   ]
 })
 export class UserModule { }

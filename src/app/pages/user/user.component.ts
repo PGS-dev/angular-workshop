@@ -1,7 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { User } from '../../shared/services/user';
-import { UsersService } from '../../shared/services/users.service';
 
 @Component({
 	selector: 'app-user',
@@ -12,22 +11,12 @@ import { UsersService } from '../../shared/services/users.service';
 export class UserComponent implements OnInit, OnDestroy {
 	
 	public user: User;
-	public errorMessage: string;
-	private subscr: any;
 	
-	constructor(private route: ActivatedRoute, private usersService: UsersService) { }
+	constructor(private route: ActivatedRoute) { }
 
 	ngOnInit() {
-		this.subscr = this.route.params.subscribe(params => {
-			this.usersService.getUser(params.id).subscribe((user: User) => {
-				this.user = user;
-			}, (error) => {
-				this.errorMessage = error.message;
-			})
-		});
+		this.user = this.route.snapshot.data['user'];
 	}
 
-	ngOnDestroy() {
-		this.subscr.unsubscribe();
-	}
+	ngOnDestroy() { }
 }
