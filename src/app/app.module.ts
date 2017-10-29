@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { PagesModule } from './pages/pages.module';
 import { ComponentsModule } from './components/components.module';
 import { AuthGuard } from './shared/services/auth-guard.service';
+import { AuthService } from './shared/services/auth.service';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,10 @@ import { AuthGuard } from './shared/services/auth-guard.service';
     ComponentsModule,
     HttpClientModule
   ],
-  providers: [AuthGuard],
+  providers: [
+    AuthGuard, 
+    AuthService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
