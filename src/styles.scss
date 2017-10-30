@@ -3,19 +3,26 @@
 
 body {
     background-color: #ccc;
+    font-family: "Exo"
 }
 
-.Search-Component {
-    input {
-        padding: 10px;
-        font-size: 14px;
+button.mat-button {
+    border: 1px solid #999;
+}
+
+.Login-Component {
+    text-align: right;
+    padding: 3px;
+}
+
+.App-Header {
+    text-align: center;
+}
+
+.Menu-Component {
+    padding: 0;
+    list-style: none;
+    li {
+        display: inline;
     }
-}
-
-.User-Table {
-    display: flex;
-}
-
-.User-List {
-    flex: 1 1 auto;
 }

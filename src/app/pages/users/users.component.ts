@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MaterialModule } from '../../all-material.module';
+
 import { UsersService } from '../../services/users.service';
+import { AuthGuardService } from '../../services/auth-guard.service';
 
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 
@@ -29,18 +31,21 @@ export class UsersComponent implements OnInit {
         console.log('CS option change');
     }
 
-    constructor(private usersService:UsersService) {
-          //this.items.subscribe(console.log); //dana asynchroniczna! - petla bedzie pusta, chyba ze zastosujemy preserveSnapshot
-          this.usersService.searchStream$.subscribe(
+    constructor(private usersService:UsersService, authGuardService:AuthGuardService) {
+        //this.items.subscribe(console.log); //dana asynchroniczna! - petla bedzie pusta, chyba ze zastosujemy preserveSnapshot
+        this.usersService.searchStream$.subscribe(
             userCriteria => {
               console.log('przekaz udany!', userCriteria);
               this.searchFilterString = userCriteria;
-          });
+            });
+
+        //authGuardService.emailLogin('biuro@it-inspire.pl', 'password13');
     }
 
     ngOnInit() {
       this.dynamicUsers = this.usersService.geUsers();
       this.dynamicUsersFirebase = this.usersService.geUsersFirebase();
+
     }
 
     onSearch(phase: string) {

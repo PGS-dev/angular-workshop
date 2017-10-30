@@ -28,7 +28,7 @@
             <h2>DYNAMIC FIREBASE</h2>
                 <mat-list-item *ngFor="let item of dynamicUsersFirebase | async | filter:searchFilterString | paginate: { itemsPerPage: 3, currentPage: p }; let i = index">
                     [{{item.id}}] - {{item.name}}
-                    <button mat-button>Click me!</button>
+                    <a href="user/{{item.id}}" mat-button>Click me!</a>
                 </mat-list-item>
             <pagination-controls (pageChange)="p = $event"></pagination-controls>
         </div>
