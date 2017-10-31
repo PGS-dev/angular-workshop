@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { UserComponent } from './user.component';
 
 //services
-//import { AuthGuardService } from '../../services/auth-guard.service';
+import { AuthGuardService } from '../../services/auth-guard.service';
 
 //firebase
 import { firebaseConfig } from '../../config/config';
@@ -24,7 +24,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
     AngularFireAuthModule,
   ],
   providers: [
-      //AuthGuardService
+      AuthGuardService
   ]
 })
 export class UserModule { }

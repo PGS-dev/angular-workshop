@@ -18,7 +18,6 @@ export class UsersService {
     state: string = '';
 
     constructor(public af: AngularFireDatabase) {
-
         this.items = af.list('users', {
           query: {
             limitToLast: 50
@@ -39,11 +38,10 @@ export class UsersService {
     private searchSubjectObserver = new Subject<string>();
 
     // Observable string streams
-    public searchStream$ = this.searchSubjectObserver.asObservable(); //asObservable uniemozliwia wykonania next na resault ?
+    public searchStream$ = this.searchSubjectObserver.asObservable();
 
     // Service message commands
     public searchUsers(userName: string): void {
-        console.log('wyszukiwarka zglasza next!', userName);
         this.searchSubjectObserver.next(userName);
     }
 

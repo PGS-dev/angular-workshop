@@ -1,11 +1,16 @@
 <div class="Login-Form">
-    <mat-form-field>
-        <input matInput placeholder="Enter your email" [ngModel]="emailModel" [formControl]="email" required (keyup.enter)="onEnter(logUser())">
-        <mat-error *ngIf="email.invalid">{{getErrorMessage("email")}}</mat-error>
-    </mat-form-field>
-    <mat-form-field>
-        <input matInput placeholder="Enter your password" [ngModel]="passwordModel" [formControl]="password" required (keyup.enter)="onEnter(logUser())">
-        <mat-error *ngIf="password.invalid">{{getErrorMessage("password")}}</mat-error>
-    </mat-form-field>
-    <button (click)="logUser()" mat-button>ENTER</button>
+    <form #loginForm="ngForm">
+        <mat-form-field>
+            <input matInput placeholder="Enter your email" [(ngModel)]="emailModel" [formControl]="email" required (keyup.enter)="onEnter(logUser())">
+            <mat-error *ngIf="email.invalid">{{getErrorMessage("email")}}</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Enter your password" type="password" [(ngModel)]="passwordModel" [formControl]="password" required (keyup.enter)="onEnter(logUser())">
+            <mat-error *ngIf="password.invalid">{{getErrorMessage("password")}}</mat-error>
+        </mat-form-field>
+        <button (click)="logUser()" mat-button>ENTER</button>
+    </form>
+    <p class="error" *ngIf="showError">
+        Wrong login data!
+    </p>
 </div>

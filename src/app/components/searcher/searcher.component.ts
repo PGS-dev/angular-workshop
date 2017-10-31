@@ -19,7 +19,7 @@ import { UsersService } from '../../services/users.service';
 export class SearcherComponent implements OnInit {
     userFilter: string;
     txtQueryChanged: Subject<string> = new Subject<string>();
-    @Input() caseSensitiveOption: boolean; //jak to nasluchiwac?
+    @Input() caseSensitiveOption: boolean;
     @Output() onSearch = new EventEmitter<string>();
 
     constructor(private usersService:UsersService) {
@@ -33,12 +33,9 @@ export class SearcherComponent implements OnInit {
              });
     }
 
-    ngOnInit() {
-      //this.usersService.searchUsers('Zbysiu');
-    }
+    ngOnInit() {}
 
     ngOnChanges(changes) {
-        //console.log('changes', changes);
         if (changes.caseSensitiveOption.currentValue === true && this.userFilter) {
             this.userFilter = this.userFilter.toLowerCase();
         }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormsModule, ReactiveFormsModule, FormControl, Validators } from '@angular/forms';
+import { FormControl, Validators } from '@angular/forms';
 import { MaterialModule } from '../../all-material.module';
+import { Router } from "@angular/router";
 
 //services
 import { AuthGuardService } from '../../services/auth-guard.service';
@@ -11,10 +12,12 @@ import { AuthGuardService } from '../../services/auth-guard.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-    emailModel:string;
-    passwordModel:string;
-    email = new FormControl('', [Validators.required, Validators.email]);
-    password = new FormControl('', [Validators.required]);
+    private emailModel:string;
+    private passwordModel:string;
+
+    private email = new FormControl('', [Validators.required, Validators.email]);
+    private password = new FormControl('', [Validators.required]);
+    private showError:boolean = false;
 
     getErrorMessage(type:string) {
         if (type === 'email') {
@@ -23,12 +26,22 @@ export class LoginComponent implements OnInit {
         return this.password.hasError('required') ? 'You must enter a value' : '';
     }
 
-    constructor(private authGuardService:AuthGuardService) {}
-
+    constructor(private authGuardService:AuthGuardService, private router:Router) {}
     ngOnInit() {}
 
-    logUser() { console.log(this.emailModel, this.passwordModel);
-      this.authGuardService.emailLogin(this.emailModel,this.passwordModel);
+    logUser() {
+        if ( this.email.valid && this.password.valid ) {
+            this.authGuardService.emailLogin(this.emailModel, this.passwordModel)
+            .then((response) => {
+                console.log('response', response);
+                this.showError = !response;
+                if (response) {
+                    this.router.navigate(['/']);
+                }
+            })
+        }
+        else {
+            this.showError = true;
+        }
     }
-
 }

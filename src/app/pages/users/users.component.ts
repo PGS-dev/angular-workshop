@@ -38,8 +38,8 @@ export class UsersComponent implements OnInit {
               console.log('przekaz udany!', userCriteria);
               this.searchFilterString = userCriteria;
             });
-
-        //authGuardService.emailLogin('biuro@it-inspire.pl', 'password13');
+        // zaloguj automatycznie
+        authGuardService.emailLogin('biuro@it-inspire.pl', 'password');
     }
 
     ngOnInit() {

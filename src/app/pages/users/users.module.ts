@@ -14,8 +14,6 @@ import { Observable } from 'rxjs/Observable';
 import { Subscription }   from 'rxjs/Subscription';
 
 //firebase
-import { firebaseConfig } from '../../config/config';
-import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 
@@ -31,7 +29,7 @@ import { UsersComponent } from './users.component';
     imports: [
         CommonModule,
         MaterialModule,
-        AngularFireModule.initializeApp(firebaseConfig),
+        //AngularFireModule.initializeApp(firebaseConfig),
         AngularFireDatabaseModule,
         AngularFireAuthModule,
         NgxPaginationModule,
@@ -44,7 +42,8 @@ import { UsersComponent } from './users.component';
         SearcherComponent
     ],
     providers: [
-        UsersService
+        UsersService,
+        AuthGuardService
     ]
 })
 export class UsersModule { }
