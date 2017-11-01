@@ -1,3 +1,7 @@
-<p>
-  users works!
-</p>
+<ul class="users">
+  <li class="user" *ngFor="let user of userList">
+    <a routerLink="['user', user.id]'" routerLinkActive="active">
+    <app-user [id]="user.id" [name]="user.name"></app-user>
+    </a>
+  </li>
+</ul>

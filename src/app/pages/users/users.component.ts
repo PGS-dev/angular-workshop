@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CommunicationService } from './../../services/communication.service';
 
 @Component({
   selector: 'app-users',
@@ -6,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./users.component.scss']
 })
 export class UsersComponent implements OnInit {
+  userList:Array<Object>;
 
-  constructor() { }
+  constructor(private communicationService: CommunicationService) { }
 
   ngOnInit() {
+      this.communicationService.getUsers().subscribe((data)=>{
+       this.userList = data;
+       console.log(this.userList);
+      });
   }
 
 }
