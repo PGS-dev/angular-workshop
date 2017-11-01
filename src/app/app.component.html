@@ -1,16 +1,16 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
-  <h1>
-    Welcome 1to {{title}}!
+  <h1 class="mat-display-1">
+    Angular Workshop
   </h1>
 </div>
-<ul>
-  <li>
-    <h2><a [routerLink]="['/users']" routerLinkActive="active">Users</a></h2>
-  </li>
-  <li>
-    <h2><a [routerLink]="['/user', id1]" routerLinkActive="active">User 1</a></h2>
-  </li>
-</ul>
+
+<mat-menu #appMenu="matMenu">
+  <button mat-menu-item [routerLink]="['/users']" routerLinkActive="active">Users List</button>
+  <button mat-menu-item [routerLink]="['/user', id1]" routerLinkActive="active">User 1</button>
+</mat-menu>
+<button mat-icon-button [matMenuTriggerFor]="appMenu">
+  <mat-icon>Menu</mat-icon>
+</button>
 
 <router-outlet></router-outlet>
