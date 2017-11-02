@@ -4,7 +4,7 @@ import { MaterialModule } from '../../all-material.module';
 import { Router } from "@angular/router";
 
 //services
-import { AuthGuardService } from '../../services/auth-guard.service';
+import { LoginService } from '../../services/login/login.service'
 
 @Component({
   selector: 'app-login',
@@ -26,19 +26,19 @@ export class LoginComponent implements OnInit {
         return this.password.hasError('required') ? 'You must enter a value' : '';
     }
 
-    constructor(private authGuardService:AuthGuardService, private router:Router) {}
-    ngOnInit() {}
+    constructor(private loginService:LoginService, private router:Router) {}
+    ngOnInit() {
+        console.log('sprawdzam na init stan zalogowania', this.loginService.getLoginState());
+    }
 
     logUser() {
         if ( this.email.valid && this.password.valid ) {
-            this.authGuardService.emailLogin(this.emailModel, this.passwordModel)
-            .then((response) => {
-                console.log('response', response);
-                this.showError = !response;
-                if (response) {
-                    this.router.navigate(['/']);
-                }
-            })
+            if (this.loginService.setLoginState(this.emailModel, this.passwordModel)) {
+                this.router.navigate(['/']);
+            }
+            else {
+                this.showError = true;
+            }
         }
         else {
             this.showError = true;

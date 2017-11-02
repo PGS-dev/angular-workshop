@@ -8,7 +8,7 @@ import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
 
 import { MaterialModule } from '../../all-material.module';
-import { UsersService } from '../../services/users.service';
+import { UsersService } from '../../services/users/users.service';
 
 @Component({
   selector: 'app-searcher',

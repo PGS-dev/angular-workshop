@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+
 import { MaterialModule } from '../../all-material.module';
 
-import { UsersService } from '../../services/users.service';
-import { AuthGuardService } from '../../services/auth-guard.service';
+//services
+import { UsersService } from '../../services/users/users.service';
+import { AuthGuardService } from '../../services/auth-guard/auth-guard.service';
 
+//firebase
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 
 @Component({
@@ -12,13 +15,6 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
   styleUrls: ['./users.component.scss']
 })
 export class UsersComponent implements OnInit {
-
-/*    tiles = [
-        {text: 'One', cols: 3, rows: 1, color: 'lightblue'},
-        {text: 'Two', cols: 1, rows: 2, color: 'lightgreen'},
-        {text: 'Three', cols: 1, rows: 1, color: 'lightpink'},
-        {text: 'Four', cols: 2, rows: 1, color: '#DDBDF1'},
-    ];*/
 
     private p: Number; // for pagination
     public searchPhase: string; // update by child searcher
@@ -38,14 +34,11 @@ export class UsersComponent implements OnInit {
               console.log('przekaz udany!', userCriteria);
               this.searchFilterString = userCriteria;
             });
-        // zaloguj automatycznie
-        authGuardService.emailLogin('biuro@it-inspire.pl', 'password');
     }
 
     ngOnInit() {
       this.dynamicUsers = this.usersService.geUsers();
       this.dynamicUsersFirebase = this.usersService.geUsersFirebase();
-
     }
 
     onSearch(phase: string) {

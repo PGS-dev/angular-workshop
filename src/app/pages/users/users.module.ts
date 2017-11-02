@@ -5,8 +5,8 @@ import { FormsModule } from '@angular/forms';
 import { usersRouter } from './users.router';
 
 //services
-import { AuthGuardService } from '../../services/auth-guard.service';
-import { UsersService } from '../../services/users.service';
+import { UsersService } from '../../services/users/users.service';
+import { LoginService } from '../../services/login/login.service';
 
 //rxjs
 import { Subject } from 'rxjs/Subject';
@@ -29,7 +29,6 @@ import { UsersComponent } from './users.component';
     imports: [
         CommonModule,
         MaterialModule,
-        //AngularFireModule.initializeApp(firebaseConfig),
         AngularFireDatabaseModule,
         AngularFireAuthModule,
         NgxPaginationModule,
@@ -42,8 +41,7 @@ import { UsersComponent } from './users.component';
         SearcherComponent
     ],
     providers: [
-        UsersService,
-        AuthGuardService
+        UsersService
     ]
 })
 export class UsersModule { }

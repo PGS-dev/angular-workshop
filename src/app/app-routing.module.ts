@@ -7,7 +7,7 @@ import { UserComponent } from './pages/user/user.component';
 import { LoginComponent } from './pages/login/login.component';
 
 //services
-import { AuthGuardService } from './services/auth-guard.service';
+import { AuthGuardService } from './services/auth-guard/auth-guard.service';
 
 const routes: Routes = [
     {
@@ -17,7 +17,6 @@ const routes: Routes = [
     {
 		path: 'users/',
 		loadChildren: './pages/users/users.module#UsersModule'
-		//component: UsersComponent
 	},
     {
         canActivate: [AuthGuardService],

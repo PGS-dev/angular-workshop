@@ -11,10 +11,11 @@ import { UserModule } from './pages/user/user.module';
 //components
 import { AppComponent } from './app.component';
 import { SearcherComponent } from './components/searcher/searcher.component';
+import { LoginComponent } from './pages/login/login.component';
 
 //services
-import { AuthGuardService } from './services/auth-guard.service';
-import { LoginComponent } from './pages/login/login.component';
+import { AuthGuardService } from './services/auth-guard/auth-guard.service';
+import { LoginService } from './services/login/login.service';
 
 //firebase
 import { firebaseConfig } from './config/config';
@@ -36,7 +37,7 @@ import { AngularFireModule } from 'angularfire2';
     AngularFireModule.initializeApp(firebaseConfig),
     //UsersModule,
   ],
-  providers: [AuthGuardService],
+  providers: [AuthGuardService, LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
