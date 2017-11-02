@@ -3,6 +3,7 @@ import {Http, Response} from '@angular/http';
 import {Observable} from 'rxjs/Rx';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
+import {UserI} from '../interfaces/user.interface';
 
 @Injectable()
 export class UsersService {
@@ -11,13 +12,13 @@ export class UsersService {
     constructor(private http: Http) {
     }
 
-    getUsers(): Observable<any> {
+    getUsers(): Observable<UserI> {
         return this.http.get(this.USER_URL)
             .map((res: Response) => res.json())
             .catch((err: any) => Observable.throw(err.json().error) || 'BE...');
     }
 
-    getUser(uid: number): Observable<any> {
+    getUser(uid: number): Observable<UserI> {
         return this.http.get(`${this.USER_URL}${uid}`)
             .map((res: Response) => res.json())
             .catch((err: any) => Observable.throw(err.json().error) || 'BE...');
