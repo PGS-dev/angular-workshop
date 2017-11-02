@@ -28,9 +28,7 @@ export class LoginComponent implements OnInit {
 
     constructor(private loginService:LoginService, private router:Router) {}
 
-    ngOnInit() {
-        console.log('sprawdzam na init stan zalogowania', this.loginService.getLoginState());
-    }
+    ngOnInit() {}
 
     logUser() {
         if ( this.email.valid && this.password.valid ) {
