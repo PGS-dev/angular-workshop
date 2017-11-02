@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 
 //modules
 import { MaterialModule } from './all-material.module';
@@ -34,6 +35,7 @@ import { AngularFireModule } from 'angularfire2';
     MaterialModule,
     UserModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     AngularFireModule.initializeApp(firebaseConfig),
     //UsersModule,
   ],

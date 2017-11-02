@@ -7,19 +7,19 @@ import { Router } from "@angular/router";
 import { LoginService } from '../../services/login/login.service'
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+    selector: 'app-login',
+    templateUrl: './login.component.html',
+    styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-    private emailModel:string;
-    private passwordModel:string;
+    private emailModel: string;
+    private passwordModel: string;
 
     private email = new FormControl('', [Validators.required, Validators.email]);
     private password = new FormControl('', [Validators.required]);
-    private showError:boolean = false;
+    private showError: boolean = false;
 
-    getErrorMessage(type:string) {
+    getErrorMessage(type: string) {
         if (type === 'email') {
             return this.email.hasError('required') ? 'You must enter a value' : this.email.hasError('email') ? 'Not a valid email' : '';
         }
@@ -27,18 +27,22 @@ export class LoginComponent implements OnInit {
     }
 
     constructor(private loginService:LoginService, private router:Router) {}
+
     ngOnInit() {
         console.log('sprawdzam na init stan zalogowania', this.loginService.getLoginState());
     }
 
     logUser() {
         if ( this.email.valid && this.password.valid ) {
-            if (this.loginService.setLoginState(this.emailModel, this.passwordModel)) {
-                this.router.navigate(['/']);
-            }
-            else {
-                this.showError = true;
-            }
+            this.loginService.setLoginState(this.emailModel, this.passwordModel).subscribe(data => {
+                if (data) {
+                    this.showError = false;
+                    this.router.navigate(['./']);
+                }
+                else {
+                    this.showError = true;
+                }
+            });
         }
         else {
             this.showError = true;
