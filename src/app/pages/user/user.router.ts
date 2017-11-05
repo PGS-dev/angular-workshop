@@ -10,6 +10,6 @@ const USER_ROUTER: Routes = [
         path: '',
         component: UserComponent
     }
-]
+];
 
 export const userRouter = RouterModule.forChild(USER_ROUTER);

@@ -9,7 +9,7 @@ import { UsersResolver } from './users.resolve';
 
 @NgModule({
   imports: [
-    CommonModule, 
+    CommonModule,
     RouterModule,
     MatListModule,
     usersRouter

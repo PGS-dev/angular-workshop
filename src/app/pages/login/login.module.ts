@@ -10,7 +10,7 @@ import { FormsModule } from '@angular/forms';
     FormsModule
   ],
   declarations: [
-    LoginComponent, 
+    LoginComponent,
     LoginFormComponent]
 })
 export class LoginModule { }

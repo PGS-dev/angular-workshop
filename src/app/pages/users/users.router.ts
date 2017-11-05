@@ -4,12 +4,12 @@ import { UsersResolver } from './../users/users.resolve';
 
 const USERS_ROUTER: Routes = [
     {
-        resolve:{
+        resolve: {
             users: UsersResolver
         },
         path: '',
         component: UsersComponent
     }
-]
+];
 
 export const usersRouter = RouterModule.forChild(USERS_ROUTER);
