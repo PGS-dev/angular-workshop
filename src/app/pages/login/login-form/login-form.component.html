@@ -1,7 +1,14 @@
 <p>
 	login-form works!
 </p>
-<label>
-	Password:
-  	<input #password (keyup)="onInputChanged(password.value)" type="text" name="password" />
-</label>
+<form #loginForm="ngForm" (ngSubmit)="loginForm.form.valid && onSubmit()">
+	<label>
+		Username:
+		<input type="text" [(ngModel)]="human.username" name="username" required />
+	</label>
+	<label>
+		Password:
+		  <input type="password" [(ngModel)]="human.password" name="password" required />
+	</label>
+	<button type="submit">Submit</button>
+</form>

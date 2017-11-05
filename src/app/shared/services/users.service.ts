@@ -6,7 +6,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class UsersService {
 
-    private API_URL = 'https://jsonplaceholder.typicode.com/users'
+    private API_URL = 'https://jsonplaceholder.typicode.com/users';
 
     constructor(private http: HttpClient) { }
 
@@ -15,11 +15,11 @@ export class UsersService {
     }
 
     getUser(id: number) {
-        return this.http.get(`${this.API_URL}/${id}`).map((user: User) => user)
+        return this.http.get(`${this.API_URL}/${id}`).map((user: User) => user);
     }
 }
 
 export interface User {
-    name: string,
-    id: number
+    name: string;
+    id: number;
 }

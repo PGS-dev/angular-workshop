@@ -7,12 +7,16 @@ import { Component, Output, EventEmitter } from '@angular/core';
 })
 export class LoginFormComponent {
 
-  @Output() passwordTyped: EventEmitter<string> = new EventEmitter<string>(); 
+  human: object = {
+    username: '',
+    password: ''
+  };
 
-  onInputChanged(value: string) {
-    this.passwordTyped.emit(value);
+  @Output() onLogin: EventEmitter<object> = new EventEmitter<object>();
+
+  onSubmit() {
+    this.onLogin.emit(this.human);
   }
 
-  constructor() { }
-
+  constructor() {}
 }

@@ -14,15 +14,15 @@ import { AuthService } from './shared/services/auth.service';
     AppComponent
   ],
   imports: [
-    BrowserModule, 
+    BrowserModule,
     PagesModule,
-    RoutingModule, 
-    BrowserAnimationsModule, 
+    RoutingModule,
+    BrowserAnimationsModule,
     ComponentsModule,
     HttpClientModule
   ],
   providers: [
-    AuthGuard, 
+    AuthGuard,
     AuthService
   ],
   bootstrap: [AppComponent]
