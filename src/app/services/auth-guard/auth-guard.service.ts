@@ -14,7 +14,7 @@ export class AuthGuardService implements CanActivate {
 
     canActivate() {
         let verified:boolean = this.loginService.getLoginState();
-        console.log('zwrotka z serwisu', verified);
+        console.log('zwrotka z serwisu w authguard', verified);
         if(!verified) {
             this.router.navigate(['./login']);
         }

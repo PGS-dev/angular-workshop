@@ -6,7 +6,7 @@ import { usersRouter } from './users.router';
 
 //services
 import { UsersService } from '../../services/users/users.service';
-import { LoginService } from '../../services/login/login.service';
+//import { LoginService } from '../../services/login/login.service';
 
 //rxjs
 import { Subject } from 'rxjs/Subject';

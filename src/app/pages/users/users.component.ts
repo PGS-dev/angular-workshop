@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { UserModel } from '../../services/types';
 import { MaterialModule } from '../../all-material.module';
 
 //services
@@ -19,26 +19,23 @@ export class UsersComponent implements OnInit {
     private p: Number; // for pagination
     public searchPhase: string; // update by child searcher
     public caseSensitiveOption: boolean = false; // passed variable to child searcher - driven by checkbox
-    public dynamicUsers = [];
+    public dynamicUsers: UserModel[] = [];
     public dynamicUsersFirebase: FirebaseListObservable <any[]>;
     public searchFilterString: string;
 
-    changeCaseS() {
-        console.log('CS option change');
-    }
+    private changeCaseS(): void {}
 
     constructor(private usersService:UsersService, authGuardService:AuthGuardService) {
-        //this.items.subscribe(console.log); //dana asynchroniczna! - petla bedzie pusta, chyba ze zastosujemy preserveSnapshot
         this.usersService.searchStream$.subscribe(
             userCriteria => {
-              console.log('przekaz udany!', userCriteria);
+              //console.log('przekaz udany!', userCriteria);
               this.searchFilterString = userCriteria;
             });
     }
 
     ngOnInit() {
       this.dynamicUsers = this.usersService.geUsers();
-      this.dynamicUsersFirebase = this.usersService.geUsersFirebase();
+      this.dynamicUsersFirebase = this.usersService.geUsersFirebase(); //change on resolver ?
     }
 
     onSearch(phase: string) {

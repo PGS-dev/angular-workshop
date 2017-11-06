@@ -7,7 +7,7 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class LoginService {
-    constructor(private router:Router, private http: HttpClient) { }
+    constructor(private router:Router, private http: HttpClient) {}
 
     private userData: object = null;
     public userState: boolean = false;
@@ -22,9 +22,8 @@ export class LoginService {
                 const PASSWORD = credentials['password'];
                 let verified:boolean = (login === LOGIN && password === PASSWORD);
                 this.userState = verified;
-                console.log('setLoginState?????', verified);
                 this.authenticated.next(verified);
-                console.log('zglaszam zmiane', this.authenticated);
+                console.log('setLoginState?', verified);
                 return verified;
             })
     }
