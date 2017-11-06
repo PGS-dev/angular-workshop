@@ -9,7 +9,7 @@ import {MatDatepickerIntl} from '@angular/material';
 export class TimepickerComponent implements OnInit {
 
     startDate;
-    constructor(matDatepickerIntl: MatDatepickerIntl) {
+    constructor() {
     }
 
     ngOnInit() {
