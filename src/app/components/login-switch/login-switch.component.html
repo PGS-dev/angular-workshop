@@ -1,4 +1,4 @@
 <div class="Login-Component">
-    <a rel="noopener" href="login" *ngIf="!userStatus">ZALOGUJ</a>
-    <a href="#" id="logOut" *ngIf="userStatus" (click)="logOut($event)">WYLOGUJ</a>
+    <a routerLink="login" *ngIf="!userStatus">ZALOGUJ</a>
+    <a routerLink="/" id="logOut" *ngIf="userStatus" (click)="logOut($event)">WYLOGUJ</a>
 </div>
