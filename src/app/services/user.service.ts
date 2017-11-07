@@ -15,7 +15,7 @@ export class UserService {
 
     getDetails(idUser) {
         const that = this;
-        return that.httpService.get(`user/${idUser}`);
+        return that.httpService.get(`users/${idUser}`);
     }
 
 }

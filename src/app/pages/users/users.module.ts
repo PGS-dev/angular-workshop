@@ -4,6 +4,7 @@ import {UsersComponent} from './users.component';
 import {UserService} from "../../services/user.service";
 import {SearchModule} from "../../components/search/search.module";
 import {MatTableModule} from "@angular/material";
+import {UsersResolver} from "./users.resolver";
 
 @NgModule({
     imports: [
@@ -15,7 +16,8 @@ import {MatTableModule} from "@angular/material";
         UsersComponent
     ],
     providers: [
-        UserService
+        UserService,
+        UsersResolver
     ]
 })
 export class UsersModule {
