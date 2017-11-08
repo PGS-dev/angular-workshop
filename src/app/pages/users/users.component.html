@@ -1,7 +1,12 @@
-<mat-list class="users">
-  <mat-list-item class="user" *ngFor="let user of userList">
-    <a routerLink="['/user', user.id]'" routerLinkActive="active">
-      <app-user [id]="user.id" [name]="user.name"></app-user>
-    </a>
-  </mat-list-item>
-</mat-list>
+<table class="users" matSort (matSortChange)="sortData($event)">
+  <tr>
+    <th mat-sort-header="id">ID</th>
+    <th mat-sort-header="userName">User Name</th>
+    <th mat-sort-header="name">Name</th>
+  </tr>
+  <tr class="user app-user-row"      
+      *ngFor="let user of userList"
+      [attr-uid]="user.id" [userName]="user.username" [name]="user.name">
+  </tr>
+</table>
+<div></div>
