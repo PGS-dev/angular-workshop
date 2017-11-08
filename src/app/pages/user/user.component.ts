@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-user',
@@ -7,9 +8,14 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./user.component.scss']
 })
 export class UserComponent implements OnInit {
-    id: string;
-    constructor(private route: ActivatedRoute) {}
+    constructor(private route: ActivatedRoute, private location: Location) {}
+
+    private id: string;
     ngOnInit() {
         this.route.params.subscribe((params) => this.id = params.id);
+    }
+
+    goBack(): void {
+        this.location.back();
     }
 }
