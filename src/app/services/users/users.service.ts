@@ -5,15 +5,15 @@ import { userList } from '../mock-users';
 
 import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Observable';
-import { Subscription }   from 'rxjs/Subscription';
+import { Subscription } from 'rxjs/Subscription';
 
-import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database'; //AngularFireList v5
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database'; // AngularFireList v5
 import * as firebase from 'firebase/app';
 
 @Injectable()
 export class UsersService {
 
-    items: FirebaseListObservable<any[]>; //AngularFireList v5
+    items: FirebaseListObservable<any[]>; // AngularFireList v5
     msgVal: string = '';
     state: string = '';
 
@@ -24,14 +24,14 @@ export class UsersService {
           }
         });
 
-        //this.items.subscribe(console.log); //dana asynchroniczna! - petla bedzie pusta, chyba ze zastosujemy preserveSnapshot
-        //list all firebase users
+        // this.items.subscribe(console.log); //dana asynchroniczna! - petla bedzie pusta, chyba ze zastosujemy preserveSnapshot
+        // list all firebase users
         af.list('users', { preserveSnapshot: true})
-        .subscribe(snapshots=>{
+        .subscribe(snapshots => {
             snapshots.forEach(snapshot => {
-              //console.log(snapshot.key, snapshot.val());
+              // console.log(snapshot.key, snapshot.val());
             });
-        })
+        });
     }
 
     // Observable string sources
@@ -45,11 +45,11 @@ export class UsersService {
         this.searchSubjectObserver.next(userName);
     }
 
-    //static resources
+    // static resources
     public geUsers(): UserModel[] {
         return userList;
     }
-    //firebase database
+    // firebase database
     public geUsersFirebase(): FirebaseListObservable<any[]> {
         return this.items;
     }

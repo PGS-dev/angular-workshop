@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-//components
-//import { UsersComponent } from './pages/users/users.component';
+// components
+// import { UsersComponent } from './pages/users/users.component';
 import { UserComponent } from './pages/user/user.component';
 import { LoginComponent } from './pages/login/login.component';
 
-//services
+// services
 import { AuthGuardService } from './services/auth-guard/auth-guard.service';
 
 const routes: Routes = [

@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { MaterialModule } from '../../all-material.module';
-import { Router } from "@angular/router";
+import { Router } from '@angular/router';
 
-//services
-import { LoginService } from '../../services/login/login.service'
+// services
+import { LoginService } from '../../services/login/login.service';
 
 @Component({
     selector: 'app-login',
@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
         return this.password.hasError('required') ? 'You must enter a value' : '';
     }
 
-    constructor(private loginService:LoginService, private router:Router) {}
+    constructor(private loginService: LoginService, private router: Router) {}
 
     ngOnInit() {}
 

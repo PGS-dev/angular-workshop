@@ -4,22 +4,22 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 
-//modules
+// modules
 import { MaterialModule } from './all-material.module';
 import { AppRoutingModule } from './app-routing.module';
 import { UserModule } from './pages/user/user.module';
 
-//components
+// components
 import { AppComponent } from './app.component';
 import { SearcherComponent } from './components/searcher/searcher.component';
 import { LoginComponent } from './pages/login/login.component';
 import { LoginSwitchComponent } from './components/login-switch/login-switch.component';
 
-//services
+// services
 import { AuthGuardService } from './services/auth-guard/auth-guard.service';
 import { LoginService } from './services/login/login.service';
 
-//firebase
+// firebase
 import { firebaseConfig } from './config/config';
 import { AngularFireModule } from 'angularfire2';
 import { HorizontalMenuComponent } from './components/horizontal-menu/horizontal-menu.component';
@@ -42,7 +42,7 @@ import { HorizontalMenuComponent } from './components/horizontal-menu/horizontal
     BrowserAnimationsModule,
     HttpClientModule,
     AngularFireModule.initializeApp(firebaseConfig),
-    //UsersModule,
+    // UsersModule,
   ],
   providers: [AuthGuardService, LoginService],
   bootstrap: [AppComponent]
