@@ -4,16 +4,15 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { usersRouter } from './users.router';
 
-//services
+// services
 import { UsersService } from '../../services/users/users.service';
-//import { LoginService } from '../../services/login/login.service';
 
-//rxjs
+// rxjs
 import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Observable';
-import { Subscription }   from 'rxjs/Subscription';
+import { Subscription } from 'rxjs/Subscription';
 
-//firebase
+// firebase
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 
@@ -24,6 +23,9 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 // components
 import { SearcherComponent } from '../../components/searcher/searcher.component';
 import { UsersComponent } from './users.component';
+
+// Resolvers
+import { UsersResolver } from './users.resolve';
 
 @NgModule({
     imports: [
@@ -41,7 +43,8 @@ import { UsersComponent } from './users.component';
         SearcherComponent
     ],
     providers: [
-        UsersService
+        UsersService,
+        UsersResolver
     ]
 })
 export class UsersModule { }

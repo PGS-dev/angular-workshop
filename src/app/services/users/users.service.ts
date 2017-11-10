@@ -6,6 +6,7 @@ import { userList } from '../mock-users';
 import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Observable';
 import { Subscription } from 'rxjs/Subscription';
+import { HttpClient } from '@angular/common/http';
 
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database'; // AngularFireList v5
 import * as firebase from 'firebase/app';
@@ -17,7 +18,7 @@ export class UsersService {
     msgVal: string = '';
     state: string = '';
 
-    constructor(public af: AngularFireDatabase) {
+    constructor(public af: AngularFireDatabase, private http: HttpClient) {
         this.items = af.list('users', {
           query: {
             limitToLast: 50
@@ -52,6 +53,19 @@ export class UsersService {
     // firebase database
     public geUsersFirebase(): FirebaseListObservable<any[]> {
         return this.items;
+    }
+
+    public getAppVersion(): Observable<string> {
+        const apiURL = './assets/json/config.json';
+        return this.http.get(apiURL)
+            .map(config => {
+                console.log('v', config['version']);
+                return config['version'];
+            })
+            .catch((err) => {
+                console.error('http config error');
+                return Observable.throw(err);
+            });
     }
 
 }

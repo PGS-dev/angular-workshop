@@ -1,12 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { UserModel } from '../../services/types';
 import { MaterialModule } from '../../all-material.module';
+import { DataSource } from '@angular/cdk/collections'; // for resolver?
+import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs/Observable';
 
-//services
+// services
 import { UsersService } from '../../services/users/users.service';
 import { AuthGuardService } from '../../services/auth-guard/auth-guard.service';
 
-//firebase
+// firebase
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 
 @Component({
@@ -22,20 +25,23 @@ export class UsersComponent implements OnInit {
     public dynamicUsers: UserModel[] = [];
     public dynamicUsersFirebase: FirebaseListObservable <any[]>;
     public searchFilterString: string;
+    public appVersion: string;
 
     private changeCaseS(): void {}
 
-    constructor(private usersService:UsersService, authGuardService:AuthGuardService) {
+    constructor(private usersService: UsersService, private authGuardService: AuthGuardService, private route: ActivatedRoute) {
         this.usersService.searchStream$.subscribe(
             userCriteria => {
-              //console.log('przekaz udany!', userCriteria);
               this.searchFilterString = userCriteria;
             });
     }
 
     ngOnInit() {
       this.dynamicUsers = this.usersService.geUsers();
-      this.dynamicUsersFirebase = this.usersService.geUsersFirebase(); //change on resolver ?
+      this.dynamicUsersFirebase = this.usersService.geUsersFirebase();
+
+      this.appVersion = this.route.snapshot.data['appVersionResolver'];
+      console.log(this.appVersion);
     }
 
     onSearch(phase: string) {

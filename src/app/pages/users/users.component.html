@@ -1,4 +1,8 @@
 <div>
+    <!--on component-->
+    <div class="App_version">
+      V. {{appVersion}}
+    </div>
     <div class="Search-Component">
         <app-searcher [caseSensitiveOption]="caseSensitiveOption" (onSearch)="onSearch($event)"></app-searcher>
         <div *ngIf="searchPhase">
