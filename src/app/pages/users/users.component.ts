@@ -17,5 +17,9 @@ export class UsersComponent implements OnInit, OnDestroy {
     this.users = this.route.snapshot.data['users'];
   }
 
+  onAddUser(user) {
+    this.users.push(user);
+  }
+
   ngOnDestroy() { }
 }

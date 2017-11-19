@@ -1,0 +1,10 @@
+<p>
+  new-user-form works!
+</p>
+<form (ngSubmit)="onSubmit()" novalidate [formGroup]="newUser">
+  Name: <input type="text" formControlName="name" />
+  Username: <input type="text" formControlName="usename" />
+  E-mail: <input type="email" formControlName="email" />
+  Website: <input type="text" formControlName="website" />
+  <button type="submit">Add user</button>
+</form>

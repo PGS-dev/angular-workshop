@@ -6,16 +6,22 @@ import { MatListModule } from '@angular/material';
 import { UsersService } from '../../shared/services/users.service';
 import { usersRouter } from './users.router';
 import { UsersResolver } from './users.resolve';
+import { MatTableModule } from '@angular/material';
+import { NewUserFormComponent } from './new-user-form/new-user-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule,
     MatListModule,
-    usersRouter
+    MatTableModule,
+    usersRouter,
+    ReactiveFormsModule
   ],
   declarations: [
-    UsersComponent
+    UsersComponent,
+    NewUserFormComponent
   ],
   providers: [
     UsersService,
