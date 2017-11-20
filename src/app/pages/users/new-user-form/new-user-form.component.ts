@@ -17,8 +17,9 @@ export class NewUserFormComponent implements OnInit {
   ngOnInit() {
     this.newUser = new FormGroup({
       name: new FormControl(''),
-      usename: new FormControl(''),
+      username: new FormControl(''),
       email: new FormControl(''),
+      phone: new FormControl(''),
       website: new FormControl('')
     });
   }
