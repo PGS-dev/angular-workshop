@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-new-user-form',
@@ -16,11 +16,11 @@ export class NewUserFormComponent implements OnInit {
 
   ngOnInit() {
     this.newUser = new FormGroup({
-      name: new FormControl(''),
-      username: new FormControl(''),
-      email: new FormControl(''),
-      phone: new FormControl(''),
-      website: new FormControl('')
+      name: new FormControl('', [Validators.required, Validators.minLength(3)]),
+      username: new FormControl('', Validators.required),
+      email: new FormControl('', Validators.required),
+      phone: new FormControl('', Validators.required),
+      website: new FormControl('', Validators.required)
     });
   }
 
