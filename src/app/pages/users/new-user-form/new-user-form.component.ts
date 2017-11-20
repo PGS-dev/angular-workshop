@@ -16,10 +16,10 @@ export class NewUserFormComponent implements OnInit {
 
   ngOnInit() {
     this.newUser = new FormGroup({
-      name: new FormControl('Name'),
-      usename: new FormControl('Username'),
-      email: new FormControl('E-mail'),
-      website: new FormControl('Website')
+      name: new FormControl(''),
+      usename: new FormControl(''),
+      email: new FormControl(''),
+      website: new FormControl('')
     });
   }
 

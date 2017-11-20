@@ -9,6 +9,9 @@ import { UsersResolver } from './users.resolve';
 import { MatTableModule } from '@angular/material';
 import { NewUserFormComponent } from './new-user-form/new-user-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material';
+import { MatFormFieldModule } from '@angular/material';
+import { MatButtonModule } from '@angular/material';
 
 @NgModule({
   imports: [
@@ -17,7 +20,10 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatListModule,
     MatTableModule,
     usersRouter,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatButtonModule
   ],
   declarations: [
     UsersComponent,

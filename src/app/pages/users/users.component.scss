@@ -1,0 +1,9 @@
+.section-users {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+    max-width: 55em;
+    margin: auto;
+};
