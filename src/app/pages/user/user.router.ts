@@ -7,7 +7,7 @@ const USER_ROUTER: Routes = [
         resolve: {
             user: UserResolver
         },
-        path: '',
+        path: 'user/:id',
         component: UserComponent
     }
 ];

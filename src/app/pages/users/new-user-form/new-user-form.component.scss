@@ -1,4 +1,18 @@
-.form-container {
+.form__container {
     display: flex;
     flex-direction: column;
+}
+
+.form-help__container {
+    background-color: orangered;
+    padding: .25em 1.25em;
+    color: white;
+}
+
+.form-help__header {
+    font-size: .9em;
+}
+
+.form-help__paragraph {
+    font-size: .7em;
 }

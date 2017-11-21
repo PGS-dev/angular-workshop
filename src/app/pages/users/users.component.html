@@ -1,10 +1,15 @@
 <section class="section-users">
     <div class="column">
-        <h2>Users list:</h2>
+        <h2>Users list</h2>
         <md-nav-list>
-            <a *ngFor="let user of users" routerLink='/user/{{user.id}}'>
-                <md-list-item>{{ user.name }}</md-list-item>
-            </a>
+            <div *ngFor="let user of users">
+                <a *ngIf="!!user.company" routerLink='/user/{{user.id}}'>
+                    <md-list-item>{{ user.name }}</md-list-item>
+                </a>
+                <a *ngIf="!user.company" routerLink='/users'>
+                    <md-list-item>{{ user.name }}</md-list-item>
+                </a>
+            </div>
         </md-nav-list>
     </div>
     <div class="column">

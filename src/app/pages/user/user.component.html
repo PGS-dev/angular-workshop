@@ -1,13 +1,14 @@
-<h2>User:</h2>
-<md-card>
-    <md-card-title>{{user.name}}</md-card-title>
-    <md-card-subtitle>{{user.email}}</md-card-subtitle>
-    <md-card-content>
-        <p>Username: {{user.username}}</p>
-        <p>Phone: {{user.phone}}</p>
-        <p>Website: {{user.website}}</p>
-    </md-card-content>
-    <md-card-actions>
-        <button md-raised-button routerLink='/users'>Go back</button>
-    </md-card-actions>
-</md-card>
+<div class="section-user">
+    <md-card>
+        <md-card-title>{{user.name}}</md-card-title>
+        <md-card-subtitle>{{user.email}}</md-card-subtitle>
+        <md-card-content>
+            <p>Username: {{user.username}}</p>
+            <p>Phone: {{user.phone}}</p>
+            <p>Website: {{user.website}}</p>
+        </md-card-content>
+        <md-card-actions>
+            <button md-raised-button routerLink='/users'>Go back</button>
+        </md-card-actions>
+    </md-card>
+</div>
