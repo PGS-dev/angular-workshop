@@ -46,8 +46,8 @@ export class UsersComponent implements OnInit, AfterViewInit {
     ngOnInit() {
       this.dynamicUsers = this.usersService.geUsers();
       this.dynamicUsersFirebase = this.usersService.geUsersFirebase();
-      this.dynamicUsersFirebase.subscribe(countries => {
-        countries.map(res => {
+      this.dynamicUsersFirebase.subscribe(fronters => {
+        fronters.map(res => {
             this.ELEMENT_DATA.push(res);
           });
           this.dataSource = new MatTableDataSource<Element>(this.ELEMENT_DATA);
@@ -55,7 +55,6 @@ export class UsersComponent implements OnInit, AfterViewInit {
         });
 
       this.appVersion = this.route.snapshot.data['appVersionResolver'];
-      console.log(this.appVersion);
     }
 
     ngAfterViewInit() {}
