@@ -3,7 +3,7 @@ import {CommonModule} from '@angular/common';
 import {LoginAreaComponent} from './login-area.component';
 import {MatButtonModule, MatFormFieldModule, MatInputModule, MatSelectModule} from '@angular/material';
 import {BrowserModule} from '@angular/platform-browser';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -14,7 +14,8 @@ import {FormsModule} from '@angular/forms';
         MatInputModule,
         MatFormFieldModule,
         MatSelectModule,
-        MatButtonModule
+        MatButtonModule,
+        ReactiveFormsModule
     ],
     declarations: [
         LoginAreaComponent

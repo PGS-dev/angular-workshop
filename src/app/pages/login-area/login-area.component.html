@@ -1,3 +1,4 @@
+<h2>template driven form:</h2>
 <div>
   <form #loginForm="ngForm" (ngSubmit)="doSubmit()">
     <h1>Log in</h1>
@@ -8,5 +9,20 @@
       <input matInput type="password" name="password" placeholder="Password" [(ngModel)]="formData.password" required>
     </mat-form-field>
     <button mat-button type="submit" [disabled]="!loginForm.form.valid">Submit</button>
+  </form>
+</div>
+
+<h2>react form:</h2>
+
+<div>
+  <form [formGroup]="formLogin" (ngSubmit)="doSubmitReact()">
+    <h1>Log in</h1>
+    <mat-form-field>
+      <input matInput placeholder="Username" formControlName="username">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="password" placeholder="Password" formControlName="password">
+    </mat-form-field>
+    <button mat-button type="submit" [disabled]="!formLogin.valid">Submit</button>
   </form>
 </div>
