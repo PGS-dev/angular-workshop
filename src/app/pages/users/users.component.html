@@ -47,23 +47,26 @@
       </div>
 
       <mat-table #table [dataSource]="dataSource">
-
-        <!-- Position Column -->
         <ng-container matColumnDef="id">
           <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
           <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
         </ng-container>
 
-        <!-- Name Column -->
         <ng-container matColumnDef="name">
           <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
           <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
         </ng-container>
 
-        <!-- Weight Column -->
         <ng-container matColumnDef="technology">
           <mat-header-cell *matHeaderCellDef> Technology </mat-header-cell>
           <mat-cell *matCellDef="let element"> {{element.technology}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="action">
+          <mat-header-cell *matHeaderCellDef> Action </mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <a routerLink="/user/{{element.id}}" mat-button>DETAILS</a>
+          </mat-cell>
         </ng-container>
 
         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>

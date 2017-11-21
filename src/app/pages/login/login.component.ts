@@ -87,7 +87,7 @@ export class LoginComponent implements OnInit {
             this.loginService.setLoginState(this.emailModel, this.passwordModel).subscribe(data => {
                 if (data) {
                     this.showError = false;
-                    this.router.navigate(['/user/1']);
+                    this.router.navigate(['/users']);
                 } else {
                     this.showError = true;
                 }

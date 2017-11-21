@@ -13,18 +13,25 @@
     <p class="error" *ngIf="showError">
         Wrong login data!
     </p>
-</div>
 
-<mat-checkbox [(ngModel)]="firebaseMode" (change)="changeFormType()">Log by firebase</mat-checkbox>
-
-<form [formGroup]="firebaseForm" novalidate>
-    <div class="form-group">
-        <div formArrayName="items" *ngFor="let item of firebaseForm.get('items').controls; let i = index;">
-          <div [formGroupName]="i">
-            <input formControlName="name" placeholder="Item name">
-            <input formControlName="description" placeholder="Item description">
-          </div>
-          Chosen name: {{ firebaseForm.controls.items.controls[i].controls.name.value }}
-        </div>
+    <div class="fb-checbox">
+      <mat-checkbox [(ngModel)]="firebaseMode" (change)="changeFormType()">Log by firebase</mat-checkbox>
     </div>
-</form>
+
+    <form [formGroup]="firebaseForm" novalidate>
+        <div class="form-group">
+            <div formArrayName="items" *ngFor="let item of firebaseForm.get('items').controls; let i = index;">
+              <div [formGroupName]="i">
+                <mat-form-field>
+                    <input matInput formControlName="name" placeholder="Login">
+                </mat-form-field>
+                <mat-form-field>
+                  <input matInput formControlName="description" placeholder="Password" type="password">
+                </mat-form-field>
+                <button (click)="logUserFirebase()" mat-button>ENTER</button>
+              </div>
+              <!--Chosen: {{ firebaseForm.controls.items.controls[i].controls.name.value }}-->
+            </div>
+        </div>
+    </form>
+</div>

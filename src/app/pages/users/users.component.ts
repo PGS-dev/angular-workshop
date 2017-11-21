@@ -29,7 +29,7 @@ export class UsersComponent implements OnInit, AfterViewInit {
     public searchFilterString: string;
     public appVersion: string;
 
-    displayedColumns = ['id', 'name', 'technology'];
+    displayedColumns = ['id', 'name', 'technology', 'action'];
     ELEMENT_DATA: Element[] = [];
     dataSource;
     @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -42,6 +42,7 @@ export class UsersComponent implements OnInit, AfterViewInit {
               this.searchFilterString = userCriteria;
             });
     }
+
     ngOnInit() {
       this.dynamicUsers = this.usersService.geUsers();
       this.dynamicUsersFirebase = this.usersService.geUsersFirebase();
@@ -57,9 +58,7 @@ export class UsersComponent implements OnInit, AfterViewInit {
       console.log(this.appVersion);
     }
 
-    ngAfterViewInit() {
-
-    }
+    ngAfterViewInit() {}
 
     onSearch(phase: string) {
       this.searchPhase = phase;
