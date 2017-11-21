@@ -1,17 +1,69 @@
 {
-    "users" : {
-        "user1" : {
-            "id" : 1,
-            "name" : "Monika"
-        },
-        "user2" : {
-            "id" : 2,
-            "name" : "Zbysiu"
-        },
-        "user3" : {
-            "id" : 3,
-            "name" : "Alicja"
-        }
-
+  "users" : {
+    "user1" : {
+      "id" : 1,
+      "name" : "Monika",
+      "technology": "React"
+    },
+    "user10" : {
+      "id" : 10,
+      "name" : "Norbert",
+      "technology": "React Native"
+    },
+    "user11" : {
+      "id" : 11,
+      "name" : "Norbert",
+      "technology": "React"
+    },
+    "user12" : {
+      "id" : 12,
+      "name" : "Norbert",
+      "technology": "Angular"
+    },
+    "user13" : {
+      "id" : 14,
+      "name" : "Alicja",
+      "technology": "AngularJS"
+    },
+    "user2" : {
+      "id" : 2,
+      "name" : "Zbysiu",
+      "technology": "Jquery"
+    },
+    "user3" : {
+      "id" : 3,
+      "name" : "Alicja",
+      "technology": "Java Script"
+    },
+    "user4" : {
+      "id" : 4,
+      "name" : "Kasia",
+      "technology": "Vue"
+    },
+    "user5" : {
+      "id" : 5,
+      "name" : "Ania",
+      "technology": "AngularJS"
+    },
+    "user6" : {
+      "id" : 6,
+      "name" : "Albert",
+      "technology": "React"
+    },
+    "user7" : {
+      "id" : 7,
+      "name" : "Monika",
+      "technology": "React"
+    },
+    "user8" : {
+      "id" : 8,
+      "name" : "Grzesiu",
+      "technology": "Angular"
+    },
+    "user9" : {
+      "id" : 9,
+      "name" : "Basia",
+      "technology": "Angular"
     }
+  }
 }

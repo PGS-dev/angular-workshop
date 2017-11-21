@@ -25,7 +25,6 @@ export class LoginService {
                 const verified: boolean = (login === LOGIN && password === PASSWORD);
                 this.userState = verified;
                 this.authenticated.next(verified);
-                console.log('setLoginState?', verified);
                 return verified;
             })
             .catch((err) => {
@@ -35,7 +34,6 @@ export class LoginService {
     }
 
     public getLoginState(): boolean {
-        console.log('login serwis zwraca ',  this.userState);
         return this.userState;
     }
 }

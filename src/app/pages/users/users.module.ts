@@ -3,6 +3,7 @@ import { MaterialModule } from '../../all-material.module';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { usersRouter } from './users.router';
+import { CdkTableModule } from '@angular/cdk/table';
 
 // services
 import { UsersService } from '../../services/users/users.service';
@@ -36,7 +37,8 @@ import { UsersResolver } from './users.resolve';
         NgxPaginationModule,
         Ng2SearchPipeModule,
         usersRouter,
-        FormsModule
+        FormsModule,
+        CdkTableModule,
     ],
     declarations: [
         UsersComponent,
