@@ -6,13 +6,13 @@ import { MaterialModule } from './../../utils/material.module';
 import { UsersComponent } from './users.component';
 import { CommunicationService } from './../../services/communication.service';
 import { UserComponent } from './user/user.component';
-//import { UsersRoutingModule } from './users-routing.module';
+import { UsersRoutingModule } from './users-routing.module';
 
 @NgModule({
   imports: [
     CommonModule,
-    MaterialModule
-    //UsersRoutingModule
+    MaterialModule,
+    UsersRoutingModule
   ],
   providers: [
     CommunicationService

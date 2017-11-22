@@ -7,7 +7,7 @@ import { Component, Input } from '@angular/core';
 })
 export class UserComponent {
   @Input()
-  id:number;
+  uid:number;
   @Input()
   userName:string;
   @Input()

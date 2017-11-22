@@ -6,7 +6,6 @@
   </tr>
   <tr class="user app-user-row"      
       *ngFor="let user of userList"
-      [attr-uid]="user.id" [userName]="user.username" [name]="user.name">
+      [userName]="user.username" [uid]="user.id" [name]="user.name">
   </tr>
 </table>
-<div></div>

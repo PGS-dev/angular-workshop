@@ -8,13 +8,17 @@ import { MaterialModule } from './utils/material.module';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { UsersModule } from './pages/users/users.module';
+import { AuthService } from './services/auth.service';
+import { AuthGuardService } from './services/auth-guard.service';
 import { CommunicationService } from './services/communication.service';
 import { UserDetailsComponent } from './pages/user-details/user-details.component';
+import { LoginComponent } from './pages/login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserDetailsComponent
+    UserDetailsComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +30,9 @@ import { UserDetailsComponent } from './pages/user-details/user-details.componen
     MaterialModule
   ],
   providers: [
-    CommunicationService
+    CommunicationService,
+    AuthService,
+    AuthGuardService
   ],
   bootstrap: [AppComponent]
 })
