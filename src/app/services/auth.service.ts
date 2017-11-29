@@ -1,12 +1,24 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class AuthService {
+  isAuthenticated:boolean;
 
-  constructor() { }
+  constructor(public router: Router) { }
 
-  isAuthenticated():boolean {
-      return false;
+  authenticate(user:string, password:string):boolean {
+    if (user == 'admin@admin' && password == 'admin') {
+      this.isAuthenticated = true;
+      this.router.navigate(['/users']);
+      return true;
+    }
+    
+    return false;
+  }
+
+  getAuthenticatedState():boolean {
+      return this.isAuthenticated;
   }
 
 }

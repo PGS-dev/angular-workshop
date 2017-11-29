@@ -7,7 +7,11 @@ import { LoginComponent } from './pages/login/login.component';
 import { AuthGuardService } from './services/auth-guard.service';
 
 const routes: Routes = [
-  { path: 'users', component: UsersComponent},
+  { 
+    canActivate: [AuthGuardService],
+    path: 'users', 
+    component: UsersComponent
+  },
   { 
     canActivate: [AuthGuardService],
     path: 'user/:id', 

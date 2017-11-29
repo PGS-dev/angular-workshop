@@ -4,7 +4,8 @@
     </mat-card-header>
     <form novalidate
           [formGroup]="loginForm" 
-          (ngSubmit)="submitLogin()">
+          (ngSubmit)="submitLogin()"
+          (keyup.enter)="submitLogin()">
         <mat-form-field>
             <input matInput required placeholder="Enter your email" 
                    formControlName="email">
@@ -14,6 +15,8 @@
                    formControlName="password">
         </mat-form-field>
         <button mat-raised-button color="primary" type="submit"
-                [disabled]="loginForm.pristine">Submit</button>
+                [disabled]="loginForm.invalid">Submit</button>
     </form>
+    <p class="error" *ngIf="hasLoginFailed">Wrong username or password</p>
+
 </mat-card>
