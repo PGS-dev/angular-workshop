@@ -12,6 +12,6 @@ export class RewardsService {
 
     getRewardsBySearch(text): Observable<any> {
         return this.http
-            .get(`/api/rest/search/redemptionitems?filters=&keyword=${text}&page=0&pageSize=100&userSearch=true`);
+            .get(`https://qa.epoints.com/rest/search/redemptionitems?filters=&keyword=${text}&page=0&pageSize=100&userSearch=true`);
     }
 }

@@ -32,6 +32,7 @@ export class SearchComponent implements OnInit {
      }
 
     ngOnInit() {
+        this.subjectSearch.next('test');
     }
 
     valueChanged(): void {
