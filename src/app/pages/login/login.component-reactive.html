@@ -1,0 +1,19 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Login</mat-card-title>
+    </mat-card-header>
+    <form novalidate
+          [formGroup]="loginForm" 
+          (ngSubmit)="submitLogin()">
+        <mat-form-field>
+            <input matInput required placeholder="Enter your email" 
+                   formControlName="email">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput required placeholder="Enter your password" type="password" 
+                   formControlName="password">
+        </mat-form-field>
+        <button mat-raised-button color="primary" type="submit"
+                [disabled]="loginForm.pristine">Submit</button>
+    </form>
+</mat-card>

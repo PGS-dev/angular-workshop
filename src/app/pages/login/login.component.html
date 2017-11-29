@@ -1,3 +1,15 @@
-<p>
-  login works!
-</p>
+<form #loginForm="ngForm">
+    <mat-form-field>
+        <input matInput required placeholder="Enter your email"
+              [(ngModel)]="emailModel" 
+              name="email">
+        <mat-error *ngIf="email.invalid"></mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput required placeholder="Enter your password" type="password"
+              [(ngModel)]="passwordModel" 
+              name="password">
+        <mat-error *ngIf="password.invalid"></mat-error>
+    </mat-form-field>
+    <button (click)="submitLogin()" mat-raised-button>Submit</button>
+</form>
