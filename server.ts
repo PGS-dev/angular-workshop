@@ -6,9 +6,19 @@ import { enableProdMode } from '@angular/core';
 import * as express from 'express';
 import { join } from 'path';
 import { readFileSync } from 'fs';
+var proxy = require('http-proxy-middleware');
 
 // Faster server renders w/ Prod mode (dev mode never needed)
 enableProdMode();
+
+// proxy middleware options
+const proxyMiddlewareOptions = {
+  target: 'https://qa.epoints.com/', // target host
+  changeOrigin: true,               // needed for virtual hosted sites
+  pathRewrite: {
+      "^/api" : "",     // rewrite path
+  }
+};
 
 // Express server
 const app = express();
@@ -51,6 +61,11 @@ app.get('*.*', express.static(join(DIST_FOLDER, 'browser'), {
 app.get('*', (req, res) => {
   res.render('index', { req });
 });
+
+// create the proxy (without context)
+let proxyApi = proxy(proxyMiddlewareOptions);
+app.use('/api', proxyApi);
+
 
 // Start up the Node server
 app.listen(PORT, () => {

@@ -1,0 +1,16 @@
+<div class="RewardsList">
+    <div class="container">
+        <div class="row">
+            <div
+                class="col-md-3 RewardsList-item"
+                *ngFor="let reward of rewards?.results"
+            >
+
+                <app-product-card [cardData]="reward">
+
+                </app-product-card>
+            </div>
+        </div>
+
+    </div>
+</div>

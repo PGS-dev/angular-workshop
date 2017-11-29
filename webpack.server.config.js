@@ -2,6 +2,7 @@
 
 const path = require('path');
 const webpack = require('webpack');
+const webpackNodeExternals = require('webpack-node-externals');
 
 module.exports = {
   entry: {
@@ -14,6 +15,7 @@ module.exports = {
   resolve: { extensions: ['.ts', '.js'] },
   // Make sure we include all node_modules etc
   externals: [/(node_modules|main\..*\.js)/,],
+  externals: [webpackNodeExternals({ whitelist: [/@ngx-translate/, /^@ng-bootstrap\/ng-bootstrap/,] })],
   output: {
     // Puts the output at the root of the dist folder
     path: path.join(__dirname, 'dist'),

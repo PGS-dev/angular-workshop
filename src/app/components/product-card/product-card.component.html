@@ -1,0 +1,23 @@
+<div class="ProductCard">
+
+    <div class="ProductCard-categories">
+        {{cardData?.categories[0]}}
+    </div>
+
+    <div class="ProductCard-imageContainer">
+        <img src ="{{cardData?.imageUrl}}" class="ProductCard-imageContainer-image">
+    </div>
+
+    <div class = "ProductCard-title">
+            {{cardData?.title}}
+    </div>
+
+    <div class="ProductCard-footer">
+        <span class="ProductCard-epoints">
+                {{cardData?.epoints.UK}}
+        </span>
+        <span class="ProductCard-add">
+                +
+        </span>
+    </div>
+</div>

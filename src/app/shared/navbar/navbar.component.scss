@@ -1,0 +1,38 @@
+.Navbar {
+    height: 70px;
+    width: 100%;
+    border-bottom: solid #FFCA37 5px;
+
+    &-image {
+        background-image: url('../../../assets/logo.png');
+        background-repeat: no-repeat;
+        height: 70px;
+        width: 140px;
+        background-position: center;
+        transition: opacity .3s ease-in-out;
+        background-size: 105px 47px;
+        display: inline;
+        float:left;
+    }
+
+    &-item {
+        background: 0 0;
+        color: #595959;
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 70px;
+        padding-left: 18px;
+        padding-right: 18px;
+        text-align: center;
+        transition: all .3s ease-in-out;
+        text-align: center;
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+    &-rightPart {
+        padding-right: 20px;
+        float: right;
+    }
+
+}
