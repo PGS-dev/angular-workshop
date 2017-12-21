@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 
+
 // Routing
 import { AppRoutingModule } from './app.routing.module';
 
@@ -19,6 +20,11 @@ import { RewardsService } from './services/rewards/rewards.service';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
+// Service Worker
+
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
+
 // Configure path to translates
 // export function createTranslateLoader(http: HttpClient) {
 //   return new TranslateHttpLoader(http, '/api/rest/configuration/locale/translations.', '.json');
@@ -33,6 +39,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
     AppRoutingModule,
     HttpClientModule,
     SharedModule,
+    ServiceWorkerModule.register('/ngsw-worker.js', {enabled: environment.production})
     // TranslateModule.forRoot({
     //   loader: {
     //       provide: TranslateLoader,
