@@ -3,6 +3,9 @@ import { Component, OnInit } from '@angular/core';
 // Models
 import { Login } from '../../models/login';
 
+// Servies
+import { AuthenticationService } from '../../services/authentication.service';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -10,7 +13,9 @@ import { Login } from '../../models/login';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private authenticationService: AuthenticationService
+  ) { }
 
   login = new Login();
 
@@ -18,7 +23,9 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.login);
+    // console.log(this.login);
+    this.authenticationService.loginWithEmail(this.login.email, this.login.password).then( () => {
+      console.log('success!!!');
+    });
   }
-
 }
