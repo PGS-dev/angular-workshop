@@ -12,6 +12,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 // Pages
 import { LoginComponent } from './pages/login/login.component';
+import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 
 // Components
 import { AppComponent } from './app.component';
@@ -19,13 +20,18 @@ import { NavbarComponent } from './compontens/navbar/navbar.component';
 
 // Services
 import { AuthenticationService } from './services/authentication.service';
+import { ListOfResultsComponent } from './pages/list-of-results/list-of-results.component';
 
+// Guards
+import { AuthGuard } from './guards/auth.guard';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    NavbarComponent
+    NavbarComponent,
+    ListOfResultsComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +41,8 @@ import { AuthenticationService } from './services/authentication.service';
     FormsModule
   ],
   providers: [
-    AuthenticationService
+    AuthenticationService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })

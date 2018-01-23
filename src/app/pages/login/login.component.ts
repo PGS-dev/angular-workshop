@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
+import { Router } from '@angular/router';
 
 // Models
 import { Login } from '../../models/login';
@@ -13,19 +14,22 @@ import { AuthenticationService } from '../../services/authentication.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(
-    private authenticationService: AuthenticationService
-  ) { }
-
   login = new Login();
 
-  ngOnInit() {
+  constructor(
+    private authenticationService: AuthenticationService,
+    private router: Router
+  ) {
+  }
+
+  ngOnInit () {
+    if (this.authenticationService.isLoggedIn) {
+      this.router.navigate(['/results']);
+    }
+
   }
 
   onSubmit() {
-    // console.log(this.login);
-    this.authenticationService.loginWithEmail(this.login.email, this.login.password).then( () => {
-      console.log('success!!!');
-    });
+    this.authenticationService.loginWithEmail(this.login.email, this.login.password);
   }
 }
