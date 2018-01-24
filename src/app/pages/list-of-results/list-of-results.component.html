@@ -1,8 +1,12 @@
-<button (click)="addResult()">add Item</button>
-<div *ngFor="let item of results">
-    <h1>Użytkownik: {{item.name}}</h1>
-    <h3>CSS: {{item.css}}</h3>
-    <h3>HTML: {{item.hmtl}}</h3>
-    <h3>JS: {{item.js}}</h3>
-    <h3>angularJS: {{item.angularjs}}</h3>
+<div class="container-fluid" *ngFor="let result of results">
+    <div class="row">
+
+        <div class="col-md-3 offset-md-2">
+            <app-result-card [result]="result">
+
+            </app-result-card>
+        </div>
+
+    </div>
 </div>
+

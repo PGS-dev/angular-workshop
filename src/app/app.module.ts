@@ -18,7 +18,8 @@ import { ListOfResultsComponent } from './pages/list-of-results/list-of-results.
 
 // Components
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './compontens/navbar/navbar.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { ResultCardComponent } from './components/result-card/result-card.component';
 
 // Services
 import { AuthenticationService } from './services/authentication.service';
@@ -36,7 +37,8 @@ import { AuthGuard } from './guards/auth.guard';
     LoginComponent,
     NavbarComponent,
     ListOfResultsComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    ResultCardComponent
   ],
   imports: [
     BrowserModule,
