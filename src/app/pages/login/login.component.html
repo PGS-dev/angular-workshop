@@ -1,34 +1,44 @@
-<form class="Signin text-center" (ngSubmit)="onSubmit()" #signinform="ngForm">
-  <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-  <label for="inputEmail" class="sr-only">Email address</label>
-  <input type="email" id="inputEmail" class="Signin-emailInput form-control" placeholder="Email address"
-         required
-         [(ngModel)]="login.email" name="email"
-         #email="ngModel"
-  >
-  <div [hidden]="email.valid || email.pristine"
-    class="alert alert-danger">
-    email is required
-  </div>
-  <label for="inputPassword" class="sr-only">Password</label>
-  <input type="password" id="inputPassword" class="Signin-passwordInput form-control" placeholder="Password"
-         required
-         [(ngModel)]="login.password" name="password"
-         #password="ngModel"
-  >
+<div class="container">
+  <div class="Signin row align-items-center">
+    <div class="col">
+      <form class="Signin-form text-center" (ngSubmit)="onSubmit()" #signinform="ngForm">
+        <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+        <label for="inputEmail" class="sr-only">Email address</label>
+        <input type="email" id="inputEmail" class="Signin-emailInput form-control" placeholder="Email address"
+              required
+              [(ngModel)]="login.email" name="email"
+              #email="ngModel"
+        >
+        <div [hidden]="email.valid || email.pristine"
+          class="alert alert-danger">
+          email is required
+        </div>
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" id="inputPassword" class="Signin-passwordInput form-control" placeholder="Password"
+              required
+              [(ngModel)]="login.password" name="password"
+              #password="ngModel"
+        >
 
-  <div [hidden]="password.valid || password.pristine"
-    class="alert alert-danger">
-    password is required
+        <div [hidden]="password.valid || password.pristine"
+          class="alert alert-danger">
+          password is required
+        </div>
+        <div class="Signin-checkbox checkbox mb-3">
+          <label>
+            <input type="checkbox" value="remember-me"
+                  [(ngModel)]="login.remember" name="remember"
+                  #remember="ngModel"
+            > Remember me
+          </label>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" [disabled]="!signinform.form.valid" type="submit">Sign in</button>
+        <div [hidden]="!isError"
+          class="alert alert-danger">
+          {{error}}
+        </div>
+        <p class="mt-5 mb-3 text-muted">© 2017-2018</p>
+      </form>
+    </div>
   </div>
-  <div class="Signin-checkbox checkbox mb-3">
-    <label>
-      <input type="checkbox" value="remember-me"
-             [(ngModel)]="login.remember" name="remember"
-             #remember="ngModel"
-      > Remember me
-    </label>
-  </div>
-  <button class="btn btn-lg btn-primary btn-block" [disabled]="!signinform.form.valid" type="submit">Sign in</button>
-  <p class="mt-5 mb-3 text-muted">© 2017-2018</p>
-</form>
+</div>

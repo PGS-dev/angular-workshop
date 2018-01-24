@@ -51,14 +51,7 @@ export class AuthenticationService {
 
 
   loginWithEmail(email: string, password: string) {
-    return this.afAuth.auth.signInWithEmailAndPassword(email, password)
-      .then((user) => {
-        this.router.navigate(['/results']);
-      })
-      .catch(error => {
-        console.log(error);
-        throw error;
-      });
+    return this.afAuth.auth.signInWithEmailAndPassword(email, password);
   }
 
   logout(): void {

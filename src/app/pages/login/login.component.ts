@@ -15,6 +15,8 @@ import { AuthenticationService } from '../../services/authentication.service';
 export class LoginComponent implements OnInit {
 
   login = new Login();
+  error: string;
+  isError: boolean;
 
   constructor(
     private authenticationService: AuthenticationService,
@@ -30,6 +32,15 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    this.authenticationService.loginWithEmail(this.login.email, this.login.password);
+    this.authenticationService.loginWithEmail(this.login.email, this.login.password).then(() => {
+      this.router.navigate(['/results']);
+      this.isError = false;
+    })
+    .catch(error => {
+      this.isError = true;
+      console.log(error);
+      this.error = error;
+      throw error;
+    });
   }
 }
