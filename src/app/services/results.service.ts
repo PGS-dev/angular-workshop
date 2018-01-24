@@ -5,6 +5,9 @@ import { Subject } from 'rxjs/Subject';
 // Firebase
 import { AngularFireDatabase} from 'angularfire2/database';
 
+// Modles
+import { Result } from '../models/result';
+
 @Injectable()
 export class ResultsService {
 
@@ -12,5 +15,10 @@ export class ResultsService {
   }
 
   items = this.db.list('results').valueChanges();
+
+  addResult(result: Result) {
+    const itemsRef = this.db.list('results');
+    itemsRef.push(result);
+  }
 
 }

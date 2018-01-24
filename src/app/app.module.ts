@@ -24,6 +24,9 @@ import { NavbarComponent } from './compontens/navbar/navbar.component';
 import { AuthenticationService } from './services/authentication.service';
 import { ResultsService } from './services/results.service';
 
+// Resolvers
+import {LoginResolve } from './pages/login/login.resolve';
+
 // Guards
 import { AuthGuard } from './guards/auth.guard';
 
@@ -46,7 +49,8 @@ import { AuthGuard } from './guards/auth.guard';
   providers: [
     AuthenticationService,
     AuthGuard,
-    ResultsService
+    ResultsService,
+    LoginResolve
   ],
   bootstrap: [AppComponent]
 })

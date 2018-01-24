@@ -9,10 +9,16 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
 // Guards
 import { AuthGuard } from './guards/auth.guard';
 
+// Resolvers
+import { LoginResolve } from './pages/login/login.resolve';
+
 const routes: Routes = [
   {
     path: 'login',
-    component: LoginComponent
+    component: LoginComponent,
+    resolve: {
+      state: LoginResolve
+    }
   },
   {
    path: 'results',

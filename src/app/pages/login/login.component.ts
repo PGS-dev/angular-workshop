@@ -1,5 +1,5 @@
 import { Component, OnInit} from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 // Models
 import { Login } from '../../models/login';
@@ -18,15 +18,15 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private authenticationService: AuthenticationService,
-    private router: Router
+    private router: Router,
+    private activatedRoute: ActivatedRoute
   ) {
   }
 
   ngOnInit () {
-    if (this.authenticationService.isLoggedIn) {
+    if (this.activatedRoute.snapshot.data['state'] != null) {
       this.router.navigate(['/results']);
     }
-
   }
 
   onSubmit() {

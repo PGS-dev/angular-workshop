@@ -25,4 +25,16 @@ export class ListOfResultsComponent implements OnInit {
 
   }
 
+  addResult() {
+    const result = {
+      name: 'Kowalski',
+      js: 50,
+      html: 50,
+      css: 50,
+      angularjs: 50,
+      dupa: 20
+    };
+    this.resultsService.addResult(result);
+  }
+
 }
