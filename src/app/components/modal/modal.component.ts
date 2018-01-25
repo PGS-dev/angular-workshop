@@ -32,7 +32,6 @@ export class ModalComponent implements OnInit {
     }else {
       this.result = this.inputResult;
     }
-
   }
 
   onSubmit() {
@@ -41,7 +40,6 @@ export class ModalComponent implements OnInit {
     }else {
       this.editResult();
     }
-
   }
 
   addResult() {

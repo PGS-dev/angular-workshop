@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { environment } from '../environments/environment';
@@ -21,6 +22,7 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ResultCardComponent } from './components/result-card/result-card.component';
 import { ModalComponent } from './components/modal/modal.component';
+import { GraphComponent } from './components/graph/graph.component';
 
 // Services
 import { AuthenticationService } from './services/authentication.service';
@@ -35,6 +37,9 @@ import { AuthGuard } from './guards/auth.guard';
 // Bootstrap
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
+// 3th part library
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,7 +48,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ListOfResultsComponent,
     PageNotFoundComponent,
     ResultCardComponent,
-    ModalComponent
+    ModalComponent,
+    GraphComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +58,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AppRoutingModule,
     FormsModule,
     AngularFireDatabaseModule,
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
+    NgxChartsModule,
+    BrowserAnimationsModule
   ],
   entryComponents: [
     ModalComponent // for modal
