@@ -15,6 +15,5 @@ export class LoginResolve implements Resolve<any> {
 
   resolve(): Observable<any> {
     return this.authenticationService.authState$.first();
-
   }
 }

@@ -1,8 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 
 // Services
-
 import { AuthenticationService } from '../../services/authentication.service';
+
+// Bootstrap
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+
+// Modal
+import { ModalComponent } from '../modal/modal.component';
 
 @Component({
   selector: 'app-navbar',
@@ -12,9 +17,11 @@ import { AuthenticationService } from '../../services/authentication.service';
 export class NavbarComponent implements OnInit {
 
   isLogin: boolean;
+  closeResult: string;
 
   constructor(
-    public authenticationService: AuthenticationService
+    public authenticationService: AuthenticationService,
+    private modalService: NgbModal
   ) {
     this.authenticationService.authState$.subscribe(user => {
       if (user == null) {
@@ -22,7 +29,6 @@ export class NavbarComponent implements OnInit {
       }else {
         this.isLogin = true;
       }
-
     });
   }
 
@@ -31,5 +37,10 @@ export class NavbarComponent implements OnInit {
 
   logout() {
     this.authenticationService.logout();
+  }
+
+  openModal() {
+    const modalRef = this.modalService.open(ModalComponent);
+    modalRef.componentInstance.name = 'result';
   }
 }

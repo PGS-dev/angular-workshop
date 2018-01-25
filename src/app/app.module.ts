@@ -20,6 +20,7 @@ import { ListOfResultsComponent } from './pages/list-of-results/list-of-results.
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ResultCardComponent } from './components/result-card/result-card.component';
+import { ModalComponent } from './components/modal/modal.component';
 
 // Services
 import { AuthenticationService } from './services/authentication.service';
@@ -31,6 +32,9 @@ import {LoginResolve } from './pages/login/login.resolve';
 // Guards
 import { AuthGuard } from './guards/auth.guard';
 
+// Bootstrap
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +42,8 @@ import { AuthGuard } from './guards/auth.guard';
     NavbarComponent,
     ListOfResultsComponent,
     PageNotFoundComponent,
-    ResultCardComponent
+    ResultCardComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +51,11 @@ import { AuthGuard } from './guards/auth.guard';
     AngularFireAuthModule,
     AppRoutingModule,
     FormsModule,
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    NgbModule.forRoot()
+  ],
+  entryComponents: [
+    ModalComponent // for modal
   ],
   providers: [
     AuthenticationService,

@@ -27,7 +27,6 @@ export class AuthenticationService {
         this.isLoggedIn = false;
         this.displayName = null;
         this.email = null;
-        this.router.navigate(['login']);
       } else {
         this.authStateSource.next(auth);
         this.isLoggedIn = true;

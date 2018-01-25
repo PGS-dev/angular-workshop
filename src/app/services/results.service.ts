@@ -3,7 +3,7 @@ import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 
 // Firebase
-import { AngularFireDatabase} from 'angularfire2/database';
+import { AngularFireDatabase, AngularFireList} from 'angularfire2/database';
 
 // Modles
 import { Result } from '../models/result';
@@ -11,14 +11,28 @@ import { Result } from '../models/result';
 @Injectable()
 export class ResultsService {
 
+  itemsRef: AngularFireList<any>;
+  items: Observable<any[]>;
+
   constructor(public db: AngularFireDatabase) {
+    this.itemsRef = db.list('results');
+    // Use snapshotChanges().map() to store the key
+    this.items = this.itemsRef.snapshotChanges().map(changes => {
+      return changes.map(c => ({ key: c.payload.key, ...c.payload.val() }));
+    });
   }
 
-  items = this.db.list('results').valueChanges();
 
   addResult(result: Result) {
-    const itemsRef = this.db.list('results');
-    itemsRef.push(result);
+    this.itemsRef.push(result);
+  }
+
+  updateresult(key: string, result: Result) {
+    this.itemsRef.update(key, result);
+  }
+
+  removeResult(key: string) {
+    this.itemsRef.remove(key);
   }
 
 }
