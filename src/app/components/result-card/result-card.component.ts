@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 
+// Models
 import { Result } from '../../models/result';
 
 @Component({

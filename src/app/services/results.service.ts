@@ -27,7 +27,7 @@ export class ResultsService {
     this.itemsRef.push(result);
   }
 
-  updateresult(key: string, result: Result) {
+  updateResult(key: string, result: Result) {
     this.itemsRef.update(key, result);
   }
 

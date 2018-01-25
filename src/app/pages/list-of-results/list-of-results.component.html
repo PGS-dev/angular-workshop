@@ -1,8 +1,8 @@
-<div class="container-fluid" *ngFor="let result of results">
+<div class="container-fluid ListOfResults" *ngFor="let result of results">
 	<div class="row">
 
 		<div class="col-md-3 offset-md-2">
-			<app-result-card [result]="result">
+			<app-result-card class="ListOfResults-card" [result]="result" (click)="openEditModal(result)">
 
 			</app-result-card>
 		</div>

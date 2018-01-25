@@ -17,7 +17,6 @@ import { ModalComponent } from '../modal/modal.component';
 export class NavbarComponent implements OnInit {
 
   isLogin: boolean;
-  closeResult: string;
 
   constructor(
     public authenticationService: AuthenticationService,
@@ -41,6 +40,6 @@ export class NavbarComponent implements OnInit {
 
   openModal() {
     const modalRef = this.modalService.open(ModalComponent);
-    modalRef.componentInstance.name = 'result';
+    modalRef.componentInstance.typeOfModal = 'add';
   }
 }

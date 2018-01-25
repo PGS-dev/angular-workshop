@@ -1,12 +1,13 @@
 <div class="modal-header">
-  <h4 class="modal-title">Add new result</h4>
+  <h4 *ngIf="typeOfModal === 'add'" class="modal-title">Add new result</h4>
+  <h4 *ngIf="typeOfModal === 'edit'" class="modal-title">Edit result</h4>
   <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
     <span aria-hidden="true">&times;</span>
   </button>
 </div>
 <div class="modal-body">
 
-  <form (ngSubmit)="addResult()" #resultForm="ngForm">
+  <form (ngSubmit)="onSubmit()" #resultForm="ngForm">
     <div class="form-row">
       <div class="form-group col-md-6">
         <label for="inputName">Name</label>
@@ -71,7 +72,9 @@
     <div class="form-group">
 
     </div>
-    <button type="submit" class="btn btn-primary" [disabled]="!resultForm.form.valid">Add</button>
+    <button *ngIf="typeOfModal === 'add'" type="submit" class="btn btn-primary" [disabled]="!resultForm.form.valid">Add</button>
+    <button *ngIf="typeOfModal === 'edit'" type="submit" class="btn btn-primary" [disabled]="!resultForm.form.valid">Save</button>
+    <button *ngIf="typeOfModal === 'edit'" type="button" class="btn btn-primary" (click)="delete()" >Delete</button>
   </form>
 
 </div>

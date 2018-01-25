@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 // Bootstrap
 import { NgbModal, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
@@ -16,6 +16,9 @@ import { ResultsService } from '../../services/results.service';
 })
 export class ModalComponent implements OnInit {
 
+  @Input() inputResult: Result;
+  @Input() typeOfModal: string;
+
   public result: Result;
 
   constructor (
@@ -24,11 +27,32 @@ export class ModalComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.result = new Result();
+    if (this.typeOfModal === 'add') {
+      this.result = new Result();
+    }else {
+      this.result = this.inputResult;
+    }
+
+  }
+
+  onSubmit() {
+    if (this.typeOfModal === 'add') {
+      this.addResult();
+    }else {
+      this.editResult();
+    }
+
   }
 
   addResult() {
     this.resultsService.addResult(this.result);
+  }
+  editResult() {
+    this.resultsService.updateResult(this.result.key, this.result);
+  }
+
+  delete() {
+    this.resultsService.removeResult(this.result.key);
   }
 
 }
