@@ -8,9 +8,13 @@ import { Result } from '../../models/result';
   templateUrl: './result-card.component.html',
   styleUrls: ['./result-card.component.scss']
 })
-export class ResultCardComponent {
+export class ResultCardComponent implements OnInit {
 
   constructor() { }
 
   @Input() result: Result;
+
+  ngOnInit() {
+    console.log(this.result);
+  }
 }

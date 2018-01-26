@@ -35,10 +35,4 @@ export class ListOfResultsComponent implements OnInit {
 
   ngOnInit() {
   }
-
-  openEditModal(result: Result) {
-    const modalRef = this.modalService.open(ModalComponent);
-    modalRef.componentInstance.inputResult = result;
-    modalRef.componentInstance.typeOfModal = 'edit';
-  }
 }

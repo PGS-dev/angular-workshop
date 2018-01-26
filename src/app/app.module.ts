@@ -30,7 +30,8 @@ import { AuthenticationService } from './services/authentication.service';
 import { ResultsService } from './services/results.service';
 
 // Resolvers
-import {LoginResolve } from './pages/login/login.resolve';
+import { LoginResolve } from './pages/login/login.resolve';
+import { ResultResolver } from './pages/result/result.resolver';
 
 // Guards
 import { AuthGuard } from './guards/auth.guard';
@@ -40,7 +41,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 // 3th part library
 import { NgxChartsModule } from '@swimlane/ngx-charts';
-
 
 @NgModule({
   declarations: [
@@ -72,7 +72,8 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
     AuthenticationService,
     AuthGuard,
     ResultsService,
-    LoginResolve
+    LoginResolve,
+    ResultResolver
   ],
   bootstrap: [AppComponent]
 })

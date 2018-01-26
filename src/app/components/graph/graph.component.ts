@@ -15,16 +15,15 @@ export class GraphComponent implements OnInit {
 
   showXAxis = true;
   showYAxis = true;
-  showLegend = false;
-  showXAxisLabel = true;
-  showYAxisLabel = true;
-  view: any[] = [600, 400];
+  showLegend = true;
+  view: any[] = [800, 500];
+  autoScale = false;
 
   colorScheme = {
     domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA']
   };
 
-  autoScale = false;
+
 
   constructor() { }
 

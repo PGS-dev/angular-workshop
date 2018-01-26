@@ -1,6 +1,5 @@
 <div class="modal-header">
-  <h4 *ngIf="typeOfModal === 'add'" class="modal-title">Add new result</h4>
-  <h4 *ngIf="typeOfModal === 'edit'" class="modal-title">Edit result</h4>
+  <h4 class="modal-title">Add new result</h4>
   <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
     <span aria-hidden="true">&times;</span>
   </button>
@@ -72,16 +71,11 @@
     <div class="form-group">
 
     </div>
-    <button *ngIf="typeOfModal === 'add'" type="submit" class="btn btn-primary" [disabled]="!resultForm.form.valid">Add</button>
-    <button *ngIf="typeOfModal === 'edit'" type="submit" class="btn btn-primary" [disabled]="!resultForm.form.valid">Save</button>
-    <button *ngIf="typeOfModal === 'edit'" type="button" class="btn btn-primary" (click)="delete()" >Delete</button>
+    <button type="submit" class="btn btn-primary" [disabled]="!resultForm.form.valid">Add</button>
+
   </form>
 
 </div>
-
-<app-graph *ngIf="typeOfModal === 'edit'" [result]="result">
-
-</app-graph>
 
 <div class="modal-footer">
   <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>

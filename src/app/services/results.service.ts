@@ -3,16 +3,18 @@ import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 
 // Firebase
-import { AngularFireDatabase, AngularFireList} from 'angularfire2/database';
+import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 
 // Modles
 import { Result } from '../models/result';
+import { Promise } from 'q';
 
 @Injectable()
 export class ResultsService {
 
   itemsRef: AngularFireList<any>;
   items: Observable<any[]>;
+  item: any;
 
   constructor(public db: AngularFireDatabase) {
     this.itemsRef = db.list('results');
@@ -21,7 +23,6 @@ export class ResultsService {
       return changes.map(c => ({ key: c.payload.key, ...c.payload.val() }));
     });
   }
-
 
   addResult(result: Result) {
     this.itemsRef.push(result);

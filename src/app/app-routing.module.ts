@@ -12,6 +12,7 @@ import { AuthGuard } from './guards/auth.guard';
 
 // Resolvers
 import { LoginResolve } from './pages/login/login.resolve';
+import { ResultResolver } from './pages/result/result.resolver';
 
 const routes: Routes = [
   {
@@ -27,9 +28,12 @@ const routes: Routes = [
    canActivate: [AuthGuard]
   },
   {
-    path: 'result',
+    path: 'result/:id',
     component: ResultComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
+    resolve: {
+      result: ResultResolver
+    }
   },
   {
     path: '',

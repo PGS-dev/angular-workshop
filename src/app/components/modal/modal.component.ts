@@ -16,9 +16,6 @@ import { ResultsService } from '../../services/results.service';
 })
 export class ModalComponent implements OnInit {
 
-  @Input() inputResult: Result;
-  @Input() typeOfModal: string;
-
   public result: Result;
 
   constructor (
@@ -27,30 +24,15 @@ export class ModalComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    if (this.typeOfModal === 'add') {
-      this.result = new Result();
-    }else {
-      this.result = this.inputResult;
-    }
+    this.result = new Result();
   }
 
   onSubmit() {
-    if (this.typeOfModal === 'add') {
-      this.addResult();
-    }else {
-      this.editResult();
-    }
+    this.addResult();
   }
 
   addResult() {
     this.resultsService.addResult(this.result);
-  }
-  editResult() {
-    this.resultsService.updateResult(this.result.key, this.result);
-  }
-
-  delete() {
-    this.resultsService.removeResult(this.result.key);
   }
 
 }
