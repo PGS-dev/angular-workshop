@@ -3,17 +3,22 @@ import { Resolve, ActivatedRouteSnapshot } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/first';
 
-import { AuthenticationService } from '../../services/authentication.service';
-
+// firebase
+import { AngularFireAuth} from 'angularfire2/auth';
 
 @Injectable()
 export class LoginResolve implements Resolve<any> {
 
   constructor(
-    private authenticationService: AuthenticationService
+    public afAuth: AngularFireAuth
   ) {}
 
-  resolve(): Observable<any> {
-    return this.authenticationService.authState$.first();
+  resolve(): Observable<boolean> {
+    return this.afAuth.authState.first().map( user => {
+      if (!user) {
+        return false;
+      }
+      return true;
+    });
   }
 }

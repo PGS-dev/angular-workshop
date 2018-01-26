@@ -16,6 +16,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { LoginComponent } from './pages/login/login.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { ListOfResultsComponent } from './pages/list-of-results/list-of-results.component';
+import { ResultComponent } from './pages/result/result.component';
 
 // Components
 import { AppComponent } from './app.component';
@@ -40,6 +41,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 // 3th part library
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,7 +51,8 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
     PageNotFoundComponent,
     ResultCardComponent,
     ModalComponent,
-    GraphComponent
+    GraphComponent,
+    ResultComponent
   ],
   imports: [
     BrowserModule,

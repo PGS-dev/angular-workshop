@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit () {
-    if (this.activatedRoute.snapshot.data['state'] != null) {
+    if (this.activatedRoute.snapshot.data['state']) {
       this.router.navigate(['/results']);
     }
   }

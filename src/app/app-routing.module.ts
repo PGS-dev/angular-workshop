@@ -5,6 +5,7 @@ import { ListOfResultsComponent } from './pages/list-of-results/list-of-results.
 // Pages
 import { LoginComponent } from './pages/login/login.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
+import { ResultComponent } from './pages/result/result.component';
 
 // Guards
 import { AuthGuard } from './guards/auth.guard';
@@ -24,6 +25,11 @@ const routes: Routes = [
    path: 'results',
    component: ListOfResultsComponent,
    canActivate: [AuthGuard]
+  },
+  {
+    path: 'result',
+    component: ResultComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: '',
