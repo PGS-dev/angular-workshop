@@ -1,11 +1,17 @@
-<div class="container-fluid ListOfResults" *ngFor="let result of results">
-	<div class="row">
+<div class="container">
+  
+  <input class="form-control m-2" type="search" placeholder="Search" aria-label="Search" (keyup)="filter($event.target.value)">
 
-		<div class="col-md-3 offset-md-2">
-			<app-result-card class="ListOfResults-card" [result]="result" [routerLink]="['/result', result.key]">
+  <div class="ListOfResults" *ngFor="let result of filterdResult">
+    <div class="row">
 
-			</app-result-card>
-		</div>
+      <div class="col-md-3 offset-md-2">
+        <app-result-card class="ListOfResults-card" [result]="result" [routerLink]="['/result', result.key]">
 
-	</div>
+        </app-result-card>
+      </div>
+
+    </div>
+  </div>
+
 </div>

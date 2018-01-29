@@ -5,35 +5,39 @@ import { Subject } from 'rxjs/Subject';
 // Firebase
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 
-// Modles
+// Models
 import { Result } from '../models/result';
-import { Promise } from 'q';
 
 @Injectable()
 export class ResultsService {
 
-  itemsRef: AngularFireList<any>;
-  items: Observable<any[]>;
+  resultsRef: AngularFireList<any>;
+  results: Observable<any[]>;
   item: any;
 
   constructor(public db: AngularFireDatabase) {
-    this.itemsRef = db.list('results');
-    // Use snapshotChanges().map() to store the key
-    this.items = this.itemsRef.snapshotChanges().map(changes => {
-      return changes.map(c => ({ key: c.payload.key, ...c.payload.val() }));
-    });
+    this.resultsRef = db.list('results');
+    this.results = this.resultsRef.snapshotChanges()
+                        .map(changes => {
+                          return changes.map(c => ({ key: c.payload.key, ...c.payload.val() }));
+                        });
   }
 
   addResult(result: Result) {
-    this.itemsRef.push(result);
+    this.resultsRef.push(result);
   }
 
   updateResult(key: string, result: Result) {
-    this.itemsRef.update(key, result);
+    this.resultsRef.update(key, result);
   }
 
   removeResult(key: string) {
-    this.itemsRef.remove(key);
+    this.resultsRef.remove(key);
   }
 
+  filterData(results, searchTerm) {
+    return results.filter( data => {
+      return data['name'].toLowerCase().indexOf(searchTerm) > -1;
+    });
+  }
 }

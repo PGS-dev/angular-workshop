@@ -18,6 +18,7 @@ import 'rxjs/add/operator/switchMap';
 export class ResultComponent implements OnInit {
 
   result: Result;
+  keyOfResult: string;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -26,6 +27,7 @@ export class ResultComponent implements OnInit {
 
   ngOnInit() {
     this.result = this.activatedRoute.snapshot.data['result'];
+    this.keyOfResult = this.activatedRoute.snapshot.paramMap.get('id');
   }
 
   onSubmit() {
@@ -33,11 +35,11 @@ export class ResultComponent implements OnInit {
   }
 
   editResult() {
-    this.resultsService.updateResult(this.activatedRoute.snapshot.paramMap.get('id'), this.result);
+    this.resultsService.updateResult(this.keyOfResult, this.result);
   }
 
   delete() {
-    this.resultsService.removeResult(this.result.key);
+    this.resultsService.removeResult(this.keyOfResult);
   }
 
 }

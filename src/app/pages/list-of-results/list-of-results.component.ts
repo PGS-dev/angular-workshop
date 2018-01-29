@@ -23,16 +23,27 @@ import { Result } from '../../models/result';
 export class ListOfResultsComponent implements OnInit {
 
   results: any;
+  filterdResult: any;
 
   constructor(
     private resultsService: ResultsService,
     private modalService: NgbModal
   ) {
-    resultsService.items.subscribe((data) => {
+    resultsService.results.subscribe((data) => {
       this.results = data;
+      this.filterdResult = data;
     });
   }
 
   ngOnInit() {
+  }
+
+  filter(searchTerm: string) {
+    searchTerm = searchTerm.toLowerCase();
+    if (searchTerm === '') {
+      this.filterdResult = this.results;
+    }else {
+      this.filterdResult = this.resultsService.filterData(this.results, searchTerm);
+    }
   }
 }
