@@ -1,71 +1,90 @@
 <div class="container">
-  <form (ngSubmit)="onSubmit()" #resultForm="ngForm">
+  <form [formGroup]="resultForm" novalidate>
+
     <div class="form-row">
       <div class="form-group col-md-6">
         <label for="inputName">Name</label>
         <input type="text" class="form-control" id="inputName" placeholder="Name"
-                required
-                [(ngModel)]="result.name" name="name"
-                #name="ngModel"
+               formControlName="name"
         >
-        <div [hidden]="name.valid || name.pristine"
-          class="alert alert-danger">
+
+        <div [hidden]="!resultForm.controls.name.invalid" class="alert alert-danger">
           name is required
         </div>
       </div>
+
       <div class="form-group col-md-6">
         <label for="inputLastName">Last Name</label>
         <input type="text" class="form-control" id="inputLastName" placeholder="Last Name"
-                required
-                [(ngModel)]="result.lastName" name="lastName"
-                #lastName="ngModel"
+               formControlName="lastName"
         >
-        <div [hidden]="lastName.valid || lastName.pristine"
-          class="alert alert-danger">
-          lastName is required
+        <div [hidden]="!resultForm.controls.lastName.invalid" class="alert alert-danger">
+            last name is required
         </div>
       </div>
-
     </div>
 
     <div class="form-row">
       <div class="form-group col-md-2">
         <label for="html">HTML</label>
         <input type="text" class="form-control" id="html"
-                required
-                [(ngModel)]="result.html" name="html"
-                #html="ngModel"
+               formControlName="html"
         >
+        <div *ngIf="resultForm.controls.html.invalid" class="alert alert-danger">
+          <div *ngIf="resultForm.controls.html.errors.maxlength">
+            &bull; max length is 3 numbers
+          </div>
+          <div *ngIf="resultForm.controls.html.errors.pattern">
+            &bull; only digit
+          </div>
+        </div>
       </div>
       <div class="form-group col-md-2">
         <label for="css">CSS</label>
         <input type="text" class="form-control" id="css"
-                required
-                [(ngModel)]="result.css" name="css"
-                #name="ngModel"
+               formControlName="css"
         >
+        <div *ngIf="resultForm.controls.css.invalid" class="alert alert-danger">
+          <div *ngIf="resultForm.controls.css.errors.maxlength">
+            &bull; max length is 3 numbers
+          </div>
+          <div *ngIf="resultForm.controls.css.errors.pattern">
+            &bull; only digit
+          </div>
+        </div>
       </div>
       <div class="form-group col-md-2">
         <label for="js">JS</label>
         <input type="text" class="form-control" id="js"
-                required
-                [(ngModel)]="result.js" name="js"
-                #js="ngModel"
+               formControlName="js"
         >
+        <div *ngIf="resultForm.controls.js.invalid" class="alert alert-danger">
+          <div *ngIf="resultForm.controls.js.errors.maxlength">
+            &bull; max length is 3 numbers
+          </div>
+          <div *ngIf="resultForm.controls.js.errors.pattern">
+            &bull; only digit
+          </div>
+        </div>
       </div>
       <div class="form-group col-md-2">
         <label for="angularJs">AngularJS</label>
         <input type="text" class="form-control" id="angularJs"
-                [(ngModel)]="result.angularjs" name="angularjs"
-                #angularjs="ngModel"
+               formControlName="angularJs"
         >
+        <div *ngIf="resultForm.controls.angularJs.invalid" class="alert alert-danger">
+          <div *ngIf="resultForm.controls.angularJs.errors.maxlength">
+            &bull; max length is 3 numbers
+          </div>
+          <div *ngIf="resultForm.controls.angularJs.errors.pattern">
+            &bull; only digit
+          </div>
+        </div>
       </div>
     </div>
-    <div class="form-group">
 
-    </div>
-    <button type="submit" class="btn btn-primary" [disabled]="!resultForm.form.valid">Save</button>
-    <button type="button" class="btn btn-primary" (click)="delete()" >Delete</button>
+    <button type="submit" class="btn btn-primary" [disabled]="!resultForm.valid">Save</button>
+    <button type="button" class="btn btn-primary" (click)="delete()">Delete</button>
   </form>
 
   <app-graph [result]="result">

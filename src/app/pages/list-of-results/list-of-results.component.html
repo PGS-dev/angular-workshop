@@ -1,6 +1,6 @@
 <div class="container">
   
-  <input class="form-control m-2" type="search" placeholder="Search" aria-label="Search" (keyup)="filter($event.target.value)">
+  <input class="form-control m-5" type="search" placeholder="Search" aria-label="Search" (keyup)="filter($event.target.value)">
 
   <div class="ListOfResults" *ngFor="let result of filterdResult">
     <div class="row">
