@@ -1,20 +1,13 @@
-<div class="media">
-    <img class="align-self-center mr-3" src="http://i.pravatar.cc/80" alt="{{result.name}}">
-    <div class="media-body">
-      <h5 class="mt-0">{{result.name}} {{result.lastName}}</h5>
-      <ul>
-        <li>
-            CSS: {{result.css}}
-        </li>
-        <li>
-            HTML: {{result.html}}
-        </li>
-        <li>
-            JS: {{result.js}}
-        </li>
-        <li>
-            AgnularJS: {{result.angularjs}}
-        </li>
-      </ul>
+<div class="ResultCard">
+    <img class="ResultCard-image" src="assets/images/default_avatar.jpg" alt="Card image cap">
+    <div class="ml-3">
+        <h5 class="text-center">{{result.name | upperCase}} {{result.lastName | upperCase}}</h5>
+        <ul>
+            <li>CSS: {{result.css}}</li>
+            <li>HTML: {{result.html}}</li>
+            <li>JS: {{result.js}}</li>
+            <li>AgnularJS: {{result.angularjs}}</li>
+        </ul>
     </div>
+
 </div>

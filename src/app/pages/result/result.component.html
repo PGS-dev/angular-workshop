@@ -1,93 +1,98 @@
-<div class="container">
-  <form [formGroup]="resultForm" novalidate>
+<div class="container mt-5">
+  <div class="row">
+    <form class="col-md-6" [formGroup]="resultForm" novalidate>
 
-    <div class="form-row">
-      <div class="form-group col-md-6">
-        <label for="inputName">Name</label>
-        <input type="text" class="form-control" id="inputName" placeholder="Name"
-               formControlName="name"
-        >
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputName">Name</label>
+          <input type="text" class="form-control" id="inputName" placeholder="Name"
+                formControlName="name"
+          >
 
-        <div [hidden]="!resultForm.controls.name.invalid" class="alert alert-danger">
-          name is required
+          <div [hidden]="!resultForm.controls.name.invalid" class="alert alert-danger">
+            name is required
+          </div>
+        </div>
+
+        <div class="form-group col-md-6">
+          <label for="inputLastName">Last Name</label>
+          <input type="text" class="form-control" id="inputLastName" placeholder="Last Name"
+                formControlName="lastName"
+          >
+          <div [hidden]="!resultForm.controls.lastName.invalid" class="alert alert-danger">
+              last name is required
+          </div>
         </div>
       </div>
 
-      <div class="form-group col-md-6">
-        <label for="inputLastName">Last Name</label>
-        <input type="text" class="form-control" id="inputLastName" placeholder="Last Name"
-               formControlName="lastName"
-        >
-        <div [hidden]="!resultForm.controls.lastName.invalid" class="alert alert-danger">
-            last name is required
+      <div class="form-row">
+        <div class="form-group col-md-2">
+          <label for="html">HTML</label>
+          <input type="text" class="form-control" id="html"
+                formControlName="html"
+          >
+          <div *ngIf="resultForm.controls.html.invalid" class="alert alert-danger">
+            <div *ngIf="resultForm.controls.html.errors.maxlength">
+              &bull; max length is 3 numbers
+            </div>
+            <div *ngIf="resultForm.controls.html.errors.pattern">
+              &bull; only digit
+            </div>
+          </div>
+        </div>
+        <div class="form-group col-md-2">
+          <label for="css">CSS</label>
+          <input type="text" class="form-control" id="css"
+                formControlName="css"
+          >
+          <div *ngIf="resultForm.controls.css.invalid" class="alert alert-danger">
+            <div *ngIf="resultForm.controls.css.errors.maxlength">
+              &bull; max length is 3 numbers
+            </div>
+            <div *ngIf="resultForm.controls.css.errors.pattern">
+              &bull; only digit
+            </div>
+          </div>
+        </div>
+        <div class="form-group col-md-2">
+          <label for="js">JS</label>
+          <input type="text" class="form-control" id="js"
+                formControlName="js"
+          >
+          <div *ngIf="resultForm.controls.js.invalid" class="alert alert-danger">
+            <div *ngIf="resultForm.controls.js.errors.maxlength">
+              &bull; max length is 3 numbers
+            </div>
+            <div *ngIf="resultForm.controls.js.errors.pattern">
+              &bull; only digit
+            </div>
+          </div>
+        </div>
+        <div class="form-group col-md-2">
+          <label for="angularJs">AngularJS</label>
+          <input type="text" class="form-control" id="angularJs"
+                formControlName="angularJs"
+          >
+          <div *ngIf="resultForm.controls.angularJs.invalid" class="alert alert-danger">
+            <div *ngIf="resultForm.controls.angularJs.errors.maxlength">
+              &bull; max length is 3 numbers
+            </div>
+            <div *ngIf="resultForm.controls.angularJs.errors.pattern">
+              &bull; only digit
+            </div>
+          </div>
         </div>
       </div>
+
+      <button type="submit" class="btn btn-primary" [disabled]="!resultForm.valid">Save</button>
+      <button type="button" class="btn btn-primary" (click)="delete()">Delete</button>
+    </form>
+
+    <div class="cold-md-6">
+      <app-graph [result]="result">
+
+      </app-graph>
     </div>
-
-    <div class="form-row">
-      <div class="form-group col-md-2">
-        <label for="html">HTML</label>
-        <input type="text" class="form-control" id="html"
-               formControlName="html"
-        >
-        <div *ngIf="resultForm.controls.html.invalid" class="alert alert-danger">
-          <div *ngIf="resultForm.controls.html.errors.maxlength">
-            &bull; max length is 3 numbers
-          </div>
-          <div *ngIf="resultForm.controls.html.errors.pattern">
-            &bull; only digit
-          </div>
-        </div>
-      </div>
-      <div class="form-group col-md-2">
-        <label for="css">CSS</label>
-        <input type="text" class="form-control" id="css"
-               formControlName="css"
-        >
-        <div *ngIf="resultForm.controls.css.invalid" class="alert alert-danger">
-          <div *ngIf="resultForm.controls.css.errors.maxlength">
-            &bull; max length is 3 numbers
-          </div>
-          <div *ngIf="resultForm.controls.css.errors.pattern">
-            &bull; only digit
-          </div>
-        </div>
-      </div>
-      <div class="form-group col-md-2">
-        <label for="js">JS</label>
-        <input type="text" class="form-control" id="js"
-               formControlName="js"
-        >
-        <div *ngIf="resultForm.controls.js.invalid" class="alert alert-danger">
-          <div *ngIf="resultForm.controls.js.errors.maxlength">
-            &bull; max length is 3 numbers
-          </div>
-          <div *ngIf="resultForm.controls.js.errors.pattern">
-            &bull; only digit
-          </div>
-        </div>
-      </div>
-      <div class="form-group col-md-2">
-        <label for="angularJs">AngularJS</label>
-        <input type="text" class="form-control" id="angularJs"
-               formControlName="angularJs"
-        >
-        <div *ngIf="resultForm.controls.angularJs.invalid" class="alert alert-danger">
-          <div *ngIf="resultForm.controls.angularJs.errors.maxlength">
-            &bull; max length is 3 numbers
-          </div>
-          <div *ngIf="resultForm.controls.angularJs.errors.pattern">
-            &bull; only digit
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <button type="submit" class="btn btn-primary" [disabled]="!resultForm.valid">Save</button>
-    <button type="button" class="btn btn-primary" (click)="delete()">Delete</button>
-  </form>
-
-  <app-graph [result]="result">
-
-  </app-graph>
+  
+  </div>
 </div>

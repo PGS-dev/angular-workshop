@@ -16,7 +16,7 @@ export class GraphComponent implements OnInit {
   showXAxis = true;
   showYAxis = true;
   showLegend = true;
-  view: any[] = [800, 500];
+  view: any[] = [500, 300];
   autoScale = false;
 
   colorScheme = {

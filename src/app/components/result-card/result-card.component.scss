@@ -1,0 +1,9 @@
+.ResultCard {
+    width: 600px;
+    display: flex;
+    justify-content: center;
+
+    &-image {
+        height: 200px;
+    }
+}

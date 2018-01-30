@@ -39,6 +39,9 @@ import { AuthGuard } from './guards/auth.guard';
 // Bootstrap
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
+// Pipes
+import { UpperCasePipe } from './pipes/upper-case.pipe';
+
 // 3th part library
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 
@@ -52,7 +55,8 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
     ResultCardComponent,
     ModalComponent,
     GraphComponent,
-    ResultComponent
+    ResultComponent,
+    UpperCasePipe
   ],
   imports: [
     BrowserModule,
