@@ -22,8 +22,8 @@ import { Result } from '../../models/result';
 })
 export class ListOfResultsComponent implements OnInit {
 
-  results: any;
-  filterdResult: any;
+  results: Result[];
+  filterdResult: Result[];
 
   constructor(
     private resultsService: ResultsService,
