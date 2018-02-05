@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 // Services
-import { AuthenticationService } from '../../services/authentication.service';
+import { AuthenticationService } from '../../services/auth/authentication.service';
 
 // Bootstrap
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';

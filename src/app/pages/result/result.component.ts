@@ -6,7 +6,7 @@ import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms'
 import { Result } from '../../models/result';
 
 // Services
-import { ResultsService } from '../../services/results.service';
+import { ResultsService } from '../../services/result/results.service';
 @Component({
   selector: 'app-result',
   templateUrl: './result.component.html',

@@ -7,7 +7,7 @@ import { NgbModal, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import { Result } from '../../models/result';
 
 // Service
-import { ResultsService } from '../../services/results.service';
+import { ResultsService } from '../../services/result/results.service';
 
 @Component({
   selector: 'app-modal',

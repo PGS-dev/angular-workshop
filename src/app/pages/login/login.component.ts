@@ -5,7 +5,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Login } from '../../models/login';
 
 // Servies
-import { AuthenticationService } from '../../services/authentication.service';
+import { AuthenticationService } from '../../services/auth/authentication.service';
 
 @Component({
   selector: 'app-login',

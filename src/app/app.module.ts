@@ -26,8 +26,8 @@ import { ModalComponent } from './components/modal/modal.component';
 import { GraphComponent } from './components/graph/graph.component';
 
 // Services
-import { AuthenticationService } from './services/authentication.service';
-import { ResultsService } from './services/results.service';
+import { AuthenticationService } from './services/auth/authentication.service';
+import { ResultsService } from './services/result/results.service';
 
 // Resolvers
 import { LoginResolve } from './pages/login/login.resolve';

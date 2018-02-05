@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 // Services
-import { ResultsService } from '../../services/results.service';
+import { ResultsService } from '../../services/result/results.service';
 
 // Components
 import { ResultCardComponent } from '../../components/result-card/result-card.component';
