@@ -6,7 +6,7 @@ import { HttpClient } from "@angular/common/http";
 
 @Injectable()
 export class UserResolver implements Resolve<UserModel> {
-  private USER_URL = 'https://jsonplaceholder.typicode.com/users/1';
+  private USER_URL = 'https://jsonplaceholder.typicode.com/users/';
 
   constructor(
     private http: HttpClient
@@ -16,6 +16,6 @@ export class UserResolver implements Resolve<UserModel> {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<UserModel> {
-    return this.http.get<UserModel>(this.USER_URL);
+    return this.http.get<UserModel>(this.USER_URL + route.params.id);
   }
 }
