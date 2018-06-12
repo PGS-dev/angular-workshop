@@ -14,9 +14,9 @@ export class UsersComponent implements OnInit {
   constructor(
     private route: ActivatedRoute
   ) {
-    const model = new UsersModel(this.route.snapshot.data.users);
+    const usersModel  = new UsersModel(this.route.snapshot.data.users);
 
-    this.users = model.getUsers();
+    this.users = usersModel.getUsers();
   }
 
   ngOnInit() {}

@@ -4,7 +4,9 @@ export default class UsersModel {
   private users: UserModel[];
 
   constructor(usersCollection: UserModel[]) {
-    this.users = usersCollection;
+    this.users = usersCollection.map((user) => {
+      return new UserModel(user);
+    });
   }
 
   public getUsers(): UserModel[] {
