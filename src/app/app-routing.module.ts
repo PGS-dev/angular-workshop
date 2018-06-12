@@ -5,6 +5,7 @@ import { UsersComponent } from './pages/users/users.component';
 
 import { UserComponent } from "./components/user/user.component";
 import { UserResolver } from "./components/user/user.resolver";
+import { UsersResolver } from "./pages/users/users.resolver";
 
 const routes: Routes = [
   {
@@ -14,7 +15,10 @@ const routes: Routes = [
   },
   {
     path: 'users',
-    component: UsersComponent
+    component: UsersComponent,
+    resolve: {
+      users: UsersResolver
+    }
   },
   {
     path: 'users/user/:id',
@@ -28,6 +32,6 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
-  providers: [UserResolver]
+  providers: [UserResolver, UsersResolver]
 })
 export class AppRoutingModule { }

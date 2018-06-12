@@ -13,9 +13,8 @@ export class UserComponent implements OnInit {
   constructor(
     private route: ActivatedRoute
   ) {
-    this.user = this.route.snapshot.data.user;
+    this.user = new UserModel(this.route.snapshot.data.user);
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 }

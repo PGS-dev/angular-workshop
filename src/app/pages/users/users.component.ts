@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-
-import { UsersService } from "./users.service";
-
+import { ActivatedRoute } from "@angular/router";
 import UsersModel from "../../common/models/users/users-model";
+import UserModel from "../../common/models/user/user-model";
 
 @Component({
   selector: 'aw3-users',
@@ -10,18 +9,15 @@ import UsersModel from "../../common/models/users/users-model";
   styleUrls: ['./users.component.scss']
 })
 export class UsersComponent implements OnInit {
-  public users: UsersModel;
+  public users: UserModel[];
 
   constructor(
-    private usersService: UsersService
-  ) { }
+    private route: ActivatedRoute
+  ) {
+    const model = new UsersModel(this.route.snapshot.data.users);
 
-  ngOnInit() {
-    this.usersService.getUsers().subscribe(
-      (users) => {
-        this.users = users;
-        console.log(this.users);
-      }
-    )
+    this.users = model.getUsers();
   }
+
+  ngOnInit() {}
 }
