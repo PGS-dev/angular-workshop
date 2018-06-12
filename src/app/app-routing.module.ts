@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { UsersComponent } from './pages/users/users.component';
 
 import { UserComponent } from "./components/user/user.component";
+import { UserResolver } from "./components/user/user.resolver";
 
 const routes: Routes = [
   {
@@ -17,12 +18,16 @@ const routes: Routes = [
   },
   {
     path: 'users/user/:id',
-    component: UserComponent
+    component: UserComponent,
+    resolve: {
+      user: UserResolver
+    }
   }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [UserResolver]
 })
 export class AppRoutingModule { }
