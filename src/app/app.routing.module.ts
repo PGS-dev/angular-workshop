@@ -1,7 +1,5 @@
 import { RouterModule, Routes } from '@angular/router';
 
-// Pages without lazy loading
-
 const appRoutes: Routes = [
     {
         path: 'rewards',

@@ -1,8 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 
-// Components
-import { SearchComponent } from '../../components/search/search.component';
-
 // 3th part library
 // import { TranslateService } from '@ngx-translate/core';
 
