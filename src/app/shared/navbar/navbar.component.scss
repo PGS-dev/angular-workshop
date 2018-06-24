@@ -1,7 +1,7 @@
 .Navbar {
     height: 70px;
     width: 100%;
-    border-bottom: solid #FFCA37 5px;
+    border-bottom: solid #F4762B 5px;
 
     &-image {
         background-image: url('../../../assets/logo.png');
@@ -10,7 +10,7 @@
         width: 140px;
         background-position: center;
         transition: opacity .3s ease-in-out;
-        background-size: 105px 47px;
+        background-size: 60%;
         display: inline;
         float:left;
     }
