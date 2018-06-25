@@ -1,11 +1,10 @@
-import {TestBed, inject} from '@angular/core/testing';
+import {getTestBed, TestBed} from '@angular/core/testing';
 import {HttpClientTestingModule, HttpTestingController} from "@angular/common/http/testing";
 import {UsersService} from './users.service';
-import {HttpClient} from "@angular/common/http";
-import {async} from "q";
 
 describe('UsersService', () => {
-  let httpClient: HttpClient;
+  let injector: TestBed;
+  let usersService: UsersService;
   let httpTestingController: HttpTestingController;
 
   beforeEach(() => {
@@ -14,62 +13,30 @@ describe('UsersService', () => {
       providers: [UsersService]
     });
 
-    httpClient = TestBed.get(HttpClient);
+    injector = getTestBed();
+    usersService = injector.get(UsersService);
     httpTestingController = TestBed.get(HttpTestingController);
   });
 
-  it('should be created', inject([UsersService], (service: UsersService) => {
-    expect(service).toBeTruthy();
-  }));
-
-  it('should invoke HTTP request for users', () => {
-    const usersDataMock = [
+  it('getUsers() should retrieve list of users', () => {
+    const EXPECTED_DATA = [
       { id: 0 },
       { id: 1 }
     ];
-    const urlMock = 'https://jsonplaceholder.typicode.com/users';
 
-    httpClient.get(urlMock)
-      .subscribe((data) => {
-        expect(data).toEqual(usersDataMock);
-      });
+    usersService.getUsers().subscribe((users: any) => {
+      expect(users).toEqual(EXPECTED_DATA);
+      expect(users.length).toBe(2);
+    });
 
-    const req = httpTestingController.expectOne(urlMock);
+    const EXPECTED_URL = 'https://jsonplaceholder.typicode.com/users';
+    const EXPECTED_REQUEST = httpTestingController.expectOne(EXPECTED_URL);
 
-    expect(req.request.method).toEqual('GET');
-
-    req.flush(usersDataMock);
-
-    httpTestingController.verify();
+    expect(EXPECTED_REQUEST.request.method).toBe('GET');
+    expect(EXPECTED_REQUEST.request.url).toBe(EXPECTED_URL);
   });
 
   afterEach(() => {
     httpTestingController.verify();
-  });
-});
-
-xdescribe('UsersService', () => {
-  let httpClientSpy: { get: jasmine.Spy };
-  let usersService: UsersService;
-
-  beforeEach(() => {
-    httpClientSpy = jasmine.createSpyObj('HttpClient', ['get']);
-    usersService = new UsersService(<any> httpClientSpy);
-  });
-
-  it('', () => {
-    const expectedUsers = [
-      { id: 0 },
-      { id: 1 }
-    ];
-
-    httpClientSpy.get.and.returnValue(async(expectedUsers));
-
-    usersService.getUsers().subscribe(
-      users => expect(users).toEqual(expectedUsers, 'expected users'),
-      fail
-    );
-
-    expect(httpClientSpy.get.calls.count()).toBe(1, 'one call');
   });
 });

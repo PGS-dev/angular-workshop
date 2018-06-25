@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
-import UsersModelFactory from '../../common/models/users/users-model.factory'
 import {UsersService} from "./users.service";
 import {Observable} from "rxjs/index";
 import UsersModel from "../../common/models/users/users-model";
@@ -15,7 +14,6 @@ export class UsersComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private usersModelFactory: UsersModelFactory,
     private usersService: UsersService
   ) {}
 

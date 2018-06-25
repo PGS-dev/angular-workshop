@@ -20,7 +20,7 @@ export class UserComponent implements OnInit {
 
   ngOnInit() {
     this.RxjsService.simpleObservable().subscribe(val => console.log(val));
-    this.RxjsService.simpleObservable2(2).subscribe(val => console.log(val);
+    this.RxjsService.simpleObservable2(2).subscribe(val => console.log(val));
 
 
     this.RxjsService.onInputChange().subscribe((val) => console.log(val));

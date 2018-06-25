@@ -18,8 +18,4 @@ export class UsersService {
   public getUsers(): Observable<UsersModel> {
     return this.http.get<UsersModel>(this.USERS_URL);
   }
-
-  public addUser(toCollection): void {
-
-  }
 }

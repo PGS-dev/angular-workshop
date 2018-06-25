@@ -2,45 +2,29 @@ import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {UsersComponent} from './users.component';
 import {RouterTestingModule} from "@angular/router/testing";
-import UsersModelFactory from "../../common/models/users/users-model.factory";
 import {ActivatedRoute} from "@angular/router";
-import UserModel from "../../common/models/user/user-model";
+import {UsersService} from "./users.service";
+import {UsersServiceMock} from "./mocks/users.service";
+import {ActivatedRouteMock} from "../../common/mocks/router";
 
 describe('UsersComponent', () => {
   let component: UsersComponent;
   let fixture: ComponentFixture<UsersComponent>;
-  let usersDataMock: UserModel[] = [
-    new UserModel({ id: 0 }),
-    new UserModel({ id: 1 }),
-  ];
-  let usersModelFactory: UsersModelFactory;
-  let spyOnCreate: jasmine.Spy;
+  let usersServiceMock: UsersServiceMock;
+  let activatedRouterMock: ActivatedRouteMock;
 
   beforeEach(async(() => {
+    usersServiceMock = new UsersServiceMock();
+    activatedRouterMock = new ActivatedRouteMock();
+
     TestBed
       .configureTestingModule({
         imports: [RouterTestingModule],
-        declarations: [UsersComponent]
-      })
-      .overrideComponent(UsersComponent, {
-        set: {
-          providers: [
-            {
-              provide: ActivatedRoute, useValue: {
-                snapshot: {
-                  data: {
-                    users: usersDataMock
-                  }
-                }
-              }
-            },
-            // {
-            //   provide: UsersModelFactory, useValue: {
-            //     create: () => usersDataMock
-            //   }
-            // }
-          ]
-        }
+        declarations: [UsersComponent],
+        providers: [
+          { provide: UsersService, useValue: usersServiceMock },
+          { provide: ActivatedRoute, useValue: activatedRouterMock }
+        ]
       })
       .compileComponents();
   }));
@@ -52,10 +36,6 @@ describe('UsersComponent', () => {
   });
 
   it('should create', () => {
-    // usersModelFactory = fixture.debugElement.injector.get(UsersModelFactory);
-    // spyOnCreate = spyOn(usersModelFactory, 'create').and.returnValue(usersDataMock);
-
     expect(component).toBeTruthy();
-    expect(component.users).toEqual(usersDataMock);
   });
 });
