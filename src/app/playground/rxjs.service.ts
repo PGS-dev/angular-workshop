@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
 import {AsyncSubject, fromEvent, Observable, of, range} from "rxjs/index";
-import {filter, map, mergeAll, mergeMap} from "rxjs/internal/operators";
+import {filter, map} from "rxjs/internal/operators";
 import {endWith} from "rxjs/internal/operators/endWith";
 import {Subject} from 'rxjs/internal/Subject';
 import {HttpClient} from "@angular/common/http";
-import {flatMap} from "tslint/lib/utils";
 
 @Injectable({
   providedIn: 'root'
@@ -36,8 +35,7 @@ export class RxjsService {
   public fromRange(): Observable<number> {
     return range(0, 10)
       .pipe(
-        filter(x => x % 5 === 0),
-        endWith('Done!')
+        filter(x => x % 5 === 0)
       );
   }
 
@@ -57,7 +55,7 @@ export class RxjsService {
       .pipe(
         filter(val => (<HTMLInputElement>val.target).value.includes('@')),
         map(val => (<HTMLInputElement>val.target).value)
-      )
+      );
   }
 
   public observableChain(): Subject<any> {
