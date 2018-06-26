@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from "@angular/router";
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {UsersService} from "./users.service";
-import {Observable} from "rxjs/index";
+import {Subscription} from "rxjs/index";
 import UsersModel from "../../common/models/users/users-model";
 
 @Component({
@@ -9,15 +8,23 @@ import UsersModel from "../../common/models/users/users-model";
   templateUrl: './users.component.html',
   styleUrls: ['./users.component.scss']
 })
-export class UsersComponent implements OnInit {
-  public users$: Observable<UsersModel>;
+export class UsersComponent implements OnInit, OnDestroy { // Describe your class with OnDestroy interface.
+  public users: UsersModel;
+  public sub: Subscription;
 
   constructor(
-    private route: ActivatedRoute,
     private usersService: UsersService
   ) {}
 
   ngOnInit() {
-    this.users$ = this.usersService.getUsers();
+    this.sub = this.usersService.getUsers().subscribe((users) => {
+      this.users = users;
+    });
+  }
+
+  ngOnDestroy() { // Unsubscribe on every component destroy event.
+    if (this.sub) {
+      this.sub.unsubscribe();
+    }
   }
 }

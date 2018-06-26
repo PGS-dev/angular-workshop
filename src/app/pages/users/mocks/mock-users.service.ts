@@ -2,7 +2,10 @@ import { SpyObject } from '../../../common/mocks/helpers';
 import { UsersService } from '../users.service';
 import Spy = jasmine.Spy;
 
-export class UsersServiceMock extends SpyObject {
+/**
+ * Mock of observable for users.
+ */
+export class MockUsersService extends SpyObject {
   getUsersSpy: Spy;
   fakeResponse: any;
 
@@ -10,7 +13,7 @@ export class UsersServiceMock extends SpyObject {
     super(UsersService);
 
     this.fakeResponse = null;
-    this.getUsersSpy = this.spy('getAll').andReturn(this);
+    this.getUsersSpy = this.spy('getUsers').andReturn(this);
   }
 
   public subscribe(callback: any) {

@@ -34,6 +34,8 @@ describe('UsersService', () => {
 
     expect(EXPECTED_REQUEST.request.method).toBe('GET');
     expect(EXPECTED_REQUEST.request.url).toBe(EXPECTED_URL);
+
+    EXPECTED_REQUEST.flush(EXPECTED_DATA);
   });
 
   afterEach(() => {

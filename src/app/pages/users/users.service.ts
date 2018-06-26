@@ -9,7 +9,7 @@ import UsersModel from "../../common/models/users/users-model";
   providedIn: 'root'
 })
 export class UsersService {
-  private USERS_URL: string = 'https://jsonplaceholder.typicode.com/users';
+  private USERS_URL = 'https://jsonplaceholder.typicode.com/users';
 
   constructor(
     private http: HttpClient

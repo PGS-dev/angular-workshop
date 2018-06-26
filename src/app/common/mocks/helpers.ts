@@ -1,3 +1,5 @@
+/// <reference path="../../../../node_modules/@types/jasmine/index.d.ts"‌​/>
+
 export interface GuinessCompatibleSpy extends jasmine.Spy {
   andReturn(val: any): void;
   andCallFake(fn: Function): GuinessCompatibleSpy;

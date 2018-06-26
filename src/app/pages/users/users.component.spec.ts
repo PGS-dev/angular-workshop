@@ -4,18 +4,18 @@ import {UsersComponent} from './users.component';
 import {RouterTestingModule} from "@angular/router/testing";
 import {ActivatedRoute} from "@angular/router";
 import {UsersService} from "./users.service";
-import {UsersServiceMock} from "./mocks/users.service";
-import {ActivatedRouteMock} from "../../common/mocks/router";
+import {MockUsersService} from "./mocks/mock-users.service";
+import {MockActivatedRoute} from "../../common/mocks/router";
 
 describe('UsersComponent', () => {
   let component: UsersComponent;
   let fixture: ComponentFixture<UsersComponent>;
-  let usersServiceMock: UsersServiceMock;
-  let activatedRouterMock: ActivatedRouteMock;
+  let usersServiceMock: MockUsersService;
+  let activatedRouterMock: MockActivatedRoute;
 
   beforeEach(async(() => {
-    usersServiceMock = new UsersServiceMock();
-    activatedRouterMock = new ActivatedRouteMock();
+    usersServiceMock = new MockUsersService();
+    activatedRouterMock = new MockActivatedRoute();
 
     TestBed
       .configureTestingModule({
@@ -37,5 +37,23 @@ describe('UsersComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('ngOnInit() should call service for the list of users', () => {
+    const USERS_MOCK = [
+      { id: 0, name: 'John Doe' },
+      { id: 1, name: 'Catherine Jones' }
+    ];
+
+    usersServiceMock.setResponse(USERS_MOCK);
+    fixture.detectChanges();
+
+    // Verify that service was called to fetch data.
+    expect(usersServiceMock.getUsersSpy).toHaveBeenCalled();
+
+    // Verify that subscriber returns correct data.
+    usersServiceMock.getUsersSpy().subscribe((users) => {
+      expect(users).toEqual(USERS_MOCK);
+    });
   });
 });

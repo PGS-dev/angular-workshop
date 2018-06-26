@@ -1,15 +1,21 @@
 import { ActivatedRoute, Params } from '@angular/router';
 import { Observable, of } from 'rxjs';
 
-export class ActivatedRouteMock extends ActivatedRoute {
+export class MockActivatedRoute extends ActivatedRoute {
   params: Observable<Params>;
+  snapshot: any = { data : {}};
 
-  constructor(parameters?: { [key: string]: any; }) {
+  constructor(parameters?: { [key: string]: any; }, dataFieldName?: string) {
     super();
+
     this.params = of(parameters);
+
+    if (dataFieldName) {
+      this.snapshot.data[dataFieldName] = parameters;
+    }
   }
 }
 
-export class RouterMock {
+export class MockRouter {
   navigate = jasmine.createSpy('navigate');
 }
