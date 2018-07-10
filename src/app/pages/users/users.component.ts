@@ -1,7 +1,8 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {UsersService} from "./users.service";
 import {Subscription} from "rxjs/index";
-import UsersModel from "../../common/models/users/users-model";
+import UsersModelFactory from "../../common/models/users/users-model.factory";
+import UserModel from "../../common/models/user/user-model";
+import {UsersService} from "./users.service";
 
 @Component({
   selector: 'aw3-users',
@@ -9,16 +10,17 @@ import UsersModel from "../../common/models/users/users-model";
   styleUrls: ['./users.component.scss']
 })
 export class UsersComponent implements OnInit, OnDestroy { // Describe your class with OnDestroy interface.
-  public users: UsersModel;
+  public users: UserModel[];
   public sub: Subscription;
 
   constructor(
+    private usersModelFactory: UsersModelFactory,
     private usersService: UsersService
   ) {}
 
   ngOnInit() {
-    this.sub = this.usersService.getUsers().subscribe((users) => {
-      this.users = users;
+    this.sub = this.usersService.getUsersAngularFirestoreCollection().valueChanges().subscribe((users) => {
+      this.users = this.usersModelFactory.create(users).getUsers();
     });
   }
 

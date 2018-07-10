@@ -7,6 +7,11 @@ import { UsersComponent } from './pages/users/users.component';
 import { UserComponent } from './components/user/user.component';
 import { HttpClientModule } from "@angular/common/http";
 import { CommonModule } from "@angular/common";
+import { environment } from "../environments/environment";
+import { AngularFireModule } from "angularfire2";
+import { AngularFirestoreModule } from "angularfire2/firestore";
+import { AngularFireAuthModule } from "angularfire2/auth";
+import { AngularFireStorageModule } from "angularfire2/storage";
 
 @NgModule({
   declarations: [
@@ -18,7 +23,11 @@ import { CommonModule } from "@angular/common";
     BrowserModule,
     CommonModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
+    AngularFireAuthModule,
+    AngularFireStorageModule
   ],
   providers: [],
   bootstrap: [AppComponent]

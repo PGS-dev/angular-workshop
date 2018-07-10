@@ -1,9 +1,11 @@
-<div>
-  users works!
-
+<div *ngIf="users">
   <ul>
     <li *ngFor="let user of users">
       <a [routerLink]="['/users/user', user.id]">{{ user.name }}</a>
     </li>
-</ul>
+  </ul>
+</div>
+
+<div *ngIf="!users">
+  Users are loading...
 </div>

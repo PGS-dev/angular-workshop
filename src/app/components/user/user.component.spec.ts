@@ -6,27 +6,39 @@ import {MockActivatedRoute} from "../../common/mocks/router";
 import UserModelFactory from "../../common/models/user/user-model.factory";
 import {MockUserModelFactory} from "../../common/models/user/mocks/mock-user-model.factory";
 import UserModel from '../../common/models/user/user-model';
+import {MockUserService} from "./mocks/mock-user.service";
+import {UserService} from "./user.service";
 
 describe('UserComponent', () => {
   let component: UserComponent;
   let fixture: ComponentFixture<UserComponent>;
   let mockUserModelFactory: MockUserModelFactory;
-  let activatedRouterMock: MockActivatedRoute;
-  const USER_MOCK = new UserModel({
-    id: 0,
-    name: 'John Doe'
-  });
+  let mockUserService: MockUserService;
+  let mockActivatedRouter: MockActivatedRoute;
+  const USER_DATA = {
+    id: 1,
+    name: 'John Doe',
+    company: {},
+    address: {}
+  };
+  const USER_MOCK = new UserModel(USER_DATA);
 
   beforeEach(async(() => {
-    mockUserModelFactory = new MockUserModelFactory(USER_MOCK);
-    activatedRouterMock = new MockActivatedRoute(USER_MOCK, 'user');
+    mockUserModelFactory = new MockUserModelFactory(USER_DATA);
+    mockUserService = new MockUserService(USER_DATA);
+    mockActivatedRouter = new MockActivatedRoute({
+      params: {
+        id: USER_DATA.id
+      }
+    });
 
     TestBed
       .configureTestingModule({
         declarations: [UserComponent],
         providers: [
-          { provide: ActivatedRoute, useValue: activatedRouterMock },
-          { provide: UserModelFactory, useValue: mockUserModelFactory }
+          { provide: ActivatedRoute, useValue: mockActivatedRouter},
+          { provide: UserModelFactory, useValue: mockUserModelFactory },
+          { provide: UserService, useValue: mockUserService }
         ]
       })
       .compileComponents();
@@ -35,25 +47,29 @@ describe('UserComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(UserComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
   });
 
   it('should create', () => {
+    fixture.detectChanges();
+
     expect(component).toBeTruthy();
   });
 
-  it('ngOnInit() should create new user instance via its user factory', () => {
-    // Verify that:
-    // - user creation was called with user factory,
-    // - snapshot equals correct data,
-    // - new instance of user was applied to public member user.
-    expect(mockUserModelFactory.createSpy).toHaveBeenCalled();
-    expect(activatedRouterMock.snapshot.data.user).toEqual(USER_MOCK);
-    expect(component.user).toEqual(USER_MOCK);
+  it('ngOnInit() should call service to get AngularFirestoreCollection', () => {
+    fixture.detectChanges();
 
-    const compiledComponent = fixture.debugElement.nativeElement;
+    expect(mockUserService.getUserQueryAngularFirestoreCollectionSpy).toHaveBeenCalledWith(
+      USER_DATA.id
+    );
+  });
 
-    // Verify that name was applied to H1 HTML element.
-    expect(compiledComponent.querySelector('h1').innerHTML).toBe(USER_MOCK.name);
+  it('ngOnInit() should call factory to create user instance and ' +
+    'assign it to user public member', () => {
+    fixture.detectChanges();
+
+    mockUserService.getUserQueryAngularFirestoreCollectionSpy().valueChanges().subscribe((user) => {
+      expect(user).toEqual(USER_DATA);
+      expect(component.user).toEqual(USER_MOCK);
+    });
   });
 });

@@ -3,7 +3,15 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebase: {
+    apiKey: 'AIzaSyC4iycZwVL9Bkj5rIGOpfBz2XvGXmkbwuA',
+    authDomain: 'angular-pgs-workshop.firebaseapp.com',
+    databaseURL: 'https://angular-pgs-workshop.firebaseio.com',
+    projectId: 'angular-pgs-workshop',
+    storageBucket: 'angular-pgs-workshop.appspot.com',
+    messagingSenderId: '278635024829'
+  }
 };
 
 /*

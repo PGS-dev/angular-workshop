@@ -1,7 +1,78 @@
-<pre>
+<div *ngIf="user; let user">
   <h1>{{ user.name }}</h1>
-  <div>{{ user.id }}</div>
 
-  <input type="text" id="my-input">
-  <button id="my-button">Click</button>
-</pre>
+  <pre>
+    <table border="1" width="100%" cellpadding="5">
+      <tr>
+        <td>id: number</td>
+        <td>{{ user.id }}</td>
+      </tr>
+      <tr>
+        <td>name: string</td>
+        <td>{{ user.name }}</td>
+      </tr>
+      <tr>
+        <td>username: string</td>
+        <td>{{ user.username }}</td>
+      </tr>
+      <tr>
+        <td>email: string</td>
+        <td>{{ user.email }}</td>
+      </tr>
+      <tr>
+        <td>address: any</td>
+        <td>
+          <table border="1">
+            <tr>
+              <td>user.address.city: string</td>
+              <td>{{ user.address.city }}</td>
+            </tr>
+          </table>
+          <table border="1">
+            <tr>
+              <td>user.address.street: string</td>
+              <td>{{ user.address.street }}</td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td>phone: string</td>
+        <td>{{ user.phone }}</td>
+      </tr>
+      <tr>
+        <td>website: string</td>
+        <td>{{ user.website }}</td>
+      </tr>
+      <tr>
+        <td>company: object</td>
+        <td>
+          <table border="1">
+            <tr>
+              <td>user.company.city: string</td>
+              <td>{{ user.company.city }}</td>
+            </tr>
+          </table>
+          <table border="1">
+            <tr>
+              <td>user.company.street: string</td>
+              <td>{{ user.company.name }}</td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </pre>
+</div>
+
+<div *ngIf="!user">
+  User data is loading...
+</div>
+
+<!--
+We can also use `?` operator which says the Angular that we are waiting for user to be defined.
+I think it's better to apply ngIf statement cause of DRY rule -
+we'd need to write user? every time we want to access user's properties.
+{{ user?.name }}
+{{ user?.address.street }} and so on...
+-->
