@@ -12,12 +12,15 @@ import { AngularFireModule } from "angularfire2";
 import { AngularFirestoreModule } from "angularfire2/firestore";
 import { AngularFireAuthModule } from "angularfire2/auth";
 import { AngularFireStorageModule } from "angularfire2/storage";
+import { LoginComponent } from './components/login/login.component';
+import { AuthService } from "./common/services/auth/auth.service";
 
 @NgModule({
   declarations: [
     AppComponent,
     UsersComponent,
-    UserComponent
+    UserComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +32,7 @@ import { AngularFireStorageModule } from "angularfire2/storage";
     AngularFireAuthModule,
     AngularFireStorageModule
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

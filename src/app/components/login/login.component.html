@@ -1,0 +1,10 @@
+<div *ngIf="afAuth.user | async as currentUser; else guest">
+  Hello, {{ currentUser.displayName }}!
+  <button (click)="logout()">Logout</button>
+</div>
+
+<ng-template #guest>
+  Hello, Guest!
+  <button (click)="loginWithFacebook()">Login with Facebook</button>
+  <button (click)="loginWithGithub()">Login with Github</button>
+</ng-template>
