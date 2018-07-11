@@ -36,4 +36,4 @@ describe('AppComponent', () => {
 
     expect(app.title).toEqual('aw3');
   });
-};
+});
