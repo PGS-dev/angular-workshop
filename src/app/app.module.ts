@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UsersComponent } from './pages/users/users.component';
 import { UserComponent } from './components/user/user.component';
-import { HttpClientModule } from "@angular/common/http";
 import { CommonModule } from "@angular/common";
 import { environment } from "../environments/environment";
 import { AngularFireModule } from "angularfire2";
@@ -26,7 +25,6 @@ import { AuthService } from "./common/services/auth/auth.service";
     BrowserModule,
     CommonModule,
     AppRoutingModule,
-    HttpClientModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireAuthModule,

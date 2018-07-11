@@ -1,12 +1,12 @@
 import {getTestBed, TestBed} from '@angular/core/testing';
 import {HttpClientTestingModule} from "@angular/common/http/testing";
-import {UsersService} from './users.service';
+import {UserService} from './user.service';
 import {AngularFirestore} from "angularfire2/firestore";
 import {MockAngularFirestore} from "../../common/mocks/mock-angular-firestore";
 
-describe('UsersService', () => {
+describe('UserService', () => {
   let injector: TestBed;
-  let service: UsersService;
+  let service: UserService;
 
   let mockAngularFirestore: MockAngularFirestore;
 
@@ -16,13 +16,13 @@ describe('UsersService', () => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
       providers: [
-        UsersService,
+        UserService,
         { provide: AngularFirestore, useValue: mockAngularFirestore }
       ]
     });
 
     injector = getTestBed();
-    service = injector.get(UsersService);
+    service = injector.get(UserService);
   });
 
   it('should be created', () => {
@@ -30,8 +30,10 @@ describe('UsersService', () => {
   });
 
   it('getUsersAngularFirestoreCollection() should get AngularFirestore query collection', () => {
-    service.getUsersAngularFirestoreCollection();
+    const UID_MOCK = 5;
 
-    expect(mockAngularFirestore.collection).toHaveBeenCalledWith('users');
+    service.getUserQueryAngularFirestoreCollection(UID_MOCK);
+
+    expect(mockAngularFirestore.collection).toHaveBeenCalledWith('users', jasmine.any(Function));
   });
 });

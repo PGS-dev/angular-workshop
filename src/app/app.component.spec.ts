@@ -1,30 +1,39 @@
-import { TestBed, async } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
-import { AppComponent } from './app.component';
+import {TestBed, async} from '@angular/core/testing';
+import {RouterTestingModule} from '@angular/router/testing';
+import {AppComponent} from './app.component';
+import {LoginComponent} from "./components/login/login.component";
+import {AngularFireAuthModule} from "angularfire2/auth";
+import {AngularFireModule} from "angularfire2";
+import {environment} from "../environments/environment";
+import {AngularFirestoreModule} from "angularfire2/firestore";
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule
+        RouterTestingModule,
+        AngularFireModule.initializeApp(environment.firebase),
+        AngularFirestoreModule,
+        AngularFireAuthModule
       ],
       declarations: [
-        AppComponent
+        AppComponent,
+        LoginComponent
       ],
     }).compileComponents();
   }));
 
-  it('should create the app', async(() => {
+  it('should create the app', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
 
     expect(app).toBeTruthy();
-  }));
+  });
 
-  it(`should have as title 'aw3'`, async(() => {
+  it(`should have as title 'aw3'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
 
     expect(app.title).toEqual('aw3');
-  }));
-});
+  });
+};
