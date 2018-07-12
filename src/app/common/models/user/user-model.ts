@@ -5,10 +5,16 @@ export default class UserModel implements IUser {
   public name: string;
   public username: string;
   public email: string;
-  public address: any;
+  public address: {
+    street: string,
+    city: string
+  };
   public phone: string;
   public website: string;
-  public company: object;
+  public company: {
+    street: string,
+    name: string
+  };
 
   constructor(userData: any) {
     this.id = userData.id;
@@ -19,5 +25,10 @@ export default class UserModel implements IUser {
     this.phone = userData.phone;
     this.website = userData.website;
     this.company = userData.company;
+  }
+
+  public saveUserInDb(user: UserModel): void {
+    // Define uid somehow.
+    console.log('saveUser() method called with:\n', user);
   }
 }

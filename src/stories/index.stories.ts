@@ -9,31 +9,31 @@ import { LoginComponent } from "../app/components/login/login.component";
 import { AngularFireAuth } from "angularfire2/auth";
 import { AuthService } from "../app/common/services/auth/auth.service";
 
-storiesOf('Welcome', module).add('to Storybook', () => ({
-  component: Welcome,
-  props: {}
-}));
-
-storiesOf('LoginComponent', module)
-  .addDecorator(
-    moduleMetadata({
-      providers: [
-        {
-          provide: AngularFireAuth,
-          useValue: {
-            auth: {
-              currentUser: null
-            }
-          }
-        },
-        {
-          provide: AuthService,
-          useValue: {}
-        }
-      ]
-    })
-  )
-  .add('when not authorized user', () => ({
-    component: LoginComponent,
-    props: {}
-  }));
+// storiesOf('Welcome', module).add('to Storybook', () => ({
+//   component: Welcome,
+//   props: {}
+// }));
+//
+// storiesOf('LoginComponent', module)
+//   .addDecorator(
+//     moduleMetadata({
+//       providers: [
+//         {
+//           provide: AngularFireAuth,
+//           useValue: {
+//             auth: {
+//               currentUser: null
+//             }
+//           }
+//         },
+//         {
+//           provide: AuthService,
+//           useValue: {}
+//         }
+//       ]
+//     })
+//   )
+//   .add('when not authorized user', () => ({
+//     component: LoginComponent,
+//     props: {}
+//   }));

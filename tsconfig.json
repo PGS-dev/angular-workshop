@@ -19,5 +19,10 @@
       "es2017",
       "dom"
     ]
-  }
+  },
+  "exclude": [
+    "test.ts",
+    "**/*.spec.ts",
+    "stories"
+  ]
 }

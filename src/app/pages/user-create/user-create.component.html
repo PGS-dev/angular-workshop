@@ -1,0 +1,80 @@
+<h1>
+  user-create works!
+</h1>
+
+<form [formGroup]="userForm"
+      (ngSubmit)="onSubmit()">
+  <label for="name">
+    <input
+      type="text"
+      id="name"
+      formControlName="name"
+      placeholder="name">
+  </label><br><br>
+
+  <label for="username">
+    <input
+      type="text"
+      id="username"
+      formControlName="username"
+      placeholder="username">
+  </label><br><br>
+
+  <label for="email">
+    <input
+      type="text"
+      id="email"
+      formControlName="email"
+      placeholder="email">
+  </label><br><br>
+
+  <label for="addressStreet">
+    <input
+      type="text"
+      id="addressStreet"
+      formControlName="addressStreet"
+      placeholder="addressStreet">
+  </label>
+  <label for="addressCity">
+    <input
+      type="text"
+      id="addressCity"
+      formControlName="addressStreet"
+      placeholder="addressStreet">
+  </label><br><br>
+
+  <label for="phone">
+    <input
+      type="text"
+      id="phone"
+      formControlName="addressStreet"
+      placeholder="addressStreet">
+  </label><br><br>
+
+  <label for="website">
+    <input
+      type="text"
+      id="website"
+      formControlName="website"
+      placeholder="website">
+  </label><br><br>
+
+  <label for="companyStreet">
+    <input
+      type="text"
+      id="companyStreet"
+      formControlName="companyStreet"
+      placeholder="companyStreet">
+  </label>
+  <label for="companyName">
+    <input
+      type="text"
+      id="companyName"
+      formControlName="companyName"
+      placeholder="companyName">
+  </label><br><br>
+
+  <button type="submit">Save</button>
+
+  <pre>{{ userForm.value | json }}</pre>
+</form>

@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { UserComponent } from "./pages/user/user.component";
 import { UsersComponent } from './pages/users/users.component';
 import { AuthGuardService } from "./common/services/auth-guard/auth-guard.service";
+import {UserCreateComponent} from "./pages/user-create/user-create.component";
 
 const routes: Routes = [
   {
@@ -14,6 +15,10 @@ const routes: Routes = [
   {
     path: 'users',
     component: UsersComponent
+  },
+  {
+    path: 'users/create',
+    component: UserCreateComponent
   },
   {
     path: 'users/user/:id',

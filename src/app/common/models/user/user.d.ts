@@ -1,5 +1,5 @@
 export default interface IUser {
-  id: number;
+  id: null | number; // null for case of user creation.
   name: string;
   username: string;
   email: string;
