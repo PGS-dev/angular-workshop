@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {AngularFirestore, AngularFirestoreCollection} from "angularfire2/firestore";
+import UserModel from "../../common/models/user/user-model";
 
 @Injectable({
   providedIn: 'root'
@@ -20,5 +21,23 @@ export class UserService {
    */
   public getUserQueryAngularFirestoreCollection(uid: number): AngularFirestoreCollection<any> {
     return this.db.collection('users', ref => ref.where('id', '==', uid));
+  }
+
+  public saveUserInAngularFirestoreCollection(user: UserModel): Promise<string> {
+    const uid = this.db.createId();
+    const userData = user.getUserData();
+          userData.id = uid;
+
+    return new Promise((resolve, reject) => {
+      this.db.collection('users')
+        .doc(userData.id)
+        .set(userData)
+        .then(() => {
+          resolve('User added.');
+        })
+        .catch(() => {
+          reject('User not added - BE error.');
+        });
+    });
   }
 }

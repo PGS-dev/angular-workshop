@@ -1,6 +1,4 @@
-<h1>
-  user-create works!
-</h1>
+<h1>User creation</h1>
 
 <form [formGroup]="userForm"
       (ngSubmit)="onSubmit()">
@@ -39,16 +37,16 @@
     <input
       type="text"
       id="addressCity"
-      formControlName="addressStreet"
-      placeholder="addressStreet">
+      formControlName="addressCity"
+      placeholder="addressCity">
   </label><br><br>
 
   <label for="phone">
     <input
       type="text"
       id="phone"
-      formControlName="addressStreet"
-      placeholder="addressStreet">
+      formControlName="phone"
+      placeholder="phone">
   </label><br><br>
 
   <label for="website">

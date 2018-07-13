@@ -1,7 +1,11 @@
+import { AngularFirestore } from "angularfire2/firestore";
+
 import IUser from "./user";
+import IUserDto from "./user-dto";
+import UserDtoModel from "./user-dto-model";
 
 export default class UserModel implements IUser {
-  public id: number;
+  public id: string;
   public name: string;
   public username: string;
   public email: string;
@@ -21,14 +25,28 @@ export default class UserModel implements IUser {
     this.name = userData.name;
     this.username = userData.username;
     this.email = userData.email;
-    this.address = userData.address;
+    this.address = {
+      street: userData.addressStreet,
+      city: userData.addressCity
+    };
     this.phone = userData.phone;
     this.website = userData.website;
-    this.company = userData.company;
+    this.company = {
+      street: userData.companyStreet,
+      name: userData.companyName
+    };
   }
 
-  public saveUserInDb(user: UserModel): void {
-    // Define uid somehow.
-    console.log('saveUser() method called with:\n', user);
+  public getUserData(): any {
+    return {
+      id: this.id,
+      name: this.name,
+      username: this.username,
+      email: this.email,
+      address: this.address,
+      phone: this.phone,
+      website: this.website,
+      company: this.company
+    };
   }
 }

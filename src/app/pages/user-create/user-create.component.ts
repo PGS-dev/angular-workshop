@@ -1,6 +1,8 @@
-import {Component, OnChanges, OnInit} from '@angular/core';
+import { Component, OnChanges, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+
 import UserModel from "../../common/models/user/user-model";
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import { UserService } from "../user/user.service";
 
 @Component({
   selector: 'aw3-user-create',
@@ -12,7 +14,8 @@ export class UserCreateComponent implements OnInit, OnChanges {
   public userForm: FormGroup;
 
   constructor(
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private userService: UserService
   ) {
     this.createForm();
   }
@@ -44,22 +47,24 @@ export class UserCreateComponent implements OnInit, OnChanges {
       name: this.userForm.value.name,
       username: this.userForm.value.username,
       email: this.userForm.value.email,
-      address: {
-        street: this.userForm.value.addressStreet,
-        city: this.userForm.value.addressCity
-      },
+      addressStreet: this.userForm.value.addressStreet,
+      addressCity: this.userForm.value.addressCity,
       phone: this.userForm.value.phone,
       website: this.userForm.value.website,
-      company: {
-        street: this.userForm.value.companyStreet,
-        name: this.userForm.value.companyName
-      }
+      companyStreet: this.userForm.value.companyStreet,
+      companyName: this.userForm.value.companyName
     };
 
     this.user = new UserModel(userData);
 
     if (!this.userForm.invalid) {
-      this.user.saveUserInDb(this.user);
+      this.userService.saveUserInAngularFirestoreCollection(this.user)
+        .then((successMessage) => {
+          console.log(successMessage);
+        })
+        .catch((errorMessage) => {
+          console.error(errorMessage);
+        });
     }
   }
 

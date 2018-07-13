@@ -25,7 +25,7 @@ export class UserComponent implements OnInit, OnDestroy {
    * to get the data, create user instance and apply it to public member user to display information on view.
    */
   ngOnInit() {
-    const uid = Number(this.route.snapshot.params.id);
+    const uid = this.route.snapshot.params.id;
 
     this.sub = this.userService.getUserQueryAngularFirestoreCollection(uid).valueChanges().subscribe((users) => {
       this.user = this.userModelFactory.create(users[0]);

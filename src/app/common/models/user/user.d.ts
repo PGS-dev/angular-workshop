@@ -1,10 +1,16 @@
 export default interface IUser {
-  id: null | number; // null for case of user creation.
+  id: string;
   name: string;
   username: string;
   email: string;
-  address: any;
+  address: {
+    street: string,
+    city: string
+  };
   phone: string;
   website: string;
-  company: object;
+  company: {
+    street: string,
+    name: string
+  };
 }

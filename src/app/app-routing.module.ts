@@ -18,7 +18,8 @@ const routes: Routes = [
   },
   {
     path: 'users/create',
-    component: UserCreateComponent
+    component: UserCreateComponent,
+    canActivate: [AuthGuardService]
   },
   {
     path: 'users/user/:id',
