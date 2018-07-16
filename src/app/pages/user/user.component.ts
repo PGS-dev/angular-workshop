@@ -1,9 +1,10 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import { ActivatedRoute } from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import UserModel from "../../common/models/user/user-model";
 import UserModelFactory from "../../common/models/user/user-model.factory";
 import {UserService} from "./user.service";
 import {Subscription} from "rxjs/index";
+import {take} from "rxjs/internal/operators";
 
 @Component({
   selector: 'aw3-user',
@@ -16,6 +17,7 @@ export class UserComponent implements OnInit, OnDestroy {
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private userModelFactory: UserModelFactory,
     private userService: UserService
   ) {}
@@ -27,9 +29,20 @@ export class UserComponent implements OnInit, OnDestroy {
   ngOnInit() {
     const uid = this.route.snapshot.params.id;
 
-    this.sub = this.userService.getUserQueryAngularFirestoreCollection(uid).valueChanges().subscribe((users) => {
+    this.sub = this.userService.getUserQueryAngularFirestoreCollection(uid).valueChanges().pipe(take(1)).subscribe((users) => {
       this.user = this.userModelFactory.create(users[0]);
     });
+  }
+
+  public onDelete(): void {
+    this.userService.removeUserFromAngularFirestoreCollection(this.user)
+      .then((successMessage) => {
+        console.log(successMessage);
+        this.router.navigate(['/users']);
+      })
+      .catch((errorMessage) => {
+        console.error(errorMessage);
+      });
   }
 
   ngOnDestroy() {

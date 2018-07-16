@@ -72,7 +72,11 @@
       placeholder="companyName">
   </label><br><br>
 
-  <button type="submit">Save</button>
+  <aw3-button
+    [isButton]="true"
+    text="Create"
+    type="submit"
+    classes="c-button--secondary"></aw3-button>
 
   <pre>{{ userForm.value | json }}</pre>
 </form>

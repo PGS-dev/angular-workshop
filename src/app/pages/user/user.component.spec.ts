@@ -8,6 +8,9 @@ import {MockUserModelFactory} from "../../common/models/user/mocks/mock-user-mod
 import UserModel from '../../common/models/user/user-model';
 import {MockUserService} from "./mocks/mock-user.service";
 import {UserService} from "./user.service";
+import {ButtonComponent} from "../../components/button/button.component";
+import {LoaderComponent} from "../../components/loader/loader.component";
+import {RouterTestingModule} from "@angular/router/testing";
 
 describe('UserComponent', () => {
   let component: UserComponent;
@@ -34,7 +37,8 @@ describe('UserComponent', () => {
 
     TestBed
       .configureTestingModule({
-        declarations: [UserComponent],
+        declarations: [UserComponent, ButtonComponent, LoaderComponent],
+        imports: [RouterTestingModule],
         providers: [
           { provide: ActivatedRoute, useValue: mockActivatedRouter},
           { provide: UserModelFactory, useValue: mockUserModelFactory },

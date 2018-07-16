@@ -1,8 +1,9 @@
-import { Component, OnChanges, OnInit } from '@angular/core';
+import {Component, OnChanges, OnInit} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 
 import UserModel from "../../common/models/user/user-model";
 import { UserService } from "../user/user.service";
+import UserModelFactory from "../../common/models/user/user-model.factory";
 
 @Component({
   selector: 'aw3-user-create',
@@ -15,9 +16,10 @@ export class UserCreateComponent implements OnInit, OnChanges {
 
   constructor(
     private fb: FormBuilder,
-    private userService: UserService
+    private userService: UserService,
+    private userModelFactory: UserModelFactory
   ) {
-    this.createForm();
+      this.createForm();
   }
 
   public createForm(): void {
@@ -35,11 +37,7 @@ export class UserCreateComponent implements OnInit, OnChanges {
     });
   }
 
-  public rebuild(): void {
-    // this.userForm.reset({
-    //   name: this.user.name
-    // });
-  }
+  public rebuild(): void {}
 
   public onSubmit(): any {
     const userData = {
@@ -55,7 +53,7 @@ export class UserCreateComponent implements OnInit, OnChanges {
       companyName: this.userForm.value.companyName
     };
 
-    this.user = new UserModel(userData);
+    this.user = this.userModelFactory.create(userData);
 
     if (!this.userForm.invalid) {
       this.userService.saveUserInAngularFirestoreCollection(this.user)

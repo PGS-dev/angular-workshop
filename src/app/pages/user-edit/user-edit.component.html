@@ -1,0 +1,88 @@
+<h1>User edition</h1>
+
+<div *ngIf="userForm">
+  <form [formGroup]="userForm"
+        (ngSubmit)="onSubmit()">
+    <label for="name">
+      <input
+        type="text"
+        id="name"
+        formControlName="name"
+        placeholder="name">
+    </label><br><br>
+
+    <label for="username">
+      <input
+        type="text"
+        id="username"
+        formControlName="username"
+        placeholder="username">
+    </label><br><br>
+
+    <label for="email">
+      <input
+        type="text"
+        id="email"
+        formControlName="email"
+        placeholder="email">
+    </label><br><br>
+
+    <label for="addressStreet">
+      <input
+        type="text"
+        id="addressStreet"
+        formControlName="addressStreet"
+        placeholder="addressStreet">
+    </label>
+    <label for="addressCity">
+      <input
+        type="text"
+        id="addressCity"
+        formControlName="addressCity"
+        placeholder="addressCity">
+    </label><br><br>
+
+    <label for="phone">
+      <input
+        type="text"
+        id="phone"
+        formControlName="phone"
+        placeholder="phone">
+    </label><br><br>
+
+    <label for="website">
+      <input
+        type="text"
+        id="website"
+        formControlName="website"
+        placeholder="website">
+    </label><br><br>
+
+    <label for="companyStreet">
+      <input
+        type="text"
+        id="companyStreet"
+        formControlName="companyStreet"
+        placeholder="companyStreet">
+    </label>
+    <label for="companyName">
+      <input
+        type="text"
+        id="companyName"
+        formControlName="companyName"
+        placeholder="companyName">
+    </label><br><br>
+
+    <aw3-button
+      [isButton]="true"
+      text="Edit"
+      type="submit"
+      classes="c-button--secondary"></aw3-button>
+
+    <pre>{{ userForm.value | json }}</pre>
+  </form>
+</div>
+
+<div *ngIf="!userForm">
+  <aw3-loader></aw3-loader>
+</div>

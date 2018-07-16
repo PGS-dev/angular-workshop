@@ -40,4 +40,36 @@ export class UserService {
         });
     });
   }
+
+  public editUserInAngularFirestoreCollection(user: UserModel): Promise<string> {
+    const userData = user.getUserData();
+
+    return new Promise((resolve, reject) => {
+      this.db.collection('users')
+        .doc(userData.id)
+        .set(userData)
+        .then(() => {
+          resolve('User edited.');
+        })
+        .catch(() => {
+          reject('User not edited - BE error.');
+        });
+    });
+  }
+
+  public removeUserFromAngularFirestoreCollection(user: UserModel): Promise<string> {
+    const userData = user.getUserData();
+
+    return new Promise((resolve, reject) => {
+      this.db.collection('users')
+        .doc(userData.id)
+        .delete()
+        .then(() => {
+          resolve('User deleted.');
+        })
+        .catch(() => {
+          reject('User not deleted - BE error.');
+        });
+    });
+  }
 }

@@ -1,6 +1,19 @@
 <div *ngIf="user; let user">
   <h1>{{ user.name }}</h1>
 
+  <aw3-button
+    [isButton]="false"
+    classes="c-button--secondary"
+    text="Edit"
+    routerLink="/users/user/edit"
+    routerLinkParams="{{ user.id }}"></aw3-button>
+
+  <aw3-button
+    [isButton]="true"
+    classes="c-button--error"
+    text="Delete"
+    (click)="onDelete()"></aw3-button>
+
   <pre>
     <table border="1" width="100%" cellpadding="5">
       <tr>
@@ -20,7 +33,7 @@
         <td>{{ user.email }}</td>
       </tr>
       <tr>
-        <td>address: any</td>
+        <td>address: object</td>
         <td>
           <table border="1">
             <tr>
@@ -66,7 +79,7 @@
 </div>
 
 <div *ngIf="!user">
-  User data is loading...
+  <aw3-loader></aw3-loader>
 </div>
 
 <!--

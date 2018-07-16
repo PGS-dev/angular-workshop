@@ -1,0 +1,40 @@
+$item-size: 40px;
+
+.c-loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-($item-size/2), -($item-size/2));
+
+
+  &__item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: $item-size;
+
+    height: $item-size;
+
+    border-radius: $item-size;
+
+    background-color: #333;
+    animation: pound 2s ease 0s infinite;
+    opacity: 0;
+
+    &:nth-child(2) {
+      animation-delay: 1s;
+    }
+  }
+}
+@keyframes pound {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

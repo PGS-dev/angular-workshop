@@ -1,11 +1,13 @@
-<aw3-login></aw3-login>
+<div class="l-container">
+  <div class="l-login">
+    <aw3-login></aw3-login>
+  </div>
 
-<div>
-  <ul>
-    <li><a routerLink="/">Start</a></li>
-    <li><a routerLink="/users">Users</a></li>
-    <li><a routerLink="/users/create">User creation</a></li>
-  </ul>
+  <div class="l-menu">
+    <aw3-menu></aw3-menu>
+  </div>
 </div>
 
-<router-outlet></router-outlet>
+<div class="l-container">
+  <router-outlet></router-outlet>
+</div>

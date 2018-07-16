@@ -1,8 +1,4 @@
-import { AngularFirestore } from "angularfire2/firestore";
-
 import IUser from "./user";
-import IUserDto from "./user-dto";
-import UserDtoModel from "./user-dto-model";
 
 export default class UserModel implements IUser {
   public id: string;
@@ -26,14 +22,14 @@ export default class UserModel implements IUser {
     this.username = userData.username;
     this.email = userData.email;
     this.address = {
-      street: userData.addressStreet,
-      city: userData.addressCity
+      street: userData.address ? userData.address.street : userData.addressStreet,
+      city: userData.address ? userData.address.city : userData.addressCity
     };
     this.phone = userData.phone;
     this.website = userData.website;
     this.company = {
-      street: userData.companyStreet,
-      name: userData.companyName
+      street: userData.company ? userData.company.street : userData.companyStreet,
+      name: userData.company ? userData.company.name : userData.companyName
     };
   }
 

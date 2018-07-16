@@ -17,6 +17,10 @@ import { AngularFireModule } from "angularfire2";
 import { AngularFirestoreModule } from "angularfire2/firestore";
 import { AngularFireAuthModule } from "angularfire2/auth";
 import { AngularFireStorageModule } from "angularfire2/storage";
+import { MenuComponent } from './components/menu/menu.component';
+import { ButtonComponent } from './components/button/button.component';
+import { LoaderComponent } from './components/loader/loader.component';
+import { UserEditComponent } from './pages/user-edit/user-edit.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +28,11 @@ import { AngularFireStorageModule } from "angularfire2/storage";
     UsersComponent,
     UserComponent,
     LoginComponent,
-    UserCreateComponent
+    UserCreateComponent,
+    MenuComponent,
+    ButtonComponent,
+    LoaderComponent,
+    UserEditComponent
   ],
   imports: [
     BrowserModule,

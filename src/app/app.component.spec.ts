@@ -6,6 +6,9 @@ import {AngularFireAuthModule} from "angularfire2/auth";
 import {AngularFireModule} from "angularfire2";
 import {environment} from "../environments/environment";
 import {AngularFirestoreModule} from "angularfire2/firestore";
+import {MenuComponent} from "./components/menu/menu.component";
+import {ButtonComponent} from "./components/button/button.component";
+import {LoaderComponent} from "./components/loader/loader.component";
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -18,7 +21,10 @@ describe('AppComponent', () => {
       ],
       declarations: [
         AppComponent,
-        LoginComponent
+        LoginComponent,
+        MenuComponent,
+        ButtonComponent,
+        LoaderComponent
       ],
     }).compileComponents();
   }));

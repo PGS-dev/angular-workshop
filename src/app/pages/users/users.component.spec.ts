@@ -7,6 +7,7 @@ import {MockUsersModelFactory} from "../../common/models/users/mocks/mock-users-
 import UsersModelFactory from "../../common/models/users/users-model.factory";
 import {MockUsersService} from "./mocks/mock-users.service";
 import {UsersService} from "./users.service";
+import {LoaderComponent} from "../../components/loader/loader.component";
 
 describe('UsersComponent', () => {
   let component: UsersComponent;
@@ -29,7 +30,7 @@ describe('UsersComponent', () => {
     TestBed
       .configureTestingModule({
         imports: [RouterTestingModule],
-        declarations: [UsersComponent],
+        declarations: [UsersComponent, LoaderComponent],
         providers: [
           { provide: UsersService, useValue: mockUsersService },
           { provide: UsersModelFactory, useValue: mockUsersModelFactory }

@@ -1,0 +1,40 @@
+.c-button {
+  display: inline-block;
+  padding: 8px 12px;
+  margin: 0 4px;
+  border: none;
+  outline: none;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 11px;
+  text-decoration: none;
+  font-weight: bold;
+  font-family: Tahoma, Geneva, sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  line-height: 1;
+}
+.c-button--primary {
+  background-color: #47b75b;
+}
+.c-button--secondary {
+  background-color: #333;
+}
+
+.c-button--error {
+  background-color: #9f0009;
+}
+.c-button--fb {
+  background-color: #3b5998;
+
+  &:hover {
+    background-color: lighten(#3b5998, 10%);
+  }
+}
+.c-button--github {
+  background-color: #000;
+
+  &:hover {
+    background-color: lighten(#000, 10%);
+  }
+}
