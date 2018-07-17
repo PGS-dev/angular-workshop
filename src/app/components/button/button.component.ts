@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, Output, OnInit} from '@angular/core';
 
 @Component({
   selector: 'aw3-button',
@@ -12,7 +12,7 @@ export class ButtonComponent implements OnInit {
   @Input() link: string | null;
   @Input() routerLink: string;
   @Input() routerLinkParams: any;
-  @Input() onClick: EventEmitter<any> = new EventEmitter<any>();
+  @Output() onClick: EventEmitter<any> = new EventEmitter<any>();
 
   constructor() {}
 

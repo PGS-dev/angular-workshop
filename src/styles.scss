@@ -17,3 +17,17 @@ body {
 .l-menu {
   float: left;
 }
+.l-section {
+  padding: 20px 0;
+
+  &--withBorderBottom {
+    border-bottom: 1px solid #ccc;
+  }
+  &:last-child {
+    border-bottom: none;
+  }
+  h1, h2 {
+    margin: 0;
+    padding: 0;
+  }
+}

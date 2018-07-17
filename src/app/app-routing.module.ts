@@ -7,7 +7,7 @@ import { AuthGuardService } from "./common/services/auth-guard/auth-guard.servic
 import { UserCreateComponent } from "./pages/user-create/user-create.component";
 import { UserEditComponent } from "./pages/user-edit/user-edit.component";
 
-const routes: Routes = [
+export const routes: Routes = [
   {
     path: '',
     redirectTo: '/users',

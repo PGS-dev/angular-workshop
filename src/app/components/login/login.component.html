@@ -3,8 +3,8 @@
     Hello, {{ currentUser.displayName }}!
     <aw3-button
       [isButton]="true"
-      classes="c-button--secondary"
-      text="Logout"
+      [classes]="'c-button--secondary'"
+      [text]="'Logout'"
       (click)="logout()"></aw3-button>
   </div>
 
@@ -12,13 +12,13 @@
     <div class="c-login-welcome">Hello, Guest!</div>
     <aw3-button
       [isButton]="true"
-      classes="c-button--fb"
-      text="Login with Facebook"
+      [classes]="'c-button--fb'"
+      [text]="'Login with Facebook'"
       (click)="loginWithFacebook()"></aw3-button>
     <aw3-button
       [isButton]="true"
-      classes="c-button--github"
-      text="Login with Github"
+      [classes]="'c-button--github'"
+      [text]="'Login with Github'"
       (click)="loginWithGithub()"></aw3-button>
   </ng-template>
 </div>
