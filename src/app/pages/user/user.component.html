@@ -3,15 +3,14 @@
 
   <aw3-button
     [isButton]="false"
-    classes="c-button--edit"
-    text="Edit"
-    routerLink="/users/user/edit"
-    routerLinkParams="{{ user.id }}"></aw3-button>
+    [classes]="'c-button--edit'"
+    [text]="'Edit'"
+    [routerLink]="['/users/user', user.id, 'edit']"></aw3-button>
 
   <aw3-button
     [isButton]="true"
-    classes="c-button--error"
-    text="Delete"
+    [classes]="'c-button--error'"
+    [text]="'Delete'"
     (click)="onDelete()"></aw3-button>
 
   <pre>

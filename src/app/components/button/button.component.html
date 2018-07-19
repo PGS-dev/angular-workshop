@@ -10,6 +10,6 @@
    class="c-button {{ classes }}">{{ text }}</a>
 
 <!-- Simple router link -->
-<!--<a *ngIf="!isButton && routerLink"-->
-   <!--[routerLink]="[routerLink, routerLinkParams]"-->
-   <!--class="c-button {{ classes }}">{{ text }}</a>-->
+<a *ngIf="!isButton && routerLink"
+   [routerLink]="routerLink"
+   class="c-button {{ classes }}">{{ text }}</a>

@@ -18,9 +18,7 @@ export class UserCreateComponent implements OnInit, OnChanges {
     private fb: FormBuilder,
     private userService: UserService,
     private userModelFactory: UserModelFactory
-  ) {
-      this.createForm();
-  }
+  ) {}
 
   public createForm(): void {
     this.userForm = this.fb.group({
@@ -70,5 +68,7 @@ export class UserCreateComponent implements OnInit, OnChanges {
     this.rebuild();
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.createForm();
+  }
 }

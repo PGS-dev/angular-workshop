@@ -62,6 +62,8 @@ describe('UserCreateComponent', () => {
   });
 
   it('ngOnInit() should create an empty form', () => {
+    fixture.detectChanges();
+
     expect(component.userForm.controls.id.value).toBeNull();
     expect(component.userForm.controls.name.value).toBe('');
     expect(component.userForm.controls.username.value).toBe('');
@@ -78,6 +80,8 @@ describe('UserCreateComponent', () => {
   });
 
   it('onSubmit() should save user in DB when form is valid', () => {
+    fixture.detectChanges();
+
     component.userForm.setValue({
       'id': USER_DATA.id,
       'name': USER_DATA.name,
@@ -90,9 +94,6 @@ describe('UserCreateComponent', () => {
       'companyStreet': USER_DATA.company.street,
       'companyName': USER_DATA.company.name
     });
-
-
-    fixture.detectChanges();
 
     expect(component.userForm.invalid).toBeFalsy();
 

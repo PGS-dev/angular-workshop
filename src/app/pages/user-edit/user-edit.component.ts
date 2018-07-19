@@ -23,10 +23,6 @@ export class UserEditComponent implements OnInit, OnDestroy {
     private userModelFactory: UserModelFactory
   ) {}
 
-  ngOnInit() {
-    this.createForm();
-  }
-
   public createForm(): void {
     const uid = this.route.snapshot.params.id;
 
@@ -73,6 +69,10 @@ export class UserEditComponent implements OnInit, OnDestroy {
           console.error(errorMessage);
         });
     }
+  }
+
+  ngOnInit() {
+    this.createForm();
   }
 
   ngOnDestroy(): void {

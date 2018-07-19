@@ -1,11 +1,5 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-
-import { UserComponent } from "./pages/user/user.component";
-import { UsersComponent } from './pages/users/users.component';
-import { AuthGuardService } from "./common/services/auth-guard/auth-guard.service";
-import { UserCreateComponent } from "./pages/user-create/user-create.component";
-import { UserEditComponent } from "./pages/user-edit/user-edit.component";
+import {NgModule} from '@angular/core';
+import {Routes, RouterModule} from '@angular/router';
 
 export const routes: Routes = [
   {
@@ -15,22 +9,11 @@ export const routes: Routes = [
   },
   {
     path: 'users',
-    component: UsersComponent
-  },
-  {
-    path: 'users/user/create',
-    component: UserCreateComponent,
-    canActivate: [AuthGuardService]
+    loadChildren: 'src/app/pages/users/users.module#UsersModule'
   },
   {
     path: 'users/user/:id',
-    component: UserComponent,
-    canActivate: [AuthGuardService]
-  },
-  {
-    path: 'users/user/edit/:id',
-    component: UserEditComponent,
-    canActivate: [AuthGuardService]
+    loadChildren: 'src/app/pages/user/user.module#UserModule'
   }
 ];
 
@@ -38,4 +21,4 @@ export const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

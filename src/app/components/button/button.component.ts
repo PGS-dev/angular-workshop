@@ -11,7 +11,6 @@ export class ButtonComponent implements OnInit {
   @Input() isButton: boolean;
   @Input() link: string | null;
   @Input() routerLink: string;
-  @Input() routerLinkParams: any;
   @Output() onClick: EventEmitter<any> = new EventEmitter<any>();
 
   constructor() {}
