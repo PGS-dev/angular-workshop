@@ -13,4 +13,8 @@ export class UsersService {
   public getUsersAngularFirestoreCollection(): AngularFirestoreCollection<any> {
     return this.db.collection('users');
   }
+
+  public getMockUsersJSONFromAssets(): Promise<any> {
+    return fetch('assets/mock-users.json');
+  }
 }

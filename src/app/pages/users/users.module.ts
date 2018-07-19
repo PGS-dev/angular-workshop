@@ -30,7 +30,7 @@ import {UsersModelFactory} from "../../common/models/users/users-model.factory";
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireAuthModule,
-    AngularFireStorageModule,
+    AngularFireStorageModule
   ],
   providers: [
     AuthService,
