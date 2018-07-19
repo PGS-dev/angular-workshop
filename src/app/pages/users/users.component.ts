@@ -3,7 +3,6 @@ import {Subscription} from "rxjs/index";
 import {UsersModelFactory} from "../../common/models/users/users-model.factory";
 import UserModel from "../../common/models/user/user-model";
 import {UsersService} from "./users.service";
-import {HttpClient} from "@angular/common/http";
 
 @Component({
   selector: 'aw3-users',
@@ -18,9 +17,12 @@ export class UsersComponent implements OnInit, OnDestroy { // Describe your clas
   constructor(
     private usersModelFactory: UsersModelFactory,
     private usersService: UsersService
-  ) {}
+  ) {
+    console.log(111111111111);
+  }
 
   ngOnInit() {
+    console.log(22222222222222);
     this.sub = this.usersService.getUsersAngularFirestoreCollection().valueChanges().subscribe((users) => {
       this.users = this.usersModelFactory.create(users).getUsers();
     });

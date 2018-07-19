@@ -14,8 +14,8 @@ import { AngularFirestoreModule } from "angularfire2/firestore";
 import { AngularFireAuthModule } from "angularfire2/auth";
 import { AngularFireStorageModule } from "angularfire2/storage";
 import { MenuComponent } from './components/menu/menu.component';
-import {LoginComponent} from "./components/login/login.component";
-import {ButtonModule} from "./components/button/button.module";
+import { LoginComponent } from "./components/login/login.component";
+import { ButtonModule } from "./components/button/button.module";
 
 @NgModule({
   declarations: [

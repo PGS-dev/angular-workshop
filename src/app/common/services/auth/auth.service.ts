@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import {AngularFireAuth} from "angularfire2/auth";
 import {auth} from "firebase";
 import UserCredential = firebase.auth.UserCredential;
+import {map, take} from "rxjs/internal/operators";
+import {Observable} from "rxjs/index";
 
 @Injectable({
   providedIn: 'root'
@@ -11,8 +13,13 @@ export class AuthService {
     private afAuth: AngularFireAuth
   ) {}
 
-  public isLogged(): boolean {
-    return this.afAuth.auth.currentUser !== null;
+  public isLogged(): Observable<any> {
+    return this.afAuth.authState
+      .pipe(
+        take(1),
+        map(user => {
+          return !!user
+        }));
   }
 
   public logout(): Promise<void> {
