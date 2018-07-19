@@ -4,7 +4,7 @@ import {UsersComponent} from './users.component';
 import {RouterTestingModule} from "@angular/router/testing";
 import UserModel from "../../common/models/user/user-model";
 import {MockUsersModelFactory} from "../../common/models/users/mocks/mock-users-model.factory";
-import UsersModelFactory from "../../common/models/users/users-model.factory";
+import {UsersModelFactory} from "../../common/models/users/users-model.factory";
 import {MockUsersService} from "./mocks/mock-users.service";
 import {UsersService} from "./users.service";
 import {LoaderComponent} from "../../components/loader/loader.component";

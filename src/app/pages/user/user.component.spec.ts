@@ -3,7 +3,7 @@ import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {UserComponent} from './user.component';
 import {ActivatedRoute} from "@angular/router";
 import {MockActivatedRoute} from "../../common/mocks/router";
-import UserModelFactory from "../../common/models/user/user-model.factory";
+import {UserModelFactory} from "../../common/models/user/user-model.factory";
 import {MockUserModelFactory} from "../../common/models/user/mocks/mock-user-model.factory";
 import UserModel from '../../common/models/user/user-model';
 import {MockUserService} from "./mocks/mock-user.service";

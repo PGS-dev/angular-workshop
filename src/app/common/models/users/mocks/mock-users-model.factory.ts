@@ -1,6 +1,6 @@
 import { SpyObject } from '../../../mocks/helpers';
 import Spy = jasmine.Spy;
-import UsersModelFactory from "../users-model.factory";
+import {UsersModelFactory} from "../users-model.factory";
 import UsersModel from "../users-model";
 
 export class MockUsersModelFactory extends SpyObject {

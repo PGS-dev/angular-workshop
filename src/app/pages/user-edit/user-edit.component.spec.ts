@@ -8,7 +8,7 @@ import {ButtonComponent} from "../../components/button/button.component";
 import {LoaderComponent} from "../../components/loader/loader.component";
 import {RouterTestingModule} from "@angular/router/testing";
 import {MockUserModelFactory} from "../../common/models/user/mocks/mock-user-model.factory";
-import UserModelFactory from "../../common/models/user/user-model.factory";
+import {UserModelFactory} from "../../common/models/user/user-model.factory";
 import UserModel from "../../common/models/user/user-model";
 import {ActivatedRoute} from "@angular/router";
 import {MockActivatedRoute} from "../../common/mocks/router";

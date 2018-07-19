@@ -15,6 +15,7 @@ import {UsersService} from "./users.service";
 import {ButtonModule} from "../../components/button/button.module";
 import {LoaderModule} from "../../components/loader/loader.module";
 import {AuthService} from "../../common/services/auth/auth.service";
+import {UsersModelFactory} from "../../common/models/users/users-model.factory";
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import {AuthService} from "../../common/services/auth/auth.service";
   ],
   providers: [
     AuthService,
-    UsersService
+    UsersService,
+    UsersModelFactory
   ]
 })
 export class UsersModule {}

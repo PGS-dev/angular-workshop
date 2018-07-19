@@ -1,6 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Subscription} from "rxjs/index";
-import UsersModelFactory from "../../common/models/users/users-model.factory";
+import {UsersModelFactory} from "../../common/models/users/users-model.factory";
 import UserModel from "../../common/models/user/user-model";
 import {UsersService} from "./users.service";
 

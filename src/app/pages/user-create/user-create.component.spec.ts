@@ -6,7 +6,7 @@ import { UserCreateComponent } from './user-create.component';
 import { ButtonComponent } from "../../components/button/button.component";
 import { UserService } from "../user/user.service";
 import { MockUserService } from "../user/mocks/mock-user.service";
-import UserModelFactory from "../../common/models/user/user-model.factory";
+import {UserModelFactory} from "../../common/models/user/user-model.factory";
 import {MockUserModelFactory} from "../../common/models/user/mocks/mock-user-model.factory";
 import UserModel from "../../common/models/user/user-model";
 

@@ -2,7 +2,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {UserService} from "../user/user.service";
 import {ActivatedRoute} from "@angular/router";
-import UserModelFactory from "../../common/models/user/user-model.factory";
+import {UserModelFactory} from "../../common/models/user/user-model.factory";
 import {Subscription} from "rxjs/index";
 import UserModel from "../../common/models/user/user-model";
 

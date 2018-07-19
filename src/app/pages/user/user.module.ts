@@ -17,6 +17,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {ButtonModule} from "../../components/button/button.module";
 import {LoaderModule} from "../../components/loader/loader.module";
 import {AuthService} from "../../common/services/auth/auth.service";
+import {UserModelFactory} from "../../common/models/user/user-model.factory";
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import {AuthService} from "../../common/services/auth/auth.service";
   ],
   providers: [
     AuthService,
-    UserService
+    UserService,
+    UserModelFactory
   ]
 })
 export class UserModule {}

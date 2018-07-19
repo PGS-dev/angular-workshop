@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 
 import UserModel from "../../common/models/user/user-model";
 import { UserService } from "../user/user.service";
-import UserModelFactory from "../../common/models/user/user-model.factory";
+import {UserModelFactory} from "../../common/models/user/user-model.factory";
 
 @Component({
   selector: 'aw3-user-create',
