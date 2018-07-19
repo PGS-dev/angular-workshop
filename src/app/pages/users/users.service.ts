@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import {AngularFirestore, AngularFirestoreCollection} from "angularfire2/firestore";
+import {UsersModule} from "./users.module";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: UsersModule
 })
 export class UsersService {
   constructor(

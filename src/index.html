@@ -7,8 +7,26 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <script>
+    function measureCRP() {
+      var timing = window.performance.timing;
+      var domInteractive = timing.domInteractive - timing.domLoading;
+      var domContentLoaded = timing.domContentLoadedEventStart - timing.domLoading;
+      var domComplete = timing.domComplete - timing.domLoading;
+
+      var stats = document.createElement('pre');
+      stats.textContent = `
+          DOM Interactive: ${domInteractive} ms
+          DOM Content Loaded: ${domContentLoaded} ms
+          DOM Complete: ${domComplete} ms
+      `;
+
+      document.body.appendChild(stats);
+    }
+  </script>
 </head>
-<body>
+<body onload="measureCRP()">
   <aw3-root></aw3-root>
 </body>
 </html>

@@ -8,6 +8,7 @@ import {ButtonComponent} from "../app/components/button/button.component";
 
 import {ButtonStoriesTmpl} from "./components/button/button-template";
 import {LoaderComponent} from "../app/components/loader/loader.component";
+import {RouterModule} from "@angular/router";
 
 storiesOf('Introduction', module)
   .add('AW3 UI documentation', () => ({
@@ -25,6 +26,7 @@ storiesOf('ButtonComponent', module)
   .addDecorator(
     moduleMetadata({
       declarations: [ButtonComponent],
+      imports: [RouterModule],
       providers: []
     })
   )
