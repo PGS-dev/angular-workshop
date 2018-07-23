@@ -4,20 +4,15 @@ import {Routes, RouterModule} from '@angular/router';
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'users',
-    pathMatch: 'full'
-  },
-  // {
-  //   path: '**',
-  //   redirectTo: ''
-  // },
-  {
-    path: 'users',
     loadChildren: 'src/app/pages/users/users.module#UsersModule'
   },
   {
     path: 'users/user/:id',
     loadChildren: 'src/app/pages/user/user.module#UserModule'
+  },
+  {
+    path: '**',
+    redirectTo: ''
   }
 ];
 

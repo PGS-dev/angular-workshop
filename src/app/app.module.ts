@@ -7,8 +7,6 @@ import { FormBuilder, ReactiveFormsModule } from "@angular/forms";
 
 import { AppComponent } from './app.component';
 
-import { AuthService } from "./common/services/auth/auth.service";
-
 import { AngularFireModule } from "angularfire2";
 import { AngularFirestoreModule } from "angularfire2/firestore";
 import { AngularFireAuthModule } from "angularfire2/auth";
@@ -16,6 +14,7 @@ import { AngularFireStorageModule } from "angularfire2/storage";
 import { MenuComponent } from './components/menu/menu.component';
 import { LoginComponent } from "./components/login/login.component";
 import { ButtonModule } from "./components/button/button.module";
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 @NgModule({
   declarations: [
@@ -34,7 +33,9 @@ import { ButtonModule } from "./components/button/button.module";
     AngularFireAuthModule,
     AngularFireStorageModule,
 
-    ReactiveFormsModule
+    ReactiveFormsModule,
+
+    ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [FormBuilder],
   bootstrap: [AppComponent]

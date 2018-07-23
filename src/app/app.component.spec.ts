@@ -9,6 +9,7 @@ import {AngularFirestoreModule} from "angularfire2/firestore";
 import {MenuComponent} from "./components/menu/menu.component";
 import {ButtonComponent} from "./components/button/button.component";
 import {LoaderComponent} from "./components/loader/loader.component";
+import {ServiceWorkerModule} from "@angular/service-worker";
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -17,7 +18,8 @@ describe('AppComponent', () => {
         RouterTestingModule,
         AngularFireModule.initializeApp(environment.firebase),
         AngularFirestoreModule,
-        AngularFireAuthModule
+        AngularFireAuthModule,
+        ServiceWorkerModule
       ],
       declarations: [
         AppComponent,

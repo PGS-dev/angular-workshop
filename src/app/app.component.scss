@@ -1,0 +1,33 @@
+html,
+body {
+  font: 14px/18px Arial, Helvetica, sans-serif;
+  color: #555;
+  margin: 0;
+  padding: 0;
+}
+.l-container {
+  width: 96%;
+  max-width: 1200px;
+  margin: 0 auto;
+  clear: both;
+}
+.l-login {
+  float: right;
+}
+.l-menu {
+  float: left;
+}
+.l-section {
+  padding: 20px 0;
+
+  &--withBorderBottom {
+    border-bottom: 1px solid #ccc;
+  }
+  &:last-child {
+    border-bottom: none;
+  }
+  h1, h2 {
+    margin: 0;
+    padding: 0;
+  }
+}
