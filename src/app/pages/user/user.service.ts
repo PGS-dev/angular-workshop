@@ -3,9 +3,7 @@ import {AngularFirestore, AngularFirestoreCollection} from "angularfire2/firesto
 import UserModel from "../../common/models/user/user-model";
 import {UserModule} from "./user.module";
 
-@Injectable({
-  providedIn: UserModule
-})
+@Injectable()
 export class UserService {
   constructor(
     private db: AngularFirestore

@@ -5,9 +5,10 @@ import {AngularFireAuth} from "angularfire2/auth";
 
 export class MockAngularFireAuth extends SpyObject {
   public auth: any;
+  public authState: any;
   public user: Observable<UserInfo | null>;
 
-  constructor(user?: UserInfo) {
+  constructor(user?: UserInfo, authState?: Observable<UserInfo>) {
     super(AngularFireAuth);
 
     this.auth = {
@@ -15,5 +16,6 @@ export class MockAngularFireAuth extends SpyObject {
       signOut: this.spy('signOut'),
       signInWithPopup: this.spy('signInWithPopup')
     };
+    this.authState = authState ? authState : null;
   }
 }

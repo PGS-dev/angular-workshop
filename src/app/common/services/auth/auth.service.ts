@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {AngularFireAuth} from "angularfire2/auth";
 import {auth} from "firebase";
 import UserCredential = firebase.auth.UserCredential;
@@ -18,7 +18,7 @@ export class AuthService {
       .pipe(
         take(1),
         map(user => {
-          return !!user
+          return !!user;
         }));
   }
 

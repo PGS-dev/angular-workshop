@@ -17,12 +17,9 @@ export class UsersComponent implements OnInit, OnDestroy { // Describe your clas
   constructor(
     private usersModelFactory: UsersModelFactory,
     private usersService: UsersService
-  ) {
-    console.log(111111111111);
-  }
+  ) {}
 
   ngOnInit() {
-    console.log(22222222222222);
     this.sub = this.usersService.getUsersAngularFirestoreCollection().valueChanges().subscribe((users) => {
       this.users = this.usersModelFactory.create(users).getUsers();
     });

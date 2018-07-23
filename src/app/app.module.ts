@@ -36,7 +36,7 @@ import { ButtonModule } from "./components/button/button.module";
 
     ReactiveFormsModule
   ],
-  providers: [AuthService, FormBuilder],
+  providers: [FormBuilder],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

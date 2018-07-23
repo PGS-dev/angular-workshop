@@ -4,6 +4,7 @@ import { AuthService } from './auth.service';
 import {AngularFireAuth} from "angularfire2/auth";
 import {MockAngularFireAuth} from "../../mocks/mock-angular-fire-auth";
 import {auth, UserInfo} from "firebase";
+import {of} from "rxjs/index";
 
 describe('AuthService', () => {
   let injector: TestBed;
@@ -20,7 +21,7 @@ describe('AuthService', () => {
   let mockAngularFireAuth: MockAngularFireAuth;
 
   beforeEach(() => {
-    mockAngularFireAuth = new MockAngularFireAuth(USER_INFO);
+    mockAngularFireAuth = new MockAngularFireAuth(USER_INFO, of(USER_INFO));
 
     TestBed.configureTestingModule({
       providers: [

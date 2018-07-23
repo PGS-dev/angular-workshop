@@ -13,8 +13,7 @@ export const routes: Routes = [
   // },
   {
     path: 'users',
-    loadChildren: 'src/app/pages/users/users.module#UsersModule',
-    runGuardsAndResolvers: 'always'
+    loadChildren: 'src/app/pages/users/users.module#UsersModule'
   },
   {
     path: 'users/user/:id',
