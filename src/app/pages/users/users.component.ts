@@ -12,7 +12,6 @@ import {UsersService} from "./users.service";
 export class UsersComponent implements OnInit, OnDestroy { // Describe your class with OnDestroy interface.
   public users: UserModel[];
   public sub: Subscription;
-  public subJSON: Promise<any>;
 
   constructor(
     private usersModelFactory: UsersModelFactory,
@@ -21,9 +20,11 @@ export class UsersComponent implements OnInit, OnDestroy { // Describe your clas
 
   ngOnInit() {
     this.sub = this.usersService.getUsersAngularFirestoreCollection().valueChanges().subscribe((users) => {
-      this.users = this.usersModelFactory.create(users).getUsers();
+      const userModel = this.usersModelFactory.create(users);
+
+      this.users = userModel.getUsers();
     });
-    // this.subJSON = this.usersService.getMockUsersJSONFromAssets().then((users) => {
+    // this.usersService.getMockUsersJSONFromAssets().then((users) => {
     //   users.json().then((users) => {
     //     this.users = this.usersModelFactory.create(users).getUsers();
     //   });
@@ -31,8 +32,8 @@ export class UsersComponent implements OnInit, OnDestroy { // Describe your clas
   }
 
   ngOnDestroy() { // Unsubscribe on every component destroy event.
-    // if (this.sub) {
-    //   this.sub.unsubscribe();
-    // }
+    if (this.sub) {
+      this.sub.unsubscribe();
+    }
   }
 }

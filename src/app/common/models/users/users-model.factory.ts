@@ -1,10 +1,7 @@
 import UsersModel from './users-model';
 import {Injectable} from "@angular/core";
-import {UsersModule} from "../../../pages/users/users.module";
 
-@Injectable({
-  providedIn: UsersModule
-})
+@Injectable()
 export class UsersModelFactory {
   constructor() {}
 
