@@ -18,12 +18,16 @@ import {ButtonModule} from "../../components/button/button.module";
 import {LoaderModule} from "../../components/loader/loader.module";
 import {AuthService} from "../../common/services/auth/auth.service";
 import {UserModelFactory} from "../../common/models/user/user-model.factory";
+import {UserDiffComponent} from "../../components/user-diff/user-diff.component";
+import {StoreModule} from "@ngrx/store";
+import {userEditReducer} from "../../reducers/user-edit.reducer";
 
 @NgModule({
   declarations: [
     UserComponent,
     UserCreateComponent,
-    UserEditComponent
+    UserEditComponent,
+    UserDiffComponent
   ],
   imports: [
     CommonModule,
@@ -35,6 +39,8 @@ import {UserModelFactory} from "../../common/models/user/user-model.factory";
     AngularFirestoreModule,
     AngularFireAuthModule,
     AngularFireStorageModule,
+
+    StoreModule.forFeature('userEdit', userEditReducer)
   ],
   providers: [
     AuthService,

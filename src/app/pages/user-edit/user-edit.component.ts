@@ -5,6 +5,8 @@ import {ActivatedRoute} from "@angular/router";
 import {UserModelFactory} from "../../common/models/user/user-model.factory";
 import {Subscription} from "rxjs/index";
 import UserModel from "../../common/models/user/user-model";
+import {Store} from "@ngrx/store";
+import * as UserActions from "../../actions/user-actions";
 
 @Component({
   selector: 'aw3-user-edit',
@@ -13,6 +15,7 @@ import UserModel from "../../common/models/user/user-model";
 })
 export class UserEditComponent implements OnInit, OnDestroy {
   public user: UserModel;
+  public initialUser: UserModel;
   public userForm: FormGroup;
   public userSub: Subscription;
 
@@ -20,7 +23,8 @@ export class UserEditComponent implements OnInit, OnDestroy {
     private fb: FormBuilder,
     private route: ActivatedRoute,
     private userService: UserService,
-    private userModelFactory: UserModelFactory
+    private userModelFactory: UserModelFactory,
+    private store: Store<any>
   ) {}
 
   public createForm(): void {
@@ -28,6 +32,12 @@ export class UserEditComponent implements OnInit, OnDestroy {
 
     this.userSub = this.userService.getUserQueryAngularFirestoreCollection(uid).valueChanges().subscribe((users) => {
       this.user = this.userModelFactory.create(users[0]);
+      this.initialUser = this.user;
+
+      this.store.dispatch(new UserActions.Update({
+        initialData: this.initialUser,
+        currentData: null
+      }));
 
       this.userForm = this.fb.group({
         id: [this.user.id],
@@ -41,25 +51,12 @@ export class UserEditComponent implements OnInit, OnDestroy {
         companyStreet: [this.user.company.street, Validators.required ],
         companyName: [this.user.company.name, Validators.required ]
       });
+
+      this.onChanges();
     });
   }
 
   public onSubmit(): any {
-    const userData = {
-      id: this.userForm.value.id,
-      name: this.userForm.value.name,
-      username: this.userForm.value.username,
-      email: this.userForm.value.email,
-      addressStreet: this.userForm.value.addressStreet,
-      addressCity: this.userForm.value.addressCity,
-      phone: this.userForm.value.phone,
-      website: this.userForm.value.website,
-      companyStreet: this.userForm.value.companyStreet,
-      companyName: this.userForm.value.companyName
-    };
-
-    this.user = this.userModelFactory.create(userData);
-
     if (!this.userForm.invalid) {
       this.userService.editUserInAngularFirestoreCollection(this.user)
         .then((successMessage) => {
@@ -69,6 +66,29 @@ export class UserEditComponent implements OnInit, OnDestroy {
           console.error(errorMessage);
         });
     }
+  }
+
+  onChanges() {
+    this.userForm.valueChanges.subscribe((userFormData) => {
+      const userData = {
+        id: userFormData.id,
+        name: userFormData.name,
+        username: userFormData.username,
+        email: userFormData.email,
+        addressStreet: userFormData.addressStreet,
+        addressCity: userFormData.addressCity,
+        phone: userFormData.phone,
+        website: userFormData.website,
+        companyStreet: userFormData.companyStreet,
+        companyName: userFormData.companyName
+      };
+      this.user = this.userModelFactory.create(userData);
+
+      this.store.dispatch(new UserActions.Update({
+        initialData: this.initialUser,
+        currentData: this.user
+      }));
+    });
   }
 
   ngOnInit() {

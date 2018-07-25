@@ -1,6 +1,6 @@
 <h1>User edition</h1>
 
-<div *ngIf="userForm">
+<div *ngIf="userForm" class="user-edit__column">
   <form [formGroup]="userForm"
         (ngSubmit)="onSubmit()">
     <label for="name">
@@ -78,9 +78,12 @@
       text="Edit"
       type="submit"
       classes="c-button--secondary"></aw3-button>
-
-    <pre>{{ userForm.value | json }}</pre>
   </form>
+</div>
+
+<div *ngIf="userForm" class="user-edit__column">
+  <aw3-user-diff
+    [uid]="user.id"></aw3-user-diff>
 </div>
 
 <div *ngIf="!userForm">
