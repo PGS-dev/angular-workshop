@@ -1,6 +1,7 @@
 # Angular 6 Boilerplate application
 
 This is an example application written in Angular 6 with 85% of code coverage in unit tests. The app has 2 modules. UsersModule with list of users. UserModule with CRUD implementation.
+Full description of implemented artifacts [can be found in Confluence](https://confluence.pgs-soft.com/pages/viewpage.action?pageId=96506483).
 
 The application consists of:
 - Firebase noSQL database implementation with angularfire2/firestore module - see [Confluence description page](https://confluence.pgs-soft.com/display/FRON/Spotkanie+4+-+Integracja+z+Firebase).
