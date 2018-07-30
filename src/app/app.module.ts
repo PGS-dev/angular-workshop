@@ -17,7 +17,7 @@ import { ButtonModule } from "./components/button/button.module";
 import { ServiceWorkerModule } from '@angular/service-worker';
 import {StoreModule} from "@ngrx/store";
 import {StoreDevtoolsModule} from "@ngrx/store-devtools";
-import {userEditReducer} from "./reducers/user-edit.reducer";
+import {userEditReducer} from "./state/user-edit/user-edit.reducer";
 
 @NgModule({
   declarations: [

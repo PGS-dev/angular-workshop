@@ -6,7 +6,8 @@ import {UserModelFactory} from "../../common/models/user/user-model.factory";
 import {Subscription} from "rxjs/index";
 import UserModel from "../../common/models/user/user-model";
 import {Store} from "@ngrx/store";
-import * as UserActions from "../../actions/user-actions";
+import * as userActions from "../../state/user-edit/user-edit-actions";
+import {IUserEditState} from "../../state/user-edit/user-edit";
 
 @Component({
   selector: 'aw3-user-edit',
@@ -24,7 +25,7 @@ export class UserEditComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute,
     private userService: UserService,
     private userModelFactory: UserModelFactory,
-    private store: Store<any>
+    private store: Store<IUserEditState>
   ) {}
 
   public createForm(): void {
@@ -34,7 +35,7 @@ export class UserEditComponent implements OnInit, OnDestroy {
       this.user = this.userModelFactory.create(users[0]);
       this.initialUser = this.user;
 
-      this.store.dispatch(new UserActions.Update({
+      this.store.dispatch(new userActions.Diff({
         initialData: this.initialUser,
         currentData: null
       }));
@@ -84,7 +85,7 @@ export class UserEditComponent implements OnInit, OnDestroy {
       };
       this.user = this.userModelFactory.create(userData);
 
-      this.store.dispatch(new UserActions.Update({
+      this.store.dispatch(new userActions.Diff({
         initialData: this.initialUser,
         currentData: this.user
       }));

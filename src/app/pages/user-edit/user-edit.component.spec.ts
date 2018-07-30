@@ -12,6 +12,10 @@ import {UserModelFactory} from "../../common/models/user/user-model.factory";
 import UserModel from "../../common/models/user/user-model";
 import {ActivatedRoute} from "@angular/router";
 import {MockActivatedRoute} from "../../common/mocks/router";
+import {Store, StoreModule} from "@ngrx/store";
+import {UserDiffComponent} from "../../components/user-diff/user-diff.component";
+import {MockStore} from "../../common/mocks/mock-store";
+import {IUserEditDiffState} from "../../state/user-edit/user-edit";
 
 describe('UserEditComponent', () => {
   let component: UserEditComponent;
@@ -38,6 +42,7 @@ describe('UserEditComponent', () => {
   let mockUserService: MockUserService;
   let mockUserModelFactory: MockUserModelFactory;
   let mockActivatedRoute: ActivatedRoute;
+  let mockStore: MockStore<IUserEditDiffState>;
 
   beforeEach(async(() => {
     mockUserService = new MockUserService(USER_DATA);
@@ -47,14 +52,16 @@ describe('UserEditComponent', () => {
         id: USER_DATA.id
       }
     });
+    mockStore = new MockStore();
 
     TestBed.configureTestingModule({
-      declarations: [UserEditComponent, ButtonComponent, LoaderComponent],
+      declarations: [UserEditComponent, ButtonComponent, LoaderComponent, UserDiffComponent],
       imports: [ReactiveFormsModule, RouterTestingModule],
       providers: [
         { provide: UserService, useValue: mockUserService },
         { provide: UserModelFactory, useValue: mockUserModelFactory },
-        { provide: ActivatedRoute, useValue: mockActivatedRoute }
+        { provide: ActivatedRoute, useValue: mockActivatedRoute },
+        { provide: Store, useValue: mockStore }
       ]
     })
     .compileComponents();
@@ -63,12 +70,15 @@ describe('UserEditComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(UserEditComponent);
     component = fixture.componentInstance;
+
+    mockStore.setState({
+      initialData: null,
+      currentData: null
+    });
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
-
-    fixture.detectChanges();
   });
 
   it('ngOnInit() should assign user data to form', () => {

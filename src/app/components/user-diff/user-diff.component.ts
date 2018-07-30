@@ -1,7 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Store} from "@ngrx/store";
-import * as UserActions from "../../actions/user-actions";
 import UserModel from "../../common/models/user/user-model";
+import {getUserEditDiff} from "../../state/user-edit/user-edit.reducer";
+import {IUserEditState} from "../../state/user-edit/user-edit";
 
 @Component({
   selector: 'aw3-user-diff',
@@ -9,20 +10,20 @@ import UserModel from "../../common/models/user/user-model";
   styleUrls: ['./user-diff.component.scss']
 })
 export class UserDiffComponent implements OnInit {
-  @Input() uid: string;
-
   public initialUser: UserModel;
   public currentUser: UserModel;
 
+  @Input() uid: string;
+
   constructor(
-    private store: Store<any>
+    private store: Store<IUserEditState>
   ) {}
 
   ngOnInit() {
-    this.store.select('userEdit').subscribe((userState) => {
-      if (userState.initialData && userState.initialData.id === this.uid) {
-        this.initialUser = userState.initialData;
-        this.currentUser = userState.currentData;
+    this.store.select(getUserEditDiff).subscribe((diff) => {
+      if (diff.initialData && diff.initialData.id === this.uid) {
+        this.initialUser = diff.initialData;
+        this.currentUser = diff.currentData;
       }
     });
   }
