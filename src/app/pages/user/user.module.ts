@@ -21,7 +21,7 @@ import {UserModelFactory} from "../../common/models/user/user-model.factory";
 import {UserDiffComponent} from "../../components/user-diff/user-diff.component";
 import {StoreModule} from "@ngrx/store";
 import {userEditReducer} from "../../state/user-edit/user-edit.reducer";
-import {UserActionTypes} from "../../state/user-edit/user-edit-actions";
+import {UserEditActionTypes} from "../../state/user-edit/user-edit-actions";
 
 @NgModule({
   declarations: [
@@ -41,7 +41,7 @@ import {UserActionTypes} from "../../state/user-edit/user-edit-actions";
     AngularFireAuthModule,
     AngularFireStorageModule,
 
-    StoreModule.forFeature(UserActionTypes.UserEdit, userEditReducer)
+    StoreModule.forFeature(UserEditActionTypes.UserEdit, userEditReducer)
   ],
   providers: [
     AuthService,

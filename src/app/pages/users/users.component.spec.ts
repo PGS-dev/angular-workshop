@@ -8,12 +8,19 @@ import {UsersModelFactory} from "../../common/models/users/users-model.factory";
 import {MockUsersService} from "./mocks/mock-users.service";
 import {UsersService} from "./users.service";
 import {LoaderComponent} from "../../components/loader/loader.component";
+import {Store} from "@ngrx/store";
+import {MockStore} from "../../common/mocks/mock-store";
+import {IAuthState} from "../../state/auth/auth";
+import {AuthService} from "../../common/services/auth/auth.service";
+import {MockAuthService} from "../../common/services/auth/mocks/mock-auth.service";
 
 describe('UsersComponent', () => {
   let component: UsersComponent;
   let fixture: ComponentFixture<UsersComponent>;
+  let mockAuthService: MockAuthService;
   let mockUsersModelFactory: MockUsersModelFactory;
   let mockUsersService: MockUsersService;
+  let mockStore: MockStore<IAuthState>;
   const USERS_DATA = [
     { id: 0, name: 'John Doe' },
     { id: 1, name: 'Catherine Jones' }
@@ -24,16 +31,20 @@ describe('UsersComponent', () => {
   ];
 
   beforeEach(async(() => {
+    mockAuthService = new MockAuthService();
     mockUsersModelFactory = new MockUsersModelFactory(USERS_DATA);
     mockUsersService = new MockUsersService(USERS_DATA);
+    mockStore = new MockStore();
 
     TestBed
       .configureTestingModule({
         imports: [RouterTestingModule],
         declarations: [UsersComponent, LoaderComponent],
         providers: [
+          { provide: AuthService, useValue: mockAuthService },
           { provide: UsersService, useValue: mockUsersService },
-          { provide: UsersModelFactory, useValue: mockUsersModelFactory }
+          { provide: UsersModelFactory, useValue: mockUsersModelFactory },
+          { provide: Store, useValue: mockStore }
         ]
       })
       .compileComponents();
@@ -42,6 +53,10 @@ describe('UsersComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(UsersComponent);
     component = fixture.componentInstance;
+
+    mockStore.setState({
+      authenticated: true
+    });
   });
 
   it('should create', () => {
@@ -51,18 +66,22 @@ describe('UsersComponent', () => {
   });
 
   it('ngOnInit() should call service to get AngularFirestoreCollection', () => {
-    fixture.detectChanges();
+    mockStore.select().subscribe(() => {
+      fixture.detectChanges();
 
-    expect(mockUsersService.getUsersAngularFirestoreCollectionSpy).toHaveBeenCalled();
+      expect(mockUsersService.getUsersAngularFirestoreCollectionSpy).toHaveBeenCalled();
+    });
   });
 
   it('ngOnInit() should call factory to create users instance and ' +
     'assign it to users public member', () => {
-    fixture.detectChanges();
+    mockStore.select().subscribe(() => {
+      mockUsersService.getUsersAngularFirestoreCollectionSpy().valueChanges().subscribe((users) => {
+        fixture.detectChanges();
 
-    mockUsersService.getUsersAngularFirestoreCollectionSpy().valueChanges().subscribe((users) => {
-      expect(users).toEqual(USERS_DATA);
-      expect(component.users).toEqual(USERS_MOCK);
+        expect(users).toEqual(USERS_DATA);
+        expect(component.users).toEqual(USERS_MOCK);
+      });
     });
   });
 });

@@ -3,7 +3,7 @@ import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {UserDiffComponent} from './user-diff.component';
 import {Store} from "@ngrx/store";
 import {MockStore} from "../../common/mocks/mock-store";
-import {getUserEditDiff} from "../../state/user-edit/user-edit.reducer";
+import {getUserEditDiffSelector} from "../../state/user-edit/user-edit.reducer";
 import {IUserEditDiffState} from "../../state/user-edit/user-edit";
 import UserModel from "../../common/models/user/user-model";
 
@@ -47,7 +47,7 @@ describe('UserDiffComponent', () => {
       initialData: USER_MOCK,
       currentData: null
     });
-    mockStore.select(getUserEditDiff).subscribe(() => {
+    mockStore.select().subscribe(() => {
       fixture.detectChanges();
       expect(component.initialUser).toEqual(USER_MOCK);
       expect(component.currentUser).toEqual(null);

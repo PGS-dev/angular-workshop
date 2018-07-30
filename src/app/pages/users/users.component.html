@@ -1,11 +1,16 @@
+<div *ngIf="!isAuthenticated">
+  <p>Please log in to see list of users.</p>
+</div>
+
+<div *ngIf="isAuthenticated && !users">
+  <aw3-loader></aw3-loader>
+</div>
+
+
 <div *ngIf="users">
   <ul>
     <li *ngFor="let user of users">
       <a [routerLink]="['/users/user', user.id]">{{ user.name }}</a>
     </li>
   </ul>
-</div>
-
-<div *ngIf="!users">
-  <aw3-loader></aw3-loader>
 </div>

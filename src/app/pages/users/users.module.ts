@@ -16,6 +16,9 @@ import {ButtonModule} from "../../components/button/button.module";
 import {LoaderModule} from "../../components/loader/loader.module";
 import {AuthService} from "../../common/services/auth/auth.service";
 import {UsersModelFactory} from "../../common/models/users/users-model.factory";
+import {StoreModule} from "@ngrx/store";
+import {AuthActionTypes} from "../../state/auth/auth-actions";
+import {authReducer} from "../../state/auth/auth.reducer";
 
 @NgModule({
   declarations: [
@@ -30,7 +33,9 @@ import {UsersModelFactory} from "../../common/models/users/users-model.factory";
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireAuthModule,
-    AngularFireStorageModule
+    AngularFireStorageModule,
+
+    StoreModule.forFeature(AuthActionTypes.Auth, authReducer)
   ],
   providers: [
     AuthService,

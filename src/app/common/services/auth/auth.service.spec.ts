@@ -5,6 +5,9 @@ import {AngularFireAuth} from "angularfire2/auth";
 import {MockAngularFireAuth} from "../../mocks/mock-angular-fire-auth";
 import {auth, UserInfo} from "firebase";
 import {of} from "rxjs/index";
+import {Store} from "@ngrx/store";
+import {MockStore} from "../../mocks/mock-store";
+import {IAuthState} from "../../../state/auth/auth";
 
 describe('AuthService', () => {
   let injector: TestBed;
@@ -19,14 +22,17 @@ describe('AuthService', () => {
     uid: '123456789'
   };
   let mockAngularFireAuth: MockAngularFireAuth;
+  let mockStore: MockStore<IAuthState>;
 
   beforeEach(() => {
     mockAngularFireAuth = new MockAngularFireAuth(USER_INFO, of(USER_INFO));
+    mockStore = new MockStore();
 
     TestBed.configureTestingModule({
       providers: [
         AuthService,
-        { provide: AngularFireAuth, useValue: mockAngularFireAuth }
+        { provide: AngularFireAuth, useValue: mockAngularFireAuth },
+        { provide: Store, useValue: mockStore }
       ]
     });
 
@@ -40,6 +46,10 @@ describe('AuthService', () => {
 
   it('isLogged() should be truthy when user is available', () => {
     expect(service.isLogged()).toBeTruthy();
+
+    service.isLogged().subscribe(() => {
+      expect(mockStore.dispatch).toHaveBeenCalled();
+    });
   });
 
   it('logout() should invoke AngularFireAuth signOut method', () => {

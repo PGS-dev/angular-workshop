@@ -1,5 +1,5 @@
 import * as userActions from "./user-edit-actions";
-import {UserActionTypes} from "./user-edit-actions";
+import {UserEditActionTypes} from "./user-edit-actions";
 import {createFeatureSelector, createSelector} from "@ngrx/store";
 import {IUserEditState} from "./user-edit";
 
@@ -9,15 +9,15 @@ const initialState: IUserEditState = {
     currentData: null
   }
 };
-const getUserEditFeatureState = createFeatureSelector<IUserEditState>(UserActionTypes.UserEdit);
-export const getUserEditDiff = createSelector(
+const getUserEditFeatureState = createFeatureSelector<IUserEditState>(UserEditActionTypes.UserEdit);
+export const getUserEditDiffSelector = createSelector(
   getUserEditFeatureState,
-  state => <any>state.diff
+  state => state.diff
 );
 
-export function userEditReducer(state: IUserEditState = initialState, action: userActions.Diff): IUserEditState {
+export function userEditReducer(state: IUserEditState = initialState, action: userActions.UserEditActionDiff): IUserEditState {
   switch (action.type) {
-    case UserActionTypes.UserEditDiff: {
+    case UserEditActionTypes.UserEditDiff: {
       return {
         ...state,
         diff: action.payload

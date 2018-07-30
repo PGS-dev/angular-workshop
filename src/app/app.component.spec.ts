@@ -10,6 +10,7 @@ import {MenuComponent} from "./components/menu/menu.component";
 import {ButtonComponent} from "./components/button/button.component";
 import {LoaderComponent} from "./components/loader/loader.component";
 import {ServiceWorkerModule} from "@angular/service-worker";
+import {StoreModule} from "@ngrx/store";
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -19,7 +20,8 @@ describe('AppComponent', () => {
         AngularFireModule.initializeApp(environment.firebase),
         AngularFirestoreModule,
         AngularFireAuthModule,
-        ServiceWorkerModule
+        ServiceWorkerModule,
+        StoreModule.forRoot({})
       ],
       declarations: [
         AppComponent,

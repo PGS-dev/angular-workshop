@@ -9,6 +9,9 @@ import {ButtonComponent} from "../app/components/button/button.component";
 import {ButtonStoriesTmpl} from "./components/button/button-template";
 import {LoaderComponent} from "../app/components/loader/loader.component";
 import {RouterModule} from "@angular/router";
+import {UserDiffComponent} from "../app/components/user-diff/user-diff.component";
+import UserModel from "../app/common/models/user/user-model";
+import {StoreModule} from "@ngrx/store";
 
 storiesOf('Introduction', module)
   .add('AW3 UI documentation', () => ({

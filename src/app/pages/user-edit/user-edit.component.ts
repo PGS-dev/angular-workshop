@@ -35,7 +35,7 @@ export class UserEditComponent implements OnInit, OnDestroy {
       this.user = this.userModelFactory.create(users[0]);
       this.initialUser = this.user;
 
-      this.store.dispatch(new userActions.Diff({
+      this.store.dispatch(new userActions.UserEditActionDiff({
         initialData: this.initialUser,
         currentData: null
       }));
@@ -85,7 +85,7 @@ export class UserEditComponent implements OnInit, OnDestroy {
       };
       this.user = this.userModelFactory.create(userData);
 
-      this.store.dispatch(new userActions.Diff({
+      this.store.dispatch(new userActions.UserEditActionDiff({
         initialData: this.initialUser,
         currentData: this.user
       }));
