@@ -1,0 +1,15 @@
+<!-- Simple button -->
+<button
+  *ngIf="isButton"
+  class="c-button {{ classes }}"
+  (click)="handleClick($event)">{{ text }}</button>
+
+<!-- Simple link -->
+<a *ngIf="!isButton && !routerLink"
+   href="link"
+   class="c-button {{ classes }}">{{ text }}</a>
+
+<!-- Simple router link -->
+<a *ngIf="!isButton && routerLink"
+   [routerLink]="routerLink"
+   class="c-button {{ classes }}">{{ text }}</a>

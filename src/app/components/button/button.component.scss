@@ -1,0 +1,61 @@
+.c-button {
+  display: inline-block;
+  padding: 8px 12px;
+  margin: 0 4px;
+  border: none;
+  outline: none;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 11px;
+  text-decoration: none;
+  font-weight: bold;
+  font-family: Tahoma, Geneva, sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  line-height: 1;
+  background-color: #47b75b;
+
+  &:hover {
+    background-color: darken(#47b75b, 6%);
+  }
+}
+
+.c-button--secondary {
+  background-color: rgba(0, 0, 0, 0.7);
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.76);
+  }
+}
+
+.c-button--error {
+  background-color: #9F140C;
+
+  &:hover {
+    background-color: darken(#9F140C, 6%);
+  }
+}
+
+.c-button--edit {
+  background-color: #9f9715;
+
+  &:hover {
+    background-color: darken(#9f9715, 6%);
+  }
+}
+
+.c-button--fb {
+  background-color: #3b5998;
+
+  &:hover {
+    background-color: darken(#3b5998, 6%);
+  }
+}
+
+.c-button--github {
+  background-color: rgba(0, 0, 0, 0.96);
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 1);
+  }
+}

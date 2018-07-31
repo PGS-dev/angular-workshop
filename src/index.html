@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Aw3</title>
+  <base href="/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="AW3 workshop app.">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <script>
+    function measureCRP() {
+      var timing = window.performance.timing;
+      var domInteractive = timing.domInteractive - timing.domLoading;
+      var domContentLoaded = timing.domContentLoadedEventStart - timing.domLoading;
+      var domComplete = timing.domComplete - timing.domLoading;
+
+      var stats = document.createElement('pre');
+      stats.textContent = `
+          ${domInteractive}
+          ${domContentLoaded}
+          ${domComplete}
+      `;
+
+      document.body.appendChild(stats);
+    }
+  </script>
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#1976d2">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#1976d2">
+</head>
+<!--<body onload="measureCRP()">-->
+<body>
+  <aw3-root></aw3-root>
+  <noscript>Sorry but this app does not work without Javascript. Please enable it.</noscript>
+</body>
+</html>

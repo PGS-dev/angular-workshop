@@ -1,0 +1,46 @@
+<div *ngIf="initialUser && currentUser">
+  <div *ngIf="initialUser.name !== currentUser.name" class="userDiff-row">
+    <div class="userDiff-row__initial">{{ initialUser.name }}</div>
+    <div class="userDiff-row__current">{{ currentUser.name }}</div>
+  </div>
+
+  <div *ngIf="initialUser.username !== currentUser.username" class="userDiff-row">
+    <div class="userDiff-row__initial">{{ initialUser.username }}</div>
+    <div class="userDiff-row__current">{{ currentUser.username }}</div>
+  </div>
+
+  <div *ngIf="initialUser.email !== currentUser.email" class="userDiff-row">
+    <div class="userDiff-row__initial">{{ initialUser.email }}</div>
+    <div class="userDiff-row__current">{{ currentUser.email }}</div>
+  </div>
+
+  <div *ngIf="initialUser.address.street !== currentUser.address.street" class="userDiff-row">
+    <div class="userDiff-row__initial">{{ initialUser.address.street }}</div>
+    <div class="userDiff-row__current">{{ currentUser.address.street }}</div>
+  </div>
+
+  <div *ngIf="initialUser.address.city !== currentUser.address.city" class="userDiff-row">
+    <div class="userDiff-row__initial">{{ initialUser.address.city }}</div>
+    <div class="userDiff-row__current">{{ currentUser.address.city }}</div>
+  </div>
+
+  <div *ngIf="initialUser.phone !== currentUser.phone" class="userDiff-row">
+    <div class="userDiff-row__initial">{{ initialUser.phone }}</div>
+    <div class="userDiff-row__current">{{ currentUser.phone }}</div>
+  </div>
+
+  <div *ngIf="initialUser.website !== currentUser.website" class="userDiff-row">
+    <div class="userDiff-row__initial">{{ initialUser.website }}</div>
+    <div class="userDiff-row__current">{{ currentUser.website }}</div>
+  </div>
+
+  <div *ngIf="initialUser.company.street !== currentUser.company.street" class="userDiff-row">
+    <div class="userDiff-row__initial">{{ initialUser.company.street }}</div>
+    <div class="userDiff-row__current">{{ currentUser.company.street }}</div>
+  </div>
+
+  <div *ngIf="initialUser.company.name !== currentUser.company.name" class="userDiff-row">
+    <div class="userDiff-row__initial">{{ initialUser.company.name }}</div>
+    <div class="userDiff-row__current">{{ currentUser.company.name }}</div>
+  </div>
+</div>

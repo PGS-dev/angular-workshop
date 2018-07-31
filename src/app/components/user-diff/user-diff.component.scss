@@ -1,0 +1,22 @@
+.userDiff {
+  &-row {
+    &__initial,
+    &__current {
+      display: inline-block;
+      width: 50%;
+      margin-left: -4px;
+      font-family: 'Courier New', monospace;
+      padding: 3px 6px;
+      box-sizing: border-box;
+      margin-bottom: 2px;
+    }
+    &__initial {
+      background-color: #ff7e7b;
+      color: #9f0009;
+    }
+    &__current {
+      background-color: #9bff88;
+      color: #0d8107;
+    }
+  }
+}
