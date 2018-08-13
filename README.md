@@ -12,6 +12,7 @@ The application consists of:
 - Performance adjustments - see [Confluence description page](https://confluence.pgs-soft.com/display/FRON/Spotkanie+6+-+Angular+performance).
 - Lots of RXJS examples - see [Confluence description page](https://confluence.pgs-soft.com/pages/viewpage.action?pageId=98730626).
 - Redux implementation with NGRX library - Auth State and User Edit State - see [Confluence description page](https://confluence.pgs-soft.com/display/FRON/Spotkanie+7+-+NGRX)
+- Material Design.
 - Additionally tha application takes leverage of Domain Model design pattern for user and users creation.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.7.
