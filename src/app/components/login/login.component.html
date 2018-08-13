@@ -1,24 +1,14 @@
 <div class="c-login">
   <div *ngIf="afAuth.user | async as currentUser; else guest">
-    Hello, {{ currentUser.displayName }}!
-    <aw3-button
-      [isButton]="true"
-      [classes]="'c-button--secondary'"
-      [text]="'Logout'"
-      (click)="logout()"></aw3-button>
+    <span class="c-login-welcome">Hello, {{ currentUser.displayName }}</span>
+    <button mat-stroked-button (click)="logout()">Log out</button>
   </div>
 
   <ng-template #guest>
-    <div class="c-login-welcome">Hello, Guest!</div>
-    <aw3-button
-      [isButton]="true"
-      [classes]="'c-button--fb'"
-      [text]="'Login with Facebook'"
-      (click)="loginWithFacebook()"></aw3-button>
-    <aw3-button
-      [isButton]="true"
-      [classes]="'c-button--github'"
-      [text]="'Login with Github'"
-      (click)="loginWithGithub()"></aw3-button>
+    <div class="c-login-button__row">
+      <span class="c-login-welcome">Hello, Guest</span>
+      <button mat-stroked-button (click)="loginWithFacebook()">Login with Facebook</button>
+      <button mat-stroked-button (click)="loginWithGithub()">Login with Github</button>
+    </div>
   </ng-template>
 </div>

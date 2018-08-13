@@ -16,6 +16,8 @@ import {Store, StoreModule} from "@ngrx/store";
 import {UserDiffComponent} from "../../components/user-diff/user-diff.component";
 import {MockStore} from "../../common/mocks/mock-store";
 import {IUserEditDiffState} from "../../state/user-edit/user-edit";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {MatFormFieldModule, MatInputModule} from "@angular/material";
 
 describe('UserEditComponent', () => {
   let component: UserEditComponent;
@@ -56,7 +58,7 @@ describe('UserEditComponent', () => {
 
     TestBed.configureTestingModule({
       declarations: [UserEditComponent, ButtonComponent, LoaderComponent, UserDiffComponent],
-      imports: [ReactiveFormsModule, RouterTestingModule],
+      imports: [ReactiveFormsModule, RouterTestingModule, BrowserAnimationsModule, MatFormFieldModule, MatInputModule],
       providers: [
         { provide: UserService, useValue: mockUserService },
         { provide: UserModelFactory, useValue: mockUserModelFactory },

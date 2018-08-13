@@ -22,6 +22,7 @@ import {UserDiffComponent} from "../../components/user-diff/user-diff.component"
 import {StoreModule} from "@ngrx/store";
 import {userEditReducer} from "../../state/user-edit/user-edit.reducer";
 import {UserEditActionTypes} from "../../state/user-edit/user-edit-actions";
+import {MatButtonModule, MatFormFieldModule, MatInputModule} from "@angular/material";
 
 @NgModule({
   declarations: [
@@ -40,6 +41,10 @@ import {UserEditActionTypes} from "../../state/user-edit/user-edit-actions";
     AngularFirestoreModule,
     AngularFireAuthModule,
     AngularFireStorageModule,
+
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
 
     StoreModule.forFeature(UserEditActionTypes.UserEdit, userEditReducer)
   ],

@@ -1,8 +1,17 @@
 .c-login {
-  margin: 40px 0;
+  float: right;
 
   &-welcome {
     display: inline-block;
     margin-right: 8px;
+    font-size: 14px;
+  }
+  &-button__row button,
+  &-button__row a {
+    margin-right: 8px;
+
+    &:last-child {
+      margin-right: 0;
+    }
   }
 }

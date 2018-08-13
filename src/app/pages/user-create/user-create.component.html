@@ -1,82 +1,88 @@
 <h1>User creation</h1>
 
 <form [formGroup]="userForm"
-      (ngSubmit)="onSubmit()">
-  <label for="name">
+      (ngSubmit)="onSubmit()"
+      class="aw3-form">
+  <mat-form-field class="aw3-form-field">
     <input
-      type="text"
+      matInput
       id="name"
+      type="text"
       formControlName="name"
-      placeholder="name">
-  </label><br><br>
+      placeholder="Name"
+    >
+  </mat-form-field>
 
-  <label for="username">
+  <mat-form-field class="aw3-form-field">
     <input
+      matInput
       type="text"
       id="username"
       formControlName="username"
-      placeholder="username">
-  </label><br><br>
+      placeholder="Username"
+    >
+  </mat-form-field>
 
-  <label for="email">
+  <mat-form-field class="aw3-form-field">
     <input
+      matInput
       type="text"
       id="email"
       formControlName="email"
-      placeholder="email">
-  </label><br><br>
+      placeholder="Email">
+  </mat-form-field>
 
-  <label for="addressStreet">
+  <mat-form-field class="aw3-form-field aw3-form-field--inline">
     <input
+      matInput
       type="text"
       id="addressStreet"
       formControlName="addressStreet"
-      placeholder="addressStreet">
-  </label>
-  <label for="addressCity">
+      placeholder="Address street">
+  </mat-form-field>
+  <mat-form-field class="aw3-form-field aw3-form-field--inline">
     <input
+      matInput
       type="text"
       id="addressCity"
       formControlName="addressCity"
-      placeholder="addressCity">
-  </label><br><br>
+      placeholder="Address city">
+  </mat-form-field>
 
-  <label for="phone">
+  <mat-form-field class="aw3-form-field">
     <input
+      matInput
       type="text"
       id="phone"
       formControlName="phone"
-      placeholder="phone">
-  </label><br><br>
+      placeholder="Phone">
+  </mat-form-field>
 
-  <label for="website">
+  <mat-form-field class="aw3-form-field">
     <input
+      matInput
       type="text"
       id="website"
       formControlName="website"
-      placeholder="website">
-  </label><br><br>
+      placeholder="Website">
+  </mat-form-field>
 
-  <label for="companyStreet">
+  <mat-form-field class="aw3-form-field aw3-form-field--inline">
     <input
+      matInput
       type="text"
       id="companyStreet"
       formControlName="companyStreet"
-      placeholder="companyStreet">
-  </label>
-  <label for="companyName">
+      placeholder="Company street">
+  </mat-form-field>
+  <mat-form-field class="aw3-form-field aw3-form-field--inline">
     <input
+      matInput
       type="text"
       id="companyName"
       formControlName="companyName"
-      placeholder="companyName">
-  </label><br><br>
+      placeholder="Company name">
+  </mat-form-field><br>
 
-  <aw3-button
-    [isButton]="true"
-    text="Create"
-    type="submit"
-    classes="c-button--secondary"></aw3-button>
-
-  <pre>{{ userForm.value | json }}</pre>
+  <button type="submit" mat-raised-button color="primary">Create</button>
 </form>
