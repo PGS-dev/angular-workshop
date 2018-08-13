@@ -1,17 +1,10 @@
 <div *ngIf="user; let user">
   <h1>{{ user.name }}</h1>
 
-  <aw3-button
-    [isButton]="false"
-    [classes]="'c-button--edit'"
-    [text]="'Edit'"
-    [routerLink]="['/users/user', user.id, 'edit']"></aw3-button>
-
-  <aw3-button
-    [isButton]="true"
-    [classes]="'c-button--error'"
-    [text]="'Delete'"
-    (click)="onDelete()"></aw3-button>
+  <div class="s-user-button__row">
+    <button mat-raised-button color="basic" [routerLink]="['/users/user', user.id, 'edit']">Edit</button>
+    <button mat-raised-button color="warn" (click)="onDelete()">Remove</button>
+  </div>
 
   <pre>
     <table border="1" width="100%" cellpadding="5">

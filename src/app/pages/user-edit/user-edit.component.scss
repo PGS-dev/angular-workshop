@@ -3,5 +3,13 @@
     display: inline-block;
     width: 50%;
     vertical-align: top;
+    box-sizing: border-box;
+
+    &:first-child {
+      padding-right: 20px;
+    }
+    &:last-child {
+      padding-left: 20px;
+    }
   }
 }

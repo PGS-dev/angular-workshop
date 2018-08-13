@@ -1,11 +1,10 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {Subscription} from "rxjs/index";
 import {UsersModelFactory} from "../../common/models/users/users-model.factory";
 import UserModel from "../../common/models/user/user-model";
 import {UsersService} from "./users.service";
 import {Store} from "@ngrx/store";
 import {IAuthState} from "../../state/auth/auth";
-import * as authActions from "../../state/auth/auth-actions";
 import {getAuthSelector} from "../../state/auth/auth.reducer";
 import {AuthService} from "../../common/services/auth/auth.service";
 
@@ -18,6 +17,9 @@ export class UsersComponent implements OnInit, OnDestroy { // Describe your clas
   public users: UserModel[] | null;
   public sub: Subscription;
   public isAuthenticated: boolean;
+  public usersDisplayedColumns: string[] = [
+    'name', 'username', 'email', 'website'
+  ];
 
   constructor(
     private authService: AuthService,

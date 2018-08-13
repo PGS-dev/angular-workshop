@@ -9,6 +9,8 @@ import { MockUserService } from "../user/mocks/mock-user.service";
 import {UserModelFactory} from "../../common/models/user/user-model.factory";
 import {MockUserModelFactory} from "../../common/models/user/mocks/mock-user-model.factory";
 import UserModel from "../../common/models/user/user-model";
+import {MatFormFieldModule, MatInputModule} from "@angular/material";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 describe('UserCreateComponent', () => {
   let component: UserCreateComponent;
@@ -41,7 +43,7 @@ describe('UserCreateComponent', () => {
 
     TestBed.configureTestingModule({
       declarations: [UserCreateComponent, ButtonComponent],
-      imports: [ReactiveFormsModule, RouterModule],
+      imports: [ReactiveFormsModule, RouterModule, BrowserAnimationsModule, MatFormFieldModule, MatInputModule],
       providers: [
         { provide: UserService, useValue: mockUserService },
         { provide: UserModelFactory, useValue: mockUserModelFactory }
