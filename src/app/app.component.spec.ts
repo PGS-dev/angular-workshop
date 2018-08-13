@@ -11,6 +11,7 @@ import {ButtonComponent} from "./components/button/button.component";
 import {LoaderComponent} from "./components/loader/loader.component";
 import {ServiceWorkerModule} from "@angular/service-worker";
 import {StoreModule} from "@ngrx/store";
+import {MatToolbarModule} from "@angular/material";
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -21,7 +22,8 @@ describe('AppComponent', () => {
         AngularFirestoreModule,
         AngularFireAuthModule,
         ServiceWorkerModule,
-        StoreModule.forRoot({})
+        StoreModule.forRoot({}),
+        MatToolbarModule
       ],
       declarations: [
         AppComponent,

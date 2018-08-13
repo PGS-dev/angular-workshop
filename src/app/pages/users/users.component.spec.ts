@@ -13,6 +13,7 @@ import {MockStore} from "../../common/mocks/mock-store";
 import {IAuthState} from "../../state/auth/auth";
 import {AuthService} from "../../common/services/auth/auth.service";
 import {MockAuthService} from "../../common/services/auth/mocks/mock-auth.service";
+import {MatProgressSpinnerModule, MatTableModule} from "@angular/material";
 
 describe('UsersComponent', () => {
   let component: UsersComponent;
@@ -38,7 +39,7 @@ describe('UsersComponent', () => {
 
     TestBed
       .configureTestingModule({
-        imports: [RouterTestingModule],
+        imports: [RouterTestingModule, MatProgressSpinnerModule, MatTableModule],
         declarations: [UsersComponent, LoaderComponent],
         providers: [
           { provide: AuthService, useValue: mockAuthService },

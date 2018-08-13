@@ -1,33 +1,67 @@
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+
 html,
 body {
-  font: 14px/18px Arial, Helvetica, sans-serif;
-  color: #555;
   margin: 0;
-  padding: 0;
+  font-family: 'Roboto', 'Helvetiva Neue', sans-serif;
 }
 .l-container {
   width: 96%;
-  max-width: 1200px;
+  max-width: 960px;
   margin: 0 auto;
   clear: both;
-}
-.l-login {
-  float: right;
-}
-.l-menu {
-  float: left;
-}
-.l-section {
-  padding: 20px 0;
 
-  &--withBorderBottom {
-    border-bottom: 1px solid #ccc;
-  }
-  &:last-child {
-    border-bottom: none;
-  }
-  h1, h2 {
-    margin: 0;
-    padding: 0;
+  h1 {
+    margin: 20px 0;
+    font-size: 36px;
+    font-weight: 500;
   }
 }
+.aw3-form {
+  width: 100%;
+  margin-bottom: 40px;
+}
+.aw3-form-field {
+  display: block !important;
+  margin-bottom: 20px;
+  width: 40%;
+
+  @media (min-width: 640px) {
+    &--inline {
+      display: inline-block;
+      margin-right: 8px;
+    }
+  }
+  &--fullWidth {
+    width: 100%;
+  }
+}
+
+
+//html,
+//body {
+//  font: 14px/18px Arial, Helvetica, sans-serif;
+//  color: #555;
+//  margin: 0;
+//  padding: 0;
+//}
+//.l-login {
+//  float: right;
+//}
+//.l-menu {
+//  float: left;
+//}
+//.l-section {
+//  padding: 20px 0;
+//
+//  &--withBorderBottom {
+//    border-bottom: 1px solid #ccc;
+//  }
+//  &:last-child {
+//    border-bottom: none;
+//  }
+//  h1, h2 {
+//    margin: 0;
+//    padding: 0;
+//  }
+//}

@@ -2,82 +2,89 @@
 
 <div *ngIf="userForm" class="user-edit__column">
   <form [formGroup]="userForm"
-        (ngSubmit)="onSubmit()">
-    <label for="name">
+        (ngSubmit)="onSubmit()"
+        class="aw3-form">
+
+    <mat-form-field class="aw3-form-field aw3-form-field--fullWidth">
       <input
+        matInput
         type="text"
         id="name"
         formControlName="name"
         placeholder="name">
-    </label><br><br>
+    </mat-form-field>
 
-    <label for="username">
+    <mat-form-field class="aw3-form-field aw3-form-field--fullWidth">
       <input
+        matInput
         type="text"
         id="username"
         formControlName="username"
         placeholder="username">
-    </label><br><br>
+    </mat-form-field>
 
-    <label for="email">
+    <mat-form-field class="aw3-form-field aw3-form-field--fullWidth">
       <input
+        matInput
         type="text"
         id="email"
         formControlName="email"
         placeholder="email">
-    </label><br><br>
+    </mat-form-field>
 
-    <label for="addressStreet">
+    <mat-form-field class="aw3-form-field aw3-form-field--fullWidth">
       <input
+        matInput
         type="text"
         id="addressStreet"
         formControlName="addressStreet"
         placeholder="addressStreet">
-    </label>
-    <label for="addressCity">
+    </mat-form-field>
+    <mat-form-field class="aw3-form-field aw3-form-field--fullWidth">
       <input
+        matInput
         type="text"
         id="addressCity"
         formControlName="addressCity"
         placeholder="addressCity">
-    </label><br><br>
+    </mat-form-field>
 
-    <label for="phone">
+    <mat-form-field class="aw3-form-field aw3-form-field--fullWidth">
       <input
+        matInput
         type="text"
         id="phone"
         formControlName="phone"
         placeholder="phone">
-    </label><br><br>
+    </mat-form-field>
 
-    <label for="website">
+    <mat-form-field class="aw3-form-field aw3-form-field--fullWidth">
       <input
+        matInput
         type="text"
         id="website"
         formControlName="website"
         placeholder="website">
-    </label><br><br>
+    </mat-form-field>
 
-    <label for="companyStreet">
+    <mat-form-field class="aw3-form-field aw3-form-field--fullWidth">
       <input
+        matInput
         type="text"
         id="companyStreet"
         formControlName="companyStreet"
         placeholder="companyStreet">
-    </label>
-    <label for="companyName">
+    </mat-form-field>
+    <mat-form-field class="aw3-form-field aw3-form-field--fullWidth">
       <input
+        matInput
         type="text"
         id="companyName"
         formControlName="companyName"
         placeholder="companyName">
-    </label><br><br>
+    </mat-form-field>
 
-    <aw3-button
-      [isButton]="true"
-      text="Edit"
-      type="submit"
-      classes="c-button--secondary"></aw3-button>
+    <button mat-raised-button color="primary" type="submit">Edit</button>
   </form>
 </div>
 

@@ -2,10 +2,10 @@ import {NgModule} from "@angular/core";
 
 import {environment} from "../../../environments/environment";
 
-import { AngularFireModule } from "angularfire2";
-import { AngularFirestoreModule } from "angularfire2/firestore";
-import { AngularFireAuthModule } from "angularfire2/auth";
-import { AngularFireStorageModule } from "angularfire2/storage";
+import {AngularFireModule} from "angularfire2";
+import {AngularFirestoreModule} from "angularfire2/firestore";
+import {AngularFireAuthModule} from "angularfire2/auth";
+import {AngularFireStorageModule} from "angularfire2/storage";
 
 import {CommonModule} from "@angular/common";
 import {ReactiveFormsModule} from "@angular/forms";
@@ -19,6 +19,7 @@ import {UsersModelFactory} from "../../common/models/users/users-model.factory";
 import {StoreModule} from "@ngrx/store";
 import {AuthActionTypes} from "../../state/auth/auth-actions";
 import {authReducer} from "../../state/auth/auth.reducer";
+import {MatButtonModule, MatPaginatorModule, MatProgressSpinnerModule, MatTableModule} from "@angular/material";
 
 @NgModule({
   declarations: [
@@ -34,6 +35,11 @@ import {authReducer} from "../../state/auth/auth.reducer";
     AngularFirestoreModule,
     AngularFireAuthModule,
     AngularFireStorageModule,
+
+    MatButtonModule,
+    MatTableModule,
+    MatProgressSpinnerModule,
+    MatPaginatorModule,
 
     StoreModule.forFeature(AuthActionTypes.Auth, authReducer)
   ],
