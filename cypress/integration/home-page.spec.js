@@ -16,11 +16,19 @@ describe('Home Page', function () {
   it('should check if users are displayed', function () {
     login();
 
-    const $usersOnList = cy.get('[data-cy="users-user-on-list"]').then(function () {
-      $usersOnList
-        .its('length')
-        .should('be.gt', 0);
-    });
+    const $usersOnList = cy.get('[data-cy="users-user-on-list"]');
+
+    $usersOnList
+      .its('length')
+      .should('be.gt', 0);
+  });
+
+  it('should go to details when clicked on user link', function () {
+    const $userLinks = cy.get('[data-cy="users-user-on-list"]');
+
+    $userLinks.first().click();
+
+    cy.location('pathname').should('include', 'users/user/');
   });
 
   function login () {
