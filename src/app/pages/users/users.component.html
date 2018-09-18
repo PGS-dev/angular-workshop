@@ -1,5 +1,5 @@
 <div *ngIf="!isAuthenticated">
-  <p class="s-users-not__logged">Please log in to see list of users.</p>
+  <p class="s-users-not__logged" data-cy="users-not-logged-info">Please log in to see list of users.</p>
 </div>
 
 <div *ngIf="isAuthenticated && !users">
@@ -15,7 +15,7 @@
     <ng-container matColumnDef="name">
       <th mat-header-cell *matHeaderCellDef>Name</th>
       <td mat-cell *matCellDef="let user">
-        <a [routerLink]="['/users/user', user.id]" class="s-users__user__link">{{ user.name }}</a>
+        <a [routerLink]="['/users/user', user.id]" class="s-users__user__link" data-cy="users-user-on-list">{{ user.name }}</a>
       </td>
     </ng-container>
 

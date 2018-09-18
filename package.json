@@ -7,7 +7,7 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
+    "e2e": "node_modules/.bin/cypress open",
     "storybook": "start-storybook -p 6006 -s src",
     "build-storybook": "build-storybook -s src"
   },
@@ -53,6 +53,7 @@
     "@types/node": "~8.9.4",
     "babel-core": "^6.26.3",
     "codelyzer": "~4.2.1",
+    "cypress": "^3.1.0",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~1.7.1",

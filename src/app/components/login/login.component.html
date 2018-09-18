@@ -7,8 +7,8 @@
   <ng-template #guest>
     <div class="c-login-button__row">
       <span class="c-login-welcome">Hello, Guest</span>
-      <button mat-stroked-button (click)="loginWithFacebook()">Login with Facebook</button>
-      <button mat-stroked-button (click)="loginWithGithub()">Login with Github</button>
+      <button mat-stroked-button (click)="loginWithFacebook()" data-cy="login-fb-button">Login with Facebook</button>
+      <button mat-stroked-button (click)="loginWithGithub()" data-cy="login-github-button">Login with Github</button>
     </div>
   </ng-template>
 </div>
